@@ -81,7 +81,7 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
-  -- use "antoinemadec/FixCursorHold.nvim" -- This *may* be needed to fix lsp doc highlight, https://github.com/neovim/neovim/issues/12587
+  use "antoinemadec/FixCursorHold.nvim" -- This *may* be needed to fix lsp doc highlight, https://github.com/neovim/neovim/issues/12587
   use "neovim/nvim-lspconfig"           -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
