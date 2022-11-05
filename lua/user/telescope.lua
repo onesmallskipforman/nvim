@@ -85,6 +85,46 @@ telescope.setup {
     -- }
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
+
+    live_grep = {
+      theme = "ivy",
+    },
+    grep_string = {
+      theme = "dropdown",
+    },
+    find_files = {
+      theme = "dropdown",
+      previewer = false,
+      hidden = true,
+      no_ignore = true
+    },
+    buffers = {
+      theme = "dropdown",
+      previewer = false,
+      initial_mode = "normal",
+    },
+    -- planets = {
+    --   show_pluto = true,
+    --   show_moon = true,
+    -- },
+    -- colorscheme = {
+    --   -- enable_preview = true,
+    -- },
+    -- lsp_references = {
+    --   theme = "dropdown",
+    --   initial_mode = "normal",
+    -- },
+    -- lsp_definitions = {
+    --   theme = "dropdown",
+    --   initial_mode = "normal",
+    -- },
+    -- lsp_declarations = {
+    --   theme = "dropdown",
+    --   initial_mode = "normal",
+    -- },
+    -- lsp_implementations = {
+    --   theme = "dropdown",
+    --   initial_mode = "normal",
   },
   extensions = {
     -- Your extension configuration goes here:

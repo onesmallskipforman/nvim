@@ -43,7 +43,7 @@ return packer.startup(function(use)
   -- General Packaging and Lua Helpers
   use "wbthomason/packer.nvim"   -- Have packer manage itself
   use "nvim-lua/plenary.nvim"    -- Useful lua functions used by lots of plugins
-  -- use "lewis6991/impatient.nvim" -- speed up lua loading times
+  use "lewis6991/impatient.nvim" -- speed up lua loading times
 
   -- Text Editing
   use "windwp/nvim-autopairs"    -- Autopairs, integrates with both cmp and treesitter
@@ -62,9 +62,9 @@ return packer.startup(function(use)
   use { "akinsho/bufferline.nvim", requires = 'kyazdani42/nvim-web-devicons' }
   use "moll/vim-bbye"              -- Delete buffers without closing windows/messing up layout
   use {"kyazdani42/nvim-tree.lua", requires = 'kyazdani42/nvim-web-devicons' }
-  -- use "akinsho/toggleterm.nvim" -- TODO: unchecked
+  use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"    -- TODO: turn off setting that goes to project dir automatically
-  -- use "folke/which-key.nvim"       -- TODO: unchecked
+  use "folke/which-key.nvim"
 
   -- Completions (Powered by nvim-cmp) TODO: figure out how to use tab to selection options in '/' search menu
   use "hrsh7th/nvim-cmp"         -- The completion plugin; TODO: figure out how to trigger with key so backspace doesn't need to auto-trigger
@@ -81,7 +81,6 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
-  use "antoinemadec/FixCursorHold.nvim" -- This *may* be needed to fix lsp doc highlight, https://github.com/neovim/neovim/issues/12587
   use "neovim/nvim-lspconfig"           -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters

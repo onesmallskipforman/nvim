@@ -32,9 +32,3 @@ configs.setup {
   --  enable = true,
   -- },
 }
-
-local status_ok, illuminate_ts = pcall(require, "illuminate.treesitter")
-if not status_ok then
-  return
-end
-illuminate_ts.init()

@@ -27,8 +27,14 @@ if not status_ok then
   vim.notify("colorscheme " .. colorscheme .. " not found!")
 end
 
--- make sure lsp highlight groups are set
-if vim.g.colors_name == 'gruvbox' then
+-- make sure vim-illuminate highlighting is aligned with lsp highlighting
+if pcall(require, "illuminate") then
+  -- consider using guibg from "CursorLine" highlight group
+  vim.api.nvim_command [[ hi def IlluminatedWordText gui=underline guibg=#504945 ]]
+  vim.api.nvim_command [[ hi def IlluminatedWordRead gui=underline guibg=#504945 ]]
+  vim.api.nvim_command [[ hi def IlluminatedWordWrite gui=underline guibg=#504945 ]]
+elseif vim.g.colors_name == 'gruvbox' then
+  -- consider using guibg from "CursorLine" highlight group
   vim.api.nvim_command [[ hi! LspReferenceText  gui=underline guibg=#504945 ]]
   vim.api.nvim_command [[ hi! LspReferenceWrite gui=underline guibg=#504945 ]]
   vim.api.nvim_command [[ hi! LspReferenceRead  gui=underline guibg=#504945 ]]
@@ -36,9 +42,4 @@ elseif (vim.fn.hlexists("LspReferenceText") == 0) then
   vim.api.nvim_command [[ hi! link LspReferenceText  CursorLine ]]
   vim.api.nvim_command [[ hi! link LspReferenceWrite CursorLine ]]
   vim.api.nvim_command [[ hi! link LspReferenceRead  CursorLine ]]
-end
-
--- make sure vim-illuminate highlighting is aligned with lsp highlighting
-if pcall(require, "illuminate") then
-  vim.api.nvim_command [[ hi! link illuminatedWord LspReferenceText ]]
 end

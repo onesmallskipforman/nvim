@@ -1,29 +1,29 @@
 local status_ok, toggleterm = pcall(require, "toggleterm")
 if not status_ok then
-	return
+  return
 end
 
 toggleterm.setup({
-	size = 20,
-	open_mapping = [[<c-\>]],
-	hide_numbers = true,
-	shade_filetypes = {},
-	shade_terminals = true,
-	shading_factor = 2,
-	start_in_insert = true,
-	insert_mappings = true,
-	persist_size = true,
-	direction = "float",
-	close_on_exit = true,
-	shell = vim.o.shell,
-	float_opts = {
-		border = "curved",
-		winblend = 0,
-		highlights = {
-			border = "Normal",
-			background = "Normal",
-		},
-	},
+  size = 20,
+  open_mapping = [[<c-\>]],
+  hide_numbers = true,
+  shade_filetypes = {},
+  shade_terminals = true,
+  shading_factor = 2,
+  start_in_insert = true,
+  insert_mappings = true,
+  persist_size = true,
+  direction = "float",
+  close_on_exit = true,
+  shell = vim.o.shell,
+  float_opts = {
+    border = "curved",
+    winblend = 0,
+    highlights = {
+      border = "Normal",
+      background = "Normal",
+    },
+  },
 })
 
 function _G.set_terminal_keymaps()
@@ -42,29 +42,40 @@ local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 
 function _LAZYGIT_TOGGLE()
-	lazygit:toggle()
+  lazygit:toggle()
 end
 
 local node = Terminal:new({ cmd = "node", hidden = true })
 
 function _NODE_TOGGLE()
-	node:toggle()
+  node:toggle()
 end
 
 local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
 
 function _NCDU_TOGGLE()
-	ncdu:toggle()
+  ncdu:toggle()
 end
 
 local htop = Terminal:new({ cmd = "htop", hidden = true })
 
 function _HTOP_TOGGLE()
-	htop:toggle()
+  htop:toggle()
 end
 
 local python = Terminal:new({ cmd = "python", hidden = true })
 
 function _PYTHON_TOGGLE()
-	python:toggle()
+  python:toggle()
 end
+
+
+local keymap = require("user.functions").keymap
+keymap("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<cr>", { desc = "Node" })
+keymap("n", "<leader>tu", "<cmd>lua _NCDU_TOGGLE()<cr>", { desc = "NCDU" })
+keymap("n", "<leader>tt", "<cmd>lua _HTOP_TOGGLE()<cr>", { desc = "Htop" })
+keymap("n", "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<cr>", { desc = "Python" })
+keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", { desc = "Float" })
+keymap("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", { desc = "Horizontal" })
+keymap("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", { desc = "Vertical" })
+keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { desc = "Lazygit" })

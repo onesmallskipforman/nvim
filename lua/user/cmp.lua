@@ -53,6 +53,26 @@ cmp.setup({
   },
 
   mapping = cmp.mapping.preset.insert({
+    ["<Up>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.abort()
+        vim.api.nvim_input("<Up>")
+        -- local termcode = vim.api.nvim_replace_termcodes("<Up>", true, true, true)
+        -- vim.api.nvim_feedkeys(termcode, 'in', true)
+      else
+        fallback()
+      end
+    end, {"i"}),
+    ["<Down>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.abort()
+        vim.api.nvim_input("<Down>")
+        -- local termcode = vim.api.nvim_replace_termcodes("<Down>", true, true, true)
+        -- vim.api.nvim_feedkeys(termcode, 'in', true)
+      else
+        fallback()
+      end
+    end, {"i"}),
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
