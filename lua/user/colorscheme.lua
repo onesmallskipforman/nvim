@@ -1,45 +1,44 @@
--- Configure colorschemes
+return {
+  {
+    "ellisonleao/gruvbox.nvim",
+    lazy = false,
+    name = "gruvbox",
+    priority = 1000,
+    opts = {
+      undercurl = true,
+      underline = true,
+      bold = true,
+      italic = true,
+      strikethrough = true,
+      invert_selection = false,
+      invert_signs = false,
+      invert_tabline = false,
+      invert_intend_guides = false,
+      inverse = true, -- invert background for search, diffs, statuslines and errors
+      contrast = "soft", -- can be "hard", "soft" or empty string
+      overrides = {}
+    },
+    config = function()
+      -- load the colorscheme here
+      vim.cmd.colorscheme("gruvbox")
+      -- NOTE: This theme links vim-illuminate groups to lspreference groups
+      -- vim.api.nvim_set_hl(0, "LspReferenceText" , { bg='#504945', underline = true })
+      -- vim.api.nvim_set_hl(0, "LspReferenceWrite", { bg='#504945', underline = true })
+      -- vim.api.nvim_set_hl(0, "LspReferenceRead" , { bg='#504945', underline = true })
+      vim.api.nvim_set_hl(0, "LspReferenceText" , { link="CursorLine" })
+      vim.api.nvim_set_hl(0, "LspReferenceWrite", { link="CursorLine" })
+      vim.api.nvim_set_hl(0, "LspReferenceRead" , { link="CursorLine" })
 
-local gbox_status_ok, gruvbox = pcall(require, "gruvbox")
-if gbox_status_ok then
-  -- setup must be called before loading the colorscheme
-  -- Default options:
-  gruvbox.setup({
-    undercurl = true,
-    underline = true,
-    bold = true,
-    italic = true,
-    strikethrough = true,
-    invert_selection = false,
-    invert_signs = false,
-    invert_tabline = false,
-    invert_intend_guides = false,
-    inverse = true, -- invert background for search, diffs, statuslines and errors
-    contrast = "soft", -- can be "hard", "soft" or empty string
-    overrides = {},
-  })
-end
 
--- Apply colorscheme
-local colorscheme = "gruvbox"
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-if not status_ok then
-  vim.notify("colorscheme " .. colorscheme .. " not found!")
-end
 
--- make sure vim-illuminate highlighting is aligned with lsp highlighting
-if pcall(require, "illuminate") then
-  -- consider using guibg from "CursorLine" highlight group
-  vim.api.nvim_command [[ hi def IlluminatedWordText gui=underline guibg=#504945 ]]
-  vim.api.nvim_command [[ hi def IlluminatedWordRead gui=underline guibg=#504945 ]]
-  vim.api.nvim_command [[ hi def IlluminatedWordWrite gui=underline guibg=#504945 ]]
-elseif vim.g.colors_name == 'gruvbox' then
-  -- consider using guibg from "CursorLine" highlight group
-  vim.api.nvim_command [[ hi! LspReferenceText  gui=underline guibg=#504945 ]]
-  vim.api.nvim_command [[ hi! LspReferenceWrite gui=underline guibg=#504945 ]]
-  vim.api.nvim_command [[ hi! LspReferenceRead  gui=underline guibg=#504945 ]]
-elseif (vim.fn.hlexists("LspReferenceText") == 0) then
-  vim.api.nvim_command [[ hi! link LspReferenceText  CursorLine ]]
-  vim.api.nvim_command [[ hi! link LspReferenceWrite CursorLine ]]
-  vim.api.nvim_command [[ hi! link LspReferenceRead  CursorLine ]]
-end
+      vim.api.nvim_set_hl(0, "NvimTreeNormal" , { bg=require("bufferline.config").highlights.fill.bg })
+      vim.api.nvim_set_hl(0, "NvimTreeOffset" , {
+        fg=string.format("#%06x", vim.api.nvim_get_hl_by_name("TabLine", true)["background"]),
+        bg=require("bufferline.config").highlights.fill.bg,
+      })
+      vim.api.nvim_set_hl(0, "SignColumn" , { link="Normal" })
+    end,
+  },
+  { "lunarvim/colorschemes" }, -- Multiple colorschemes to try out
+  { "lunarvim/darkplus.nvim" }, -- Colorscheme
+}

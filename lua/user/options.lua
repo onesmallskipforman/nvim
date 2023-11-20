@@ -24,8 +24,8 @@ local options = {
   updatetime = 300,                        -- faster completion (4000ms default)
   writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
   expandtab = true,                        -- convert tabs to spaces
-  shiftwidth = 2,                          -- the number of spaces inserted for each indentation
-  tabstop = 2,                             -- insert 2 spaces for a tab
+  shiftwidth = 4,                          -- the number of spaces inserted for each indentation
+  tabstop = 4,                             -- insert 2 spaces for a tab
   cursorline = false,                       -- highlight the current line
   number = true,                           -- set numbered lines
   laststatus = 3,
@@ -46,6 +46,7 @@ local options = {
 -- vim.opt.fillchars = vim.opt.fillchars + "vertleft: "
 -- vim.opt.fillchars = vim.opt.fillchars + "vertright: "
 vim.opt.fillchars = vim.opt.fillchars + 'eob: '
+vim.opt.fillchars = vim.opt.fillchars + 'vert: '
 
 vim.opt.shortmess:append "c"
 
@@ -66,3 +67,13 @@ vim.filetype.add {
 vim.cmd [[autocmd BufWritePre * %s/\s\+$//e  ]] -- remove trailing whitespace
 vim.cmd [[autocmd BufWritepre * %s/\n\+\%$//e]] -- remove trailing newlines
 vim.cmd [[autocmd BufWritepre * retab]]         -- replace tabs with spaces
+
+
+vim.cmd [[
+  au BufNewFile,BufRead Jenkinsfile setf groovy
+  " au BufNewFile,BufRead Jenkinsfile set filetype=groovy
+]]
+
+vim.cmd [[
+  au BufNewFile,BufRead *.launch setf xml
+]]

@@ -86,8 +86,11 @@ keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 -- NOTE: Prefer using : over <cmd> as the latter avoids going back in normal-mode.
 -- see https://neovim.io/doc/user/map.html#:map-cmd
 
-
-local keymap = require("user.functions").keymap
+local keymap = function(mode, lhs, rhs, opts)
+  opts = vim.tbl_extend("keep", opts,
+    { remap = false, silent = true --[[, buffer = true --]] })
+  vim.keymap.set(mode, lhs, rhs, opts)
+end
 
 keymap("n", "<leader>w", "<cmd>w!<CR>", { desc = "Save" })
 keymap("n", "<leader>q", "<cmd>q!<CR>", { desc = "Quit" })
@@ -96,6 +99,14 @@ keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", { desc = "No Highlight" })
 keymap("n", "<leader>P", "<cmd>Telescope projects<cr>", { desc = "Projects" })
 
 if pcall(require, "lspconfig") then
+  -- keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "LSP" })
+  -- keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "LSP" })
+  -- keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "LSP" })
+  -- keymap("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "LSP" })
+  -- keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "LSP" })
+  -- keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "LSP" })
+  -- keymap("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "LSP" })
+
   keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", { desc = "Code Action" })
   keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", { desc = "Format" })
   keymap("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "Info" })
@@ -115,37 +126,37 @@ if pcall(require, "telescope") and pcall(require, "lspconfig") then
 end
 
 
-if pcall(require, "telescope") then
-  keymap("n", "<leader>F", "<cmd>Telescope live_grep<cr>", { desc = 'Live Grep' })
-  keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", { desc = 'Find Files' })
-  keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
+-- if pcall(require, "telescope") then
+keymap("n", "<leader>F", "<cmd>Telescope live_grep<cr>", { desc = 'Live Grep' })
+keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", { desc = 'Find Files' })
+keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
 
-  keymap("n", "<leader>sb", "<cmd>Telescope git_branches<cr>", { desc = "Checkout branch"  })
-  keymap("n", "<leader>sc", "<cmd>Telescope colorscheme<cr>" , { desc = "Colorscheme"      })
-  keymap("n", "<leader>sh", "<cmd>Telescope help_tags<cr>"   , { desc = "Find Help"        })
-  keymap("n", "<leader>sM", "<cmd>Telescope man_pages<cr>"   , { desc = "Man Pages"        })
-  keymap("n", "<leader>sr", "<cmd>Telescope oldfiles<cr>"    , { desc = "Open Recent File" })
-  keymap("n", "<leader>sR", "<cmd>Telescope registers<cr>"   , { desc = "Registers"        })
-  keymap("n", "<leader>sk", "<cmd>Telescope keymaps<cr>"     , { desc = "Keymaps"          })
-  keymap("n", "<leader>sC", "<cmd>Telescope commands<cr>"    , { desc = "Commands"         })
+keymap("n", "<leader>sb", "<cmd>Telescope git_branches<cr>", { desc = "Checkout branch"  })
+keymap("n", "<leader>sc", "<cmd>Telescope colorscheme<cr>" , { desc = "Colorscheme"      })
+keymap("n", "<leader>sh", "<cmd>Telescope help_tags<cr>"   , { desc = "Find Help"        })
+keymap("n", "<leader>sM", "<cmd>Telescope man_pages<cr>"   , { desc = "Man Pages"        })
+keymap("n", "<leader>sr", "<cmd>Telescope oldfiles<cr>"    , { desc = "Open Recent File" })
+keymap("n", "<leader>sR", "<cmd>Telescope registers<cr>"   , { desc = "Registers"        })
+keymap("n", "<leader>sk", "<cmd>Telescope keymaps<cr>"     , { desc = "Keymaps"          })
+keymap("n", "<leader>sC", "<cmd>Telescope commands<cr>"    , { desc = "Commands"         })
 
-  keymap("n", "<leader>go", "<cmd>Telescope git_status<cr>", { desc = "Open changed file" })
-  keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", { desc = "Checkout branch" })
-  keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", { desc = "Checkout commit" })
-end
+keymap("n", "<leader>go", "<cmd>Telescope git_status<cr>", { desc = "Open changed file" })
+keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", { desc = "Checkout branch" })
+keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", { desc = "Checkout commit" })
+-- end
 
 if pcall(require, "alpha") then
   keymap("n", "<leader>a", "<cmd>Alpha<cr>", { desc = 'Alpha' })
 end
 
-if pcall(require, "Comment") then
-  keymap("n", "<leader>/", "<Plug>(comment_toggle_linewise_current)", { desc = 'Comment out current line' })
-  keymap("v", "<leader>/", "<Plug>(comment_toggle_linewise_visual)", { desc = 'Comment out visual-selected text' })
-end
+-- if pcall(require, "Comment") then
+keymap("n", "<leader>/", "<Plug>(comment_toggle_linewise_current)", { desc = 'Comment out current line' })
+keymap("v", "<leader>/", "<Plug>(comment_toggle_linewise_visual)", { desc = 'Comment out visual-selected text' })
+-- end
 
-if pcall(require, "gitlinker") then
-  keymap("n", "<leader>gy", "<cmd>lua require'gitlinker'.get_buf_range_url('n')<cr>", { desc = 'gitlinker' })
-end
+-- if pcall(require, "gitlinker") then
+keymap("n", "<leader>gy", "<cmd>lua require'gitlinker'.get_buf_range_url('n')<cr>", { desc = 'gitlinker' })
+-- end
 
 if pcall(require, "gitsigns") then
   keymap("n", "<leader>gj", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", { desc = "Next Hunk" })
@@ -165,10 +176,9 @@ if pcall(require, "illuminate") then
   keymap('n', '<a-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', { desc = "Previous LSP Reference" })
 end
 
-if pcall(require, "nvim-tree") then
-  keymap("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = 'Toggle NvimTree'})
-end
-
+-- if pcall(require, "nvim-tree") then
+keymap("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = 'Toggle NvimTree'})
+-- end
 
 if pcall(require, "packer") then
   keymap("n", "<leader>pc", "<cmd>PackerCompile<cr>", { desc = "Compile" })
@@ -176,4 +186,15 @@ if pcall(require, "packer") then
   keymap("n", "<leader>ps", "<cmd>PackerSync<cr>", { desc = "Sync" })
   keymap("n", "<leader>pS", "<cmd>PackerStatus<cr>", { desc = "Status" })
   keymap("n", "<leader>pu", "<cmd>PackerUpdate<cr>", { desc = "Update" })
+end
+
+if pcall(require, "toggleterm") then
+  keymap("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<cr>", { desc = "Node" })
+  keymap("n", "<leader>tu", "<cmd>lua _NCDU_TOGGLE()<cr>", { desc = "NCDU" })
+  keymap("n", "<leader>tt", "<cmd>lua _HTOP_TOGGLE()<cr>", { desc = "Htop" })
+  keymap("n", "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<cr>", { desc = "Python" })
+  keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", { desc = "Float" })
+  keymap("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", { desc = "Horizontal" })
+  keymap("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", { desc = "Vertical" })
+  keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { desc = "Lazygit" })
 end
