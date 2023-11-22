@@ -46,7 +46,13 @@ local options = {
 -- vim.opt.fillchars = vim.opt.fillchars + "vertleft: "
 -- vim.opt.fillchars = vim.opt.fillchars + "vertright: "
 vim.opt.fillchars = vim.opt.fillchars + 'eob: '
+
+local icons = require("user.icons")
 vim.opt.fillchars = vim.opt.fillchars + 'vert: '
+-- vim.opt.fillchars = vim.opt.fillchars + 'vertright: '
+-- vim.opt.fillchars = vim.opt.fillchars + 'verthoriz: '
+-- vim.opt.fillchars = vim.opt.fillchars + ('vert:'..icons.ui.BoldLineLeft)
+-- vim.opt.fillchars = vim.opt.fillchars + ('vertright:'..icons.ui.BoldLineLeft)
 
 vim.opt.shortmess:append "c"
 
@@ -63,6 +69,16 @@ vim.filetype.add {
     conf = "dosini",
   },
 }
+
+
+-- vim.cmd [[autocmd FileType lua setlocal shiftwidth=2 tabstop=2]]
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "lua" },
+  callback = function()
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+  end,
+})
 
 vim.cmd [[autocmd BufWritePre * %s/\s\+$//e  ]] -- remove trailing whitespace
 vim.cmd [[autocmd BufWritepre * %s/\n\+\%$//e]] -- remove trailing newlines

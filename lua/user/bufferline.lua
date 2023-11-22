@@ -10,27 +10,31 @@ local M = {
   },
 }
 
+local icons = require("user.icons")
+
 function M.config()
   require("bufferline").setup {
     options = {
       close_command = "Bdelete! %d",       -- can be a string | function, see "Mouse actions"
-      right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+      -- right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
       offsets = { {
         filetype = "NvimTree",
         text = "EXPLORER",
         padding = 0,
         text_align = "left",
         highlight = 'NvimTreeOffset',
+        -- separator = " ",
+        -- separator = icons.ui.BoldLineLeft,
       } },
       separator_style = "slant",            -- | "thick" | "thin" | { 'any', 'any' },
     },
     highlights = {
-      fill = {
+      -- fill = {
       --   fg = { attribute = "fg", highlight = "TabLine" },
       --   bg = { attribute = "bg", highlight = "TabLine" },
-        fg = '#161616',
-        bg = '#161616'
-      },
+        -- fg = '#161616',
+        -- bg = '#161616'
+      -- },
       background = {
         fg = { attribute = "fg", highlight = "TabLine" },
         bg = { attribute = "bg", highlight = "TabLine" },
@@ -52,8 +56,8 @@ function M.config()
         bg = { attribute = "bg", highlight = "Normal" },
       },
       offset_separator = {
-        fg = { attribute = "fg", highlight = "Tabline" },
-        bg = { attribute = "bg", highlight = "Visual" },
+        fg = { attribute = "fg", highlight = "WinSeparator" },
+        -- bg = { attribute = "bg", highlight = "WinSeparator" },
       },
     --   tab_selected = {
     --     fg = { attribute = "fg", highlight = "Normal" },
