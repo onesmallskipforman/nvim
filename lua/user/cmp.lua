@@ -1,3 +1,4 @@
+-- TODO: figure out how to trigger search completion without previosly triggering cmp in-buffer
 local M = {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
@@ -255,12 +256,14 @@ function M.config()
   --     debug = false,
   -- }
 
-  cmp.setup.cmdline('/', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'buffer' }
-    }
-  })
+  -- TODO: cmp cmdline causes issues with tab completion in cmd mode
+  -- https://github.com/hrsh7th/nvim-cmp/issues/874#issuecomment-1090099590
+  -- cmp.setup.cmdline('/', {
+  --   mapping = cmp.mapping.preset.cmdline(),
+  --   sources = {
+  --     { name = 'buffer' }
+  --   }
+  -- })
 
   -- cmp.setup.cmdline(':', {
   --   mapping = cmp.mapping.preset.cmdline(),

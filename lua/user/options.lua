@@ -49,8 +49,9 @@ vim.opt.fillchars = vim.opt.fillchars + 'eob: '
 
 local icons = require("user.icons")
 vim.opt.fillchars = vim.opt.fillchars + 'vert: '
--- vim.opt.fillchars = vim.opt.fillchars + 'vertright: '
--- vim.opt.fillchars = vim.opt.fillchars + 'verthoriz: '
+vim.opt.fillchars = vim.opt.fillchars + 'vertright:─'
+vim.opt.fillchars = vim.opt.fillchars + 'vertleft:─'
+vim.opt.fillchars = vim.opt.fillchars + 'verthoriz:─'
 -- vim.opt.fillchars = vim.opt.fillchars + ('vert:'..icons.ui.BoldLineLeft)
 -- vim.opt.fillchars = vim.opt.fillchars + ('vertright:'..icons.ui.BoldLineLeft)
 

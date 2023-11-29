@@ -154,3 +154,5 @@ return {
     CircuitBoard = "",
   },
 }
+-- section_separators = { left = "", right = "" },
+-- section_separators = { left = '', right = '' },

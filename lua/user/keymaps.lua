@@ -66,6 +66,11 @@ keymap("", "<S-_>", ":nohlsearch<CR>", {noremap = true, silent = false})
 -- Tree --
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
+-- 80-character limit --
+keymap("n", "<leader>8", ":let &colorcolumn=(empty(&colorcolumn) ? 80 : '')<cr>", opts)
+keymap("n", "<leader>v", ":vsplit<cr>", opts)
+
+
 -- use arrow keys in command mode completions
 -- set wildcharm=<C-Z>
 -- cnoremap <expr> <up>    wildmenumode() ? "\<left>"     : "\<up>"
@@ -179,14 +184,6 @@ end
 -- if pcall(require, "nvim-tree") then
 keymap("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = 'Toggle NvimTree'})
 -- end
-
-if pcall(require, "packer") then
-  keymap("n", "<leader>pc", "<cmd>PackerCompile<cr>", { desc = "Compile" })
-  keymap("n", "<leader>pi", "<cmd>PackerInstall<cr>", { desc = "Install" })
-  keymap("n", "<leader>ps", "<cmd>PackerSync<cr>", { desc = "Sync" })
-  keymap("n", "<leader>pS", "<cmd>PackerStatus<cr>", { desc = "Status" })
-  keymap("n", "<leader>pu", "<cmd>PackerUpdate<cr>", { desc = "Update" })
-end
 
 if pcall(require, "toggleterm") then
   keymap("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<cr>", { desc = "Node" })

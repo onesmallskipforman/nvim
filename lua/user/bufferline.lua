@@ -1,3 +1,4 @@
+-- TODO: figure out how to not switch to tabs in a documentation ":h" buffer
 local M = {
   "akinsho/bufferline.nvim",
   -- commit = "c7492a76ce8218e3335f027af44930576b561013",
@@ -55,6 +56,18 @@ function M.config()
         fg = { attribute = "fg", highlight = "Normal" },
         bg = { attribute = "bg", highlight = "Normal" },
       },
+      modified = {
+        fg = { attribute = "fg", highlight = "TabLine" },
+        bg = { attribute = "bg", highlight = "TabLine" },
+      },
+      -- modified_selected = {
+      --   fg = { attribute = "fg", highlight = "Normal" },
+      --   bg = { attribute = "bg", highlight = "Normal" },
+      -- },
+      modified_visible = {
+        fg = { attribute = "fg", highlight = "TabLine" },
+        bg = { attribute = "bg", highlight = "Normal" },
+      },
       offset_separator = {
         fg = { attribute = "fg", highlight = "WinSeparator" },
         -- bg = { attribute = "bg", highlight = "WinSeparator" },
@@ -86,18 +99,6 @@ function M.config()
     --     fg = { attribute = "fg", highlight = "TabLine" },
     --     bg = { attribute = "bg", highlight = "TabLine" },
     --     italic = true,
-    --   },
-    --   modified = {
-    --     fg = { attribute = "fg", highlight = "TabLine" },
-    --     bg = { attribute = "bg", highlight = "TabLine" },
-    --   },
-    --   modified_selected = {
-    --     fg = { attribute = "fg", highlight = "Normal" },
-    --     bg = { attribute = "bg", highlight = "Normal" },
-    --   },
-    --   modified_visible = {
-    --     fg = { attribute = "fg", highlight = "TabLine" },
-    --     bg = { attribute = "bg", highlight = "TabLine" },
     --   },
       separator = {
         -- fg = { attribute = "bg", highlight = "TabLine" },
