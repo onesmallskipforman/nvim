@@ -30,20 +30,20 @@ function M.config()
       separator_style = "slant",            -- | "thick" | "thin" | { 'any', 'any' },
     },
     highlights = {
-      -- fill = {
-      --   fg = { attribute = "fg", highlight = "TabLine" },
-      --   bg = { attribute = "bg", highlight = "TabLine" },
+      fill = {
+        -- fg = { attribute = "fg", highlight = "TabLine" },
+        -- bg = { attribute = "bg", highlight = "TabLine" },
         -- fg = '#161616',
         -- bg = '#161616'
-      -- },
+      },
       background = {
-        fg = { attribute = "fg", highlight = "TabLine" },
+        -- fg = { attribute = "fg", highlight = "TabLine" },
         bg = { attribute = "bg", highlight = "TabLine" },
       },
-      buffer_visible = {
-        fg = { attribute = "fg", highlight = "Normal" },
-        bg = { attribute = "bg", highlight = "Normal" },
-      },
+      -- buffer_visible = {
+      --   fg = { attribute = "fg", highlight = "Normal" },
+      --   bg = { attribute = "bg", highlight = "Normal" },
+      -- },
       buffer_selected = {
         fg = { attribute = "fg", highlight = "Normal" },
         bg = { attribute = "bg", highlight = "Normal" },
@@ -85,21 +85,22 @@ function M.config()
     --     fg = { attribute = "fg", highlight = "TabLineSel" },
     --     bg = { attribute = "bg", highlight = "Normal" },
     --   },
-    --   duplicate_selected = {
-    --     fg = { attribute = "fg", highlight = "TabLineSel" },
-    --     bg = { attribute = "bg", highlight = "TabLineSel" },
-    --     italic = true,
-    --   },
-    --   duplicate_visible = {
-    --     fg = { attribute = "fg", highlight = "TabLine" },
-    --     bg = { attribute = "bg", highlight = "TabLine" },
-    --     italic = true,
-    --   },
-    --   duplicate = {
-    --     fg = { attribute = "fg", highlight = "TabLine" },
-    --     bg = { attribute = "bg", highlight = "TabLine" },
-    --     italic = true,
-    --   },
+      -- duplicate_selected = {
+      --   fg = { attribute = "fg", highlight = "TabLine" },
+      --   bg = { attribute = "bg", highlight = "Normal" },
+      --   -- italic = true,
+      -- },
+      -- duplicate_visible = {
+      --   -- fg = { attribute = "fg", highlight = "TabLine" },
+      --   bg = { attribute = "bg", highlight = "TabLine" },
+      --   italic = false,
+      -- },
+      duplicate = {
+        -- fg = { attribute = "fg", highlight = "TabLine" },
+        bg = { attribute = "bg", highlight = "TabLine" },
+        italic = false,
+        -- italic = true,
+      },
       separator = {
         -- fg = { attribute = "bg", highlight = "TabLine" },
         bg = { attribute = "bg", highlight = "Tabline" },
@@ -108,10 +109,10 @@ function M.config()
         -- fg = { attribute = "bg", highlight = "TabLine" },
         bg = { attribute = "bg", highlight = "Normal" },
       },
-      separator_visible = {
-        -- fg = { attribute = "bg", highlight = "TabLine" },
-        bg = { attribute = "bg", highlight = "Normal" },
-      },
+      -- separator_visible = {
+      --   -- fg = { attribute = "bg", highlight = "TabLine" },
+      --   bg = { attribute = "bg", highlight = "Normal" },
+      -- },
     --   indicator_selected = {
     --     fg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
     --     bg = { attribute = "bg", highlight = "Normal" },
