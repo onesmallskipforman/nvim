@@ -50,6 +50,7 @@ function M.config()
 
   local servers = {
     "lua_ls",
+    "luau_lsp",
     "cssls",
     "html",
     "tsserver",
@@ -60,6 +61,7 @@ function M.config()
     "yamlls",
     "marksman",
     "tailwindcss",
+    "texlab",
   }
 
   local default_diagnostic_config = {

@@ -9,16 +9,18 @@ local M = {
 
 M.servers = {
   "lua_ls",
-  "cssls",
-  "html",
-  "tsserver",
+  -- "cssls",
+  -- "html",
+  -- "tsserver",
   "astro",
   "pyright",
   "bashls",
   "jsonls",
   "yamlls",
   "marksman",
-  "tailwindcss",
+  -- "tailwindcss",
+  "texlab",
+  "luau_lsp",
 }
 
 function M.config()

@@ -2,7 +2,7 @@
 local M = {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
-  commit = "d3a3056204e1a9dbb7c7fe36c114dc43b681768c",
+  -- commit = "d3a3056204e1a9dbb7c7fe36c114dc43b681768c",
   dependencies = {
     {
       "hrsh7th/cmp-nvim-lsp",
@@ -99,6 +99,18 @@ function M.config()
       ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
       ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
       ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+      -- ["<C-d>"] = cmp.mapping(cmp.mapping.close_docs(), {"i", "c"}),
+
+      ['<C-d>'] = cmp.mapping(function()
+        if cmp.visible_docs() then
+          cmp.close_docs()
+        else
+          cmp.open_docs()
+        end
+      end, {"i"}),
+
+
+
       ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
       ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
       ["<C-e>"] = cmp.mapping {
@@ -123,7 +135,7 @@ function M.config()
       end, {
         "i",
         "s",
-        "c"
+        -- "c" -- TODO: this causes native cmd tab menu to not spawn after being in insert mode once
       }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
@@ -136,7 +148,7 @@ function M.config()
       end, {
         "i",
         "s",
-        "c"
+        -- "c" -- TODO: this causes native cmd tab menu to not spawn after being in insert mode once
       }),
     },
     formatting = {
@@ -151,30 +163,30 @@ function M.config()
           path = "[Path]",
           dictionary = "[Dictionary]",
         })[entry.source.name]
-        if entry.source.name == "copilot" then
-          vim_item.kind = icons.git.Octoface
-          vim_item.kind_hl_group = "CmpItemKindCopilot"
-        end
-
-        if entry.source.name == "cmp_tabnine" then
-          vim_item.kind = icons.misc.Robot
-          vim_item.kind_hl_group = "CmpItemKindTabnine"
-        end
-
-        if entry.source.name == "crates" then
-          vim_item.kind = icons.misc.Package
-          vim_item.kind_hl_group = "CmpItemKindCrate"
-        end
-
-        if entry.source.name == "lab.quick_data" then
-          vim_item.kind = icons.misc.CircuitBoard
-          vim_item.kind_hl_group = "CmpItemKindConstant"
-        end
-
-        if entry.source.name == "emoji" then
-          vim_item.kind = icons.misc.Smiley
-          vim_item.kind_hl_group = "CmpItemKindEmoji"
-        end
+        -- if entry.source.name == "copilot" then
+        --   vim_item.kind = icons.git.Octoface
+        --   vim_item.kind_hl_group = "CmpItemKindCopilot"
+        -- end
+        --
+        -- if entry.source.name == "cmp_tabnine" then
+        --   vim_item.kind = icons.misc.Robot
+        --   vim_item.kind_hl_group = "CmpItemKindTabnine"
+        -- end
+        --
+        -- if entry.source.name == "crates" then
+        --   vim_item.kind = icons.misc.Package
+        --   vim_item.kind_hl_group = "CmpItemKindCrate"
+        -- end
+        --
+        -- if entry.source.name == "lab.quick_data" then
+        --   vim_item.kind = icons.misc.CircuitBoard
+        --   vim_item.kind_hl_group = "CmpItemKindConstant"
+        -- end
+        --
+        -- if entry.source.name == "emoji" then
+        --   vim_item.kind = icons.misc.Smiley
+        --   vim_item.kind_hl_group = "CmpItemKindEmoji"
+        -- end
 
         return vim_item
       end,
@@ -203,15 +215,15 @@ function M.config()
       { name = "luasnip" },
       { name = "cmp_tabnine" },
       { name = "nvim_lua" },
-    {
-      name = "buffer",
-      option = {
-        -- pull from all open buffers
-        get_bufnrs = function()
-          return vim.api.nvim_list_bufs()
-        end
-      }
-    },
+      {
+        name = "buffer",
+        option = {
+          -- pull from all open buffers
+          get_bufnrs = function()
+            return vim.api.nvim_list_bufs()
+          end
+        }
+      },
       { name = "path" },
       { name = "calc" },
       { name = "emoji" },

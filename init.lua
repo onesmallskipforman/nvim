@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -22,6 +23,7 @@ require "user.autocommands"
 spec "user.alpha"
 -- spec "user.autopairs"
 spec "user.bufferline"
+spec "user.cmp" -- TODO: settle on icons and fix cmd/search modes
 spec "user.colorscheme"
 spec "user.comment"
 spec "user.devicons"
@@ -37,9 +39,8 @@ spec "user.mason"
 spec "user.nvimtree"
 spec "user.project"
 spec "user.schemastore"
-
-
-spec "user.cmp"
+--
+--
 spec "user.treesitter"
 spec "user.telescope"
 spec "user.whichkey"
