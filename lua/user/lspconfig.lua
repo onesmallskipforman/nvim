@@ -62,6 +62,7 @@ function M.config()
     "marksman",
     "tailwindcss",
     "texlab",
+    "awk_ls",
   }
 
   local default_diagnostic_config = {

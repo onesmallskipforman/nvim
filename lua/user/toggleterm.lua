@@ -9,6 +9,13 @@ function M.config()
     { nil, "<M-1>", "Horizontal Terminal", "horizontal", 0.3 },
     { nil, "<M-2>", "Vertical Terminal", "vertical", 0.4 },
     { nil, "<M-3>", "Float Terminal", "float", nil },
+    { "python3", "<M-4>", "Python Terminal", "float", nil },
+    { "bc", "<M-5>", "Python Terminal", "float", nil },
+    { "calc", "<M-6>", "Python Terminal", "float", nil },
+    -- { "lazygit", "<M-4>", "Python Terminal", "float", nil },
+    -- { "node", "<M-4>", "Python Terminal", "float", nil },
+    -- { "ncdu", "<M-4>", "Python Terminal", "float", nil },
+    -- { "htop", "<M-4>", "Python Terminal", "float", nil },
   }
 
   local function get_buf_size()
@@ -71,7 +78,7 @@ function M.config()
 
   require("toggleterm").setup {
     size = 20,
-    open_mapping = [[<c-\>]],
+    -- open_mapping = [[<c-\>]],
     hide_numbers = true, -- hide the number column in toggleterm buffers
     shade_filetypes = {},
     shade_terminals = true,
@@ -80,6 +87,8 @@ function M.config()
     insert_mappings = true, -- whether or not the open mapping applies in insert mode
     persist_size = false,
     direction = "float",
+    -- on_close = fun(t: Terminal), -- function to run when the terminal closes
+    -- on_close = function() vim.cmd('TermExec cmd=exit') end, -- function to run when the terminal closes
     close_on_exit = true, -- close the terminal window when the process exits
     shell = nil, -- change the default shell
     float_opts = {
@@ -111,64 +120,16 @@ function M.config()
     end,
   })
 
-  local opts = { noremap = true, silent = true }
-  function _G.set_terminal_keymaps()
-    vim.api.nvim_buf_set_keymap(0, "t", "<m-h>", [[<C-\><C-n><C-W>h]], opts)
-    vim.api.nvim_buf_set_keymap(0, "t", "<m-j>", [[<C-\><C-n><C-W>j]], opts)
-    vim.api.nvim_buf_set_keymap(0, "t", "<m-k>", [[<C-\><C-n><C-W>k]], opts)
-    vim.api.nvim_buf_set_keymap(0, "t", "<m-l>", [[<C-\><C-n><C-W>l]], opts)
-  end
+  -- local opts = { noremap = true, silent = true }
+  -- function _G.set_terminal_keymaps()
+  --   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
+  --   vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
+  --   vim.api.nvim_buf_set_keymap(0, "t", "<M-h>", [[<C-\><C-n><C-W>h]], opts)
+  --   vim.api.nvim_buf_set_keymap(0, "t", "<M-j>", [[<C-\><C-n><C-W>j]], opts)
+  --   vim.api.nvim_buf_set_keymap(0, "t", "<M-k>", [[<C-\><C-n><C-W>k]], opts)
+  --   vim.api.nvim_buf_set_keymap(0, "t", "<M-l>", [[<C-\><C-n><C-W>l]], opts)
+  -- end
+  -- vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 end
 
 return M
-
-
-
--- local status_ok, toggleterm = pcall(require, "toggleterm")
--- if not status_ok then
---   return
--- end
---
---
--- function _G.set_terminal_keymaps()
---   local opts = {noremap = true}
---   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
---   vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
---   vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
---   vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
---   vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
---   vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
--- end
---
--- vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
---
--- local Terminal = require("toggleterm.terminal").Terminal
--- local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
---
--- function _LAZYGIT_TOGGLE()
---   lazygit:toggle()
--- end
---
--- local node = Terminal:new({ cmd = "node", hidden = true })
---
--- function _NODE_TOGGLE()
---   node:toggle()
--- end
---
--- local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
---
--- function _NCDU_TOGGLE()
---   ncdu:toggle()
--- end
---
--- local htop = Terminal:new({ cmd = "htop", hidden = true })
---
--- function _HTOP_TOGGLE()
---   htop:toggle()
--- end
---
--- local python = Terminal:new({ cmd = "python", hidden = true })
---
--- function _PYTHON_TOGGLE()
---   python:toggle()
--- end

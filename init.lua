@@ -21,7 +21,7 @@ require "user.options"
 require "user.keymaps" -- TODO: all require statements are failing
 require "user.autocommands"
 spec "user.alpha"
--- spec "user.autopairs"
+spec "user.autopairs"
 spec "user.bufferline"
 spec "user.cmp" -- TODO: settle on icons and fix cmd/search modes
 spec "user.colorscheme"
@@ -39,12 +39,11 @@ spec "user.mason"
 spec "user.nvimtree"
 spec "user.project"
 spec "user.schemastore"
---
---
-spec "user.treesitter"
 spec "user.telescope"
-spec "user.whichkey"
 spec "user.toggleterm"
+spec "user.treesitter"
+--
+spec "user.whichkey"
 
 
 require("lazy").setup {
