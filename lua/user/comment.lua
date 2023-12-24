@@ -4,6 +4,8 @@ return {
   lazy = true,
   commit = "0236521ea582747b58869cb72f70ccfa967d2e89",
   config = function()
+    vim.keymap.set("n", "<leader>/", "<Plug>(comment_toggle_linewise_current)", { desc = 'Comment out current line'         })
+    vim.keymap.set("v", "<leader>/", "<Plug>(comment_toggle_linewise_visual)" , { desc = 'Comment out visual-selected text' })
     require("Comment").setup {
       ---Add a space b/w comment and the line
       padding = true,
@@ -15,7 +17,6 @@ return {
       toggler = {
         ---Line-comment toggle keymap
         line = "gcc",
-        -- line = "<leader>/",
         ---Block-comment toggle keymap
         block = "gbc",
       },
@@ -23,7 +24,6 @@ return {
       opleader = {
         ---Line-comment keymap
         line = "gc",
-        -- line = "<leader>/",
         ---Block-comment keymap
         block = "gb",
       },

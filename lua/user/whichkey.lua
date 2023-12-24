@@ -22,7 +22,7 @@ function M.config()
 --   t = {name = "Terminal"},
 -- }
   local mappings = {
-    ["q"] = { "<cmd>confirm q<CR>", "Quit" },
+    -- ["q"] = { "<cmd>confirm q<CR>", "Quit" },
     ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
     ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
@@ -30,23 +30,23 @@ function M.config()
       name = "Buffers",
       b = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
     },
-    d = {
-      name = "Debug",
-      t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
-      b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
-      c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-      C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
-      d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
-      g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
-      i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
-      o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
-      u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
-      p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
-      r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
-      s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
-      q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
-      U = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
-    },
+    -- d = {
+    --   name = "Debug",
+    --   t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+    --   b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
+    --   c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+    --   C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
+    --   d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
+    --   g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
+    --   i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
+    --   o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
+    --   u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
+    --   p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
+    --   r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
+    --   s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
+    --   q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
+    --   U = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
+    -- },
     p = {
       name = "Plugins",
       i = { "<cmd>Lazy install<cr>", "Install" },
@@ -132,25 +132,25 @@ function M.config()
       e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
     },
 
-    t = {
-      name = "Tab",
-      t = {
-        "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
-        "Find Tab",
-      },
-      a = { "<cmd>$tabnew<cr>", "New Empty Tab" },
-      A = { "<cmd>tabnew %<cr>", "New Tab" },
-      n = { "<cmd>tabn<cr>", "Next" },
-      o = { "<cmd>tabonly<cr>", "Only" },
-      p = { "<cmd>tabp<cr>", "Prev" },
-      h = { "<cmd>-tabmove<cr>", "Move Left" },
-      l = { "<cmd>+tabmove<cr>", "Move Right" },
-    },
+    -- t = {
+    --   name = "Tab",
+    --   t = {
+    --     "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
+    --     "Find Tab",
+    --   },
+    --   a = { "<cmd>$tabnew<cr>", "New Empty Tab" },
+    --   A = { "<cmd>tabnew %<cr>", "New Tab" },
+    --   n = { "<cmd>tabn<cr>", "Next" },
+    --   o = { "<cmd>tabonly<cr>", "Only" },
+    --   p = { "<cmd>tabp<cr>", "Prev" },
+    --   h = { "<cmd>-tabmove<cr>", "Move Left" },
+    --   l = { "<cmd>+tabmove<cr>", "Move Right" },
+    -- },
 
-    T = {
-      name = "Treesitter",
-      i = { ":TSConfigInfo<cr>", "Info" },
-    },
+    -- T = {
+    --   name = "Treesitter",
+    --   i = { ":TSConfigInfo<cr>", "Info" },
+    -- },
   }
 
   local opts = {

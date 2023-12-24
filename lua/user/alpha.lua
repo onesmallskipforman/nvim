@@ -5,6 +5,9 @@ local M = {
 }
 
 function M.config()
+
+  vim.keymap.set("n", "<leader>a", "<cmd>Alpha<cr>", { desc = 'Alpha' })
+
   local dashboard = require "alpha.themes.dashboard"
   local icons = require "user.icons"
 

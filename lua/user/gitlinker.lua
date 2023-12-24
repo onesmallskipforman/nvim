@@ -4,6 +4,7 @@ local M = {
 }
 
 function M.config()
+  vim.keymap.set("n", "<leader>gy", "<cmd>lua require'gitlinker'.get_buf_range_url('n')<cr>", { desc = 'gitlinker' })
   require("gitlinker").setup {
     opts = {
       remote = nil, -- force the use of a specific remote

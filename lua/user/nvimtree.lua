@@ -10,6 +10,7 @@ local M = {
 }
 
 function M.config()
+  vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = 'Toggle NvimTree'})
   local function my_on_attach(bufnr)
     local api = require "nvim-tree.api"
 
