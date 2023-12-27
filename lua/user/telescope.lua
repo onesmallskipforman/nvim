@@ -8,7 +8,8 @@ local M = {
   cmd = "Telescope",
 }
 
-function M.config()
+
+function M.init()
   vim.keymap.set("n", "<leader>P" , "<cmd>Telescope projects<cr>"    , { desc = "Projects"          })
   vim.keymap.set("n", "<leader>F" , "<cmd>Telescope live_grep<cr>"   , { desc = 'Live Grep'         })
   vim.keymap.set("n", "<leader>f" , "<cmd>Telescope find_files<cr>"  , { desc = 'Find Files'        })
@@ -28,7 +29,9 @@ function M.config()
   vim.keymap.set("n", "<leader>lw", "<cmd>Telescope lsp_workspace_diagnostics<cr>", { desc = "Workspace Diagnostics" })
   vim.keymap.set("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "Document Symbols" })
   vim.keymap.set("n", "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", { desc = "Workspace Symbols" })
+end
 
+function M.config()
   local icons = require "user.icons"
   local actions = require "telescope.actions"
 

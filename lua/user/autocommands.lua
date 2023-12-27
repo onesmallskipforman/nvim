@@ -1,10 +1,41 @@
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+local autocmd = vim.api.nvim_create_autocmd
+
+autocmd({ "BufNewFile", "BufRead" }, { pattern = { "Jenkinsfile" },
   callback = function()
-    vim.cmd "set formatoptions-=cro"
+    -- vim.opt_local.filetype = "groovy"
+    vim.cmd "setf groovy"
   end,
 })
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
+autocmd({ "BufNewFile", "BufRead" }, { pattern = { "*.launch" },
+  callback = function()
+    -- vim.opt_local.filetype = "xml"
+    vim.cmd "setf xml"
+  end,
+})
+
+autocmd({ "BufWritePre" }, {
+  callback = function()
+    vim.cmd [[ %s/\s\+$//e   ]] -- remove trailing whitespace
+    vim.cmd [[ %s/\n\+\%$//e ]] -- remove trailing newlines
+    vim.cmd [[ retab         ]] -- replace tabs with spaces
+  end,
+})
+
+autocmd({ "FileType" }, { pattern = { "lua" },
+  callback = function()
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+  end,
+})
+
+autocmd({ "BufWinEnter" }, {
+  callback = function()
+    vim.cmd "set formatoptions-=cro" -- doesn't work on startup so it needs to be an autocmd
+  end,
+})
+
+autocmd({ "FileType" }, {
   pattern = {
     "netrw",
     "Jaq",
@@ -27,33 +58,32 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
+autocmd({ "CmdWinEnter" }, {
   callback = function()
     vim.cmd "quit"
   end,
 })
 
-vim.api.nvim_create_autocmd({ "VimResized" }, {
+autocmd({ "VimResized" }, {
   callback = function()
     vim.cmd "tabdo wincmd ="
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+autocmd({ "BufWinEnter" }, {
   pattern = { "*" },
   callback = function()
     vim.cmd "checktime"
   end,
 })
 
-vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+autocmd({ "TextYankPost" }, {
   callback = function()
     vim.highlight.on_yank { higroup = "Visual", timeout = 40 }
   end,
 })
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "gitcommit", "markdown", "NeogitCommitMessage" },
+autocmd({ "FileType" }, { pattern = { "gitcommit", "markdown", "NeogitCommitMessage" },
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = true

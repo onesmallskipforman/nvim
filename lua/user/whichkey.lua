@@ -23,13 +23,13 @@ function M.config()
 -- }
   local mappings = {
     -- ["q"] = { "<cmd>confirm q<CR>", "Quit" },
-    ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
-    ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-    ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
-    b = {
-      name = "Buffers",
-      b = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
-    },
+    -- ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
+    -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+    -- ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
+    -- b = {
+    --   name = "Buffers",
+    --   b = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
+    -- },
     -- d = {
     --   name = "Debug",
     --   t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
@@ -59,24 +59,24 @@ function M.config()
       d = { "<cmd>Lazy debug<cr>", "Debug" },
     },
 
-    f = {
-      name = "Find",
-      b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-      c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-      f = { "<cmd>Telescope find_files<cr>", "Find files" },
-      p = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-      t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
-      s = { "<cmd>Telescope grep_string<cr>", "Find String" },
-      h = { "<cmd>Telescope help_tags<cr>", "Help" },
-      H = { "<cmd>Telescope highlights<cr>", "Highlights" },
-      i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
-      l = { "<cmd>Telescope resume<cr>", "Last Search" },
-      M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-      r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
-      R = { "<cmd>Telescope registers<cr>", "Registers" },
-      k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-      C = { "<cmd>Telescope commands<cr>", "Commands" },
-    },
+    -- f = {
+    --   name = "Find",
+    --   b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+    --   c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+    --   f = { "<cmd>Telescope find_files<cr>", "Find files" },
+    --   p = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+    --   t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
+    --   s = { "<cmd>Telescope grep_string<cr>", "Find String" },
+    --   h = { "<cmd>Telescope help_tags<cr>", "Help" },
+    --   H = { "<cmd>Telescope highlights<cr>", "Highlights" },
+    --   i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
+    --   l = { "<cmd>Telescope resume<cr>", "Last Search" },
+    --   M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+    --   r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
+    --   R = { "<cmd>Telescope registers<cr>", "Registers" },
+    --   k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+    --   C = { "<cmd>Telescope commands<cr>", "Commands" },
+    -- },
 
     g = {
       name = "Git",
