@@ -70,8 +70,6 @@ local M = {
 }
 
 function M.config()
-  vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
-  vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
   vim.api.nvim_set_hl(0, "CmpItemKindCrate", { fg = "#F64D00" })
   vim.api.nvim_set_hl(0, "CmpItemKindEmoji", { fg = "#FDE030" })
 
@@ -88,6 +86,11 @@ function M.config()
   local icons = require "user.icons"
 
   cmp.setup {
+    -- performance = {
+    --   debounce = 500,
+    --   throttle = 550,
+    --   fetching_timeout = 80,
+    -- },
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body) -- For `luasnip` users.
@@ -163,15 +166,6 @@ function M.config()
           path = "[Path]",
           dictionary = "[Dictionary]",
         })[entry.source.name]
-        -- if entry.source.name == "copilot" then
-        --   vim_item.kind = icons.git.Octoface
-        --   vim_item.kind_hl_group = "CmpItemKindCopilot"
-        -- end
-        --
-        -- if entry.source.name == "cmp_tabnine" then
-        --   vim_item.kind = icons.misc.Robot
-        --   vim_item.kind_hl_group = "CmpItemKindTabnine"
-        -- end
         --
         -- if entry.source.name == "crates" then
         --   vim_item.kind = icons.misc.Package
@@ -192,7 +186,6 @@ function M.config()
       end,
     },
     sources = {
-      { name = "copilot" },
       {
         name = "nvim_lsp",
         entry_filter = function(entry, ctx)
@@ -213,7 +206,6 @@ function M.config()
         end,
       },
       { name = "luasnip" },
-      { name = "cmp_tabnine" },
       { name = "nvim_lua" },
       {
         name = "buffer",

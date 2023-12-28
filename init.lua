@@ -15,7 +15,7 @@ spec "user.dressing" -- ui improvements
 spec "user.gitlinker"
 spec "user.gitsigns"
 spec "user.gitblame"
-spec "user.illuminate"
+-- spec "user.illuminate"
 spec "user.indentline"
 spec "user.lspconfig"
 spec "user.lualine"
@@ -26,10 +26,9 @@ spec "user.telescope"
 spec "user.toggleterm"
 spec "user.treesitter"
 --
-spec "user.whichkey"
+-- spec "user.whichkey"
 -- spec "user.cmd"
 require("user.lazy").setup(LAZY_PLUGIN_SPEC)
-
 
 
 

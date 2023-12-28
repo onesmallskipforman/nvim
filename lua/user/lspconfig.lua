@@ -1,16 +1,17 @@
 local M = {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
-  commit = "e49b1e90c1781ce372013de3fa93a91ea29fc34a",
+  -- commit = "e49b1e90c1781ce372013de3fa93a91ea29fc34a",
   dependencies = {
     {
       "folke/neodev.nvim",
-      commit = "b094a663ccb71733543d8254b988e6bebdbdaca4",
+      -- commit = "b094a663ccb71733543d8254b988e6bebdbdaca4",
     },
     {
       "b0o/schemastore.nvim",
     },
   },
+  lazy = false
 }
 
 local function lsp_keymaps(bufnr)
@@ -50,11 +51,16 @@ end
 
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
+  -- client.server_capabilities.semanticTokensProvider = nil
 end
 
 function M.common_capabilities()
   local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
   if status_ok then
+    -- return vim.tbl_deep_extend("force",
+    --   vim.lsp.protocol.make_client_capabilities(),
+    --   require('cmp_nvim_lsp').default_capabilities()
+    -- )
     return cmp_nvim_lsp.default_capabilities()
   end
 
@@ -131,6 +137,7 @@ function M.config()
       on_attach = M.on_attach,
       capabilities = M.common_capabilities(),
     }
+    -- opts.capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 
     local require_ok, settings = pcall(require, "user.lspsettings." .. server)
     if require_ok then
