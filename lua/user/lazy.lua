@@ -27,6 +27,9 @@ function M.setup(lazy_plugin_spec)
       enabled = true,
       notify  = true,
     },
+    defaults = {
+      lazy = true,
+    },
   }
 end
 

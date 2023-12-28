@@ -15,14 +15,13 @@ spec "user.dressing" -- ui improvements
 spec "user.gitlinker"
 spec "user.gitsigns"
 spec "user.gitblame"
--- spec "user.illuminate"
+spec "user.illuminate"
 spec "user.indentline"
 spec "user.lspconfig"
 spec "user.lualine"
 spec "user.mason"
 spec "user.nvimtree"
 spec "user.project"
-spec "user.schemastore"
 spec "user.telescope"
 spec "user.toggleterm"
 spec "user.treesitter"
@@ -35,7 +34,6 @@ require("user.lazy").setup(LAZY_PLUGIN_SPEC)
 
 
 -- TODO: get NOTE and TODO highlighted again
--- use({'ckipp01/nvim-jenkinsfile-linter', requires = { "nvim-lua/plenary.nvim" } })
 -- TOOD: try ctags
 
 -- MAJOR TODO

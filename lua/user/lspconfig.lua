@@ -7,6 +7,9 @@ local M = {
       "folke/neodev.nvim",
       commit = "b094a663ccb71733543d8254b988e6bebdbdaca4",
     },
+    {
+      "b0o/schemastore.nvim",
+    },
   },
 }
 

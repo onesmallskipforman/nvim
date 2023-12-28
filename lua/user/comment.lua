@@ -1,7 +1,6 @@
 return {
   "numToStr/Comment.nvim",
   event = "VeryLazy",
-  lazy = true,
   commit = "0236521ea582747b58869cb72f70ccfa967d2e89",
   config = function()
     vim.keymap.set("n", "<leader>/", "<Plug>(comment_toggle_linewise_current)", { desc = 'Comment out current line'         })

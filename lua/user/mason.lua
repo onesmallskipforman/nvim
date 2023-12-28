@@ -5,6 +5,7 @@ local M = {
     "williamboman/mason.nvim",
     "nvim-lua/plenary.nvim",
   },
+  lazy = false,
 }
 
 M.servers = {

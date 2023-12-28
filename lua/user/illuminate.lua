@@ -1,13 +1,13 @@
 local M = {
   "RRethy/vim-illuminate",
-  commit = "d6ca7f77eeaf61b3e6ce9f0e5a978d606df44298",
+  -- commit = "d6ca7f77eeaf61b3e6ce9f0e5a978d606df44298",
   lazy = false,
   event = { "BufReadPost", "BufNewFile" },
 }
 
 function M.config()
-  vim.keymap.set('n', '<a-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { desc = "Next LSP Reference" })
-  vim.keymap.set('n', '<a-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', { desc = "Previous LSP Reference" })
+  vim.keymap.set('n', '<M-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { desc = "Next LSP Reference" })
+  vim.keymap.set('n', '<M-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', { desc = "Previous LSP Reference" })
   require("illuminate").configure {
     delay = 100, -- 300
     under_cursor = true,

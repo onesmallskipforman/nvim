@@ -2,10 +2,7 @@ local M = {
   "nvim-tree/nvim-tree.lua",
   event = "VeryLazy",
   -- version = "*",
-  lazy = true,
-  dependencies = {
-    "nvim-tree/nvim-web-devicons",
-  },
+  dependencies = { "nvim-tree/nvim-web-devicons", },
   commit = "40b9b887d090d5da89a84689b4ca0304a9649f62",
 }
 
