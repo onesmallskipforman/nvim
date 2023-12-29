@@ -6,8 +6,9 @@ local M = {
 }
 
 function M.init()
-  vim.keymap.set('n', '<M-n>', function() require("illuminate").goto_next_reference{wrap=true} end, { desc = "Next LSP Reference" })
-  vim.keymap.set('n', '<M-p>', function() require("illuminate").goto_prev_reference{wrap=true} end, { desc = "Prev LSP Reference" })
+  -- TODO: decide whether you want illuminate or lsp doing this
+  vim.keymap.set('n', '<M-n>', function() require("illuminate").goto_next_reference{wrap=true} end, { desc = "Next Reference" })
+  vim.keymap.set('n', '<M-p>', function() require("illuminate").goto_prev_reference{wrap=true} end, { desc = "Prev Reference" })
 end
 
 function M.config()
@@ -22,7 +23,7 @@ function M.config()
     large_file_cutoff = 5000,
     large_file_overrides = {
       -- disable treesitter in large file for performance
-      -- providers = { "lsp" },
+      providers = { "regex" },
     },
     filetypes_denylist = {
       "mason",
@@ -49,11 +50,6 @@ function M.config()
       "TelescopePrompt",
     },
   }
-
-  -- make sure vim-illuminate highlighting is aligned with lsp highlighting
-  -- vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "LspReferenceText" })
-  -- vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "LspReferenceText" })
-  -- vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "LspReferenceText" })
 end
 
 return M

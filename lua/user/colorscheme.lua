@@ -34,6 +34,10 @@ return {
         vim.api.nvim_set_hl(0, "LspReferenceText" , { link="CursorLine" })
         vim.api.nvim_set_hl(0, "LspReferenceWrite", { link="CursorLine" })
         vim.api.nvim_set_hl(0, "LspReferenceRead" , { link="CursorLine" })
+        -- make sure vim-illuminate highlighting is aligned with lsp highlighting
+        -- vim.api.nvim_set_hl(0, "IlluminatedWordText" , { link = "LspReferenceText" })
+        -- vim.api.nvim_set_hl(0, "IlluminatedWordRead" , { link = "LspReferenceText" })
+        -- vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "LspReferenceText" })
 
         vim.api.nvim_set_hl(0, "NvimTreeNormal" , { bg=require("bufferline.config").highlights.fill.bg })
         vim.api.nvim_set_hl(0, "NvimTreeOffset" , {
