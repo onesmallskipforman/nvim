@@ -18,12 +18,16 @@ local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   local keymap = vim.api.nvim_buf_set_keymap
 
+  -- TODO: allow setting description
   keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
   keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+
+
+
 
   -- TODO: figure out how to combine existing opts with description
   -- local keymap = function(bufnr, mode, lhs, rhs, opts)
@@ -51,7 +55,7 @@ end
 
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
-  -- client.server_capabilities.semanticTokensProvider = nil
+  client.server_capabilities.semanticTokensProvider = nil
 end
 
 function M.common_capabilities()
@@ -78,6 +82,9 @@ function M.common_capabilities()
 end
 
 function M.config()
+
+  vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "Info" })
+
   local lspconfig = require "lspconfig"
   local icons = require "user.icons"
 

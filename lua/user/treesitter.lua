@@ -32,7 +32,12 @@ local M = {
     },
   },
 }
+function M.init()
+  vim.keymap.set("n", "<leader>Ti", "<cmd>TSConfigInfo<cr>", { desc = "Info" })
+end
+
 function M.config()
+
   require("nvim-treesitter.configs").setup {
     ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "python" }, -- put the language you want in this array, can also say "all"
     ignore_install = { "" },

@@ -1,12 +1,43 @@
--- NOTE: Prefer using : over <cmd> as the latter avoids going back in normal-mode.
--- see https://neovim.io/doc/user/map.html#:map-cmd
+-- NOTE: Prefer using : over <cmd>. see :h map-cmd
+
+-- local function km (mode, prefix, opts)
+--   opts = opts or {}
+--   opts = vim.tbl_extend("keep", opts, { noremap = true, silent = true, buffer = true })
+--   prefix = prefix or ""
+--
+--   return function (lhs, rhs, desc)
+--     opts = vim.tbl_extend("keep", opts, { desc = desc })
+--     vim.keymap.set(mode, prefix..lhs, rhs, opts)
+--   end
+-- end
+--
+-- local opts = {
+--   -- mode = "n", -- NORMAL mode
+--   -- prefix = "<leader>",
+--   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+--   silent = true, -- use `silent` when creating keymaps
+--   noremap  = true, -- use `noremap` when creating keymaps
+--   nowait = true, -- use `nowait` when creating keymaps
+-- }
+
+-- local nmap = km("n", opts)
+-- local vmap = km("v", opts)
 
 local keymap = function(mode, lhs, rhs, opts)
   opts = opts or {}
   opts = vim.tbl_extend("keep", opts,
-    { remap = false, silent = true --[[, buffer = true --]] })
+    { noremap = true, silent = true, buffer = nil })
   vim.keymap.set(mode, lhs, rhs, opts)
 end
+
+-- TOOD: keymap function
+
+--
+-- local keymap = function(mode, lhs, rhs, desc)
+--   if desc then opts = vim.tbl_extend("keep", opts, { desc = desc }) end
+--   vim.keymap.set(mode, lhs, rhs, opts)
+-- end
+
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>")
@@ -29,7 +60,7 @@ keymap("n", "<C-l>", "<C-w>l")
 
 -- Save, close and, exit
 keymap("n", "<leader>w", "<cmd>w!<CR>", { desc = "Save" })
-keymap("n", "<leader>q", "<cmd>q!<CR>", { desc = "Quit" })
+keymap("n", "<leader>q", "<cmd>q!<CR>", { desc = "Quit" }) -- { "<cmd>confirm q<CR>", "Quit" }
 keymap("n", "<leader>c", "<cmd>bdelete!<CR>", { desc = "Close Buffer" })
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", { desc = "Remove Highlight" })
 
@@ -65,3 +96,36 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", {desc = "Move text up one line"})
 -- replace currently selected text with default register without yanking it
 -- see https://superuser.com/questions/321547/how-do-i-replace-paste-yanked-text-in-vim-without-yanking-the-deleted-lines
 keymap("v", "p", '"_dP')
+
+-- tab controls
+keymap("n", "<leader>ta", "<cmd>$tabnew<cr>", { desc = "New Empty Tab" })
+keymap("n", "<leader>tA", "<cmd>tabnew %<cr>", { desc = "New Tab" })
+keymap("n", "<leader>tn", "<cmd>tabn<cr>", { desc = "Next" })
+keymap("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Only" })
+keymap("n", "<leader>tp", "<cmd>tabp<cr>", { desc = "Prev" })
+keymap("n", "<leader>th", "<cmd>-tabmove<cr>", { desc = "Move Left" })
+keymap("n", "<leader>tl", "<cmd>+tabmove<cr>", { desc = "Move Right" })
+
+-- LSP
+keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", { desc = "Code Action (Normal)" })
+keymap("v", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", { desc = "Code Action (Visual)" })
+keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({timeout_ms = 1000000})<cr>", { desc = "Format" })
+keymap("n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", { desc = "CodeLens Action" })
+keymap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", { desc = "Rename" })
+keymap("n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<cr>", { desc = "Next Diagnostic" })
+keymap("n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev()<cr>", { desc = "Prev Diagnostic" })
+keymap("n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", { desc = "Quickfix" })
+
+-- local mappings = {
+--   p = {name = "Plugins"},
+--   b = {name = "Buffers"},
+--   f = {name = "Find"},
+--   s = {name = "Search"},
+--   g = {name = "Git"},
+--   l = {name = "LSP"},
+--   s = {name = "Search"},
+--   t = {name = "Terminal"},
+--   d = {name = "Debug"},
+--   t = {name = "Tab"},
+--   T = {name = "Treesitter"},
+-- }

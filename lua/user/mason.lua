@@ -25,6 +25,8 @@ M.servers = {
 }
 
 function M.config()
+  vim.keymap.set("n", "<leader>lI", "<cmd>Mason<cr>", { desc = "Mason Info" })
+
   require("mason").setup {
     ui = {
       border = "rounded",

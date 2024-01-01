@@ -1,43 +1,43 @@
-local LAZY_PLUGIN_SPEC = {}
-local function spec(item) table.insert(LAZY_PLUGIN_SPEC, { import = item }) end
-
-require "user.options"
-require "user.keymaps"
-require "user.autocommands"
-spec "user.alpha"
-spec "user.autopairs"
-spec "user.bufferline"
-spec "user.cmp"
-spec "user.colorscheme"
-spec "user.comment"
-spec "user.devicons"
-spec "user.dressing" -- ui improvements
-spec "user.gitlinker"
-spec "user.gitsigns"
-spec "user.gitblame"
-spec "user.illuminate"
-spec "user.indentline"
-spec "user.lspconfig"
-spec "user.lualine"
-spec "user.mason"
-spec "user.nvimtree"
-spec "user.project"
-spec "user.telescope"
-spec "user.todo"
-spec "user.toggleterm"
-spec "user.treesitter"
---
--- spec "user.whichkey" -- TODO: whichkey NOW
--- spec "user.cmd"
-
-require("user.lazy").setup(LAZY_PLUGIN_SPEC)
+require("user.options")
+require("user.keymaps")
+require("user.autocommands")
+require("user.lazy").setup({
+  require("user.alpha"),
+  require("user.autopairs"),
+  require("user.bufferline"),
+  require("user.cmp"),
+  require("user.colorscheme"),
+  require("user.comment"),
+  require("user.devicons"),
+  require("user.dressing"), -- ui improvements
+  require("user.gitlinker"),
+  require("user.gitsigns"),
+  require("user.gitblame"),
+  require("user.illuminate"),
+  require("user.indentline"),
+  require("user.lspconfig"),
+  require("user.lualine"),
+  require("user.mason"),
+  require("user.nvimtree"),
+  require("user.project"),
+  require("user.telescope"),
+  require("user.todo"),
+  require("user.toggleterm"),
+  require("user.treesitter"),
+  --
+  require ("user.whichkey"), -- TODO: whichkey NOW
+  -- require ("user.cmd"),
+  -- require ("user.noice"),
+})
 
 
--- TODO: get NOTE and TODO highlighted again
--- TODO: I want it to be easier to add a random plugin from within init.lua
 
 -- if you want generic, plugin agnostic maps (ie "leader-e opens file explorer")
 -- then you can set up mappings using <Plug> in keymaps.lua and set their
 -- functionality within each plugins 'init' block
 -- see https://vi.stackexchange.com/questions/31012/what-does-plug-do-in-vim
 -- add 'h <Plug>'
+-- hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-- <Plug> is cool, but nothing is really stopping a plugin from accidentally
+-- using the same <Plug> keys as you.
+-- Idea: try specifying keys in keymaps.lua and have plugin configs import them

@@ -290,9 +290,9 @@ function M.config()
     },
     sources = cmp.config.sources({
       { name = 'cmdline', priority = 2 },
-      -- { name = 'cmdline', priority = 2, option = { ignore_cmds = { 'Man', '!' }} },
-      { name = 'path'   , priority = 1 },
-      { name = 'buffer' , priority = 1 },
+      -- { name = 'cmdline', priority = 2, option = { ignore_cmds = { 'Man', '!', 's/', }} },
+      -- { name = 'path'   , priority = 1 },
+      -- { name = 'buffer' , priority = 1 }, -- things get messy with ':s', see https://github.com/hrsh7th/cmp-cmdline/issues/13 and https://github.com/hrsh7th/cmp-cmdline/issues/48
       -- { name = 'nvim_lsp' }, -- https://github.com/hrsh7th/cmp-cmdline/issues/106
 
     })

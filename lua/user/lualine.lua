@@ -1,11 +1,10 @@
 local M = {
   "nvim-lualine/lualine.nvim",
-  commit = "7533b0ead663d80452210c0c089e5105089697e5",
+  -- commit = "7533b0ead663d80452210c0c089e5105089697e5",
   lazy = false,
 }
 
 function M.config()
-  local sl_hl = vim.api.nvim_get_hl_by_name("StatusLine", true)
   local icons = require "user.icons"
   local diff = {
     "diff",
@@ -35,21 +34,16 @@ function M.config()
       ignore_focus = { "NvimTree" },
     },
     sections = {
-      -- lualine_a = { {"branch", icon =""} },
-      -- lualine_b = { diff },
-      -- lualine_c = { "diagnostics" },
-      -- lualine_y = { "filetype" },
-      -- lualine_z = { "progress" },
       lualine_a = { "mode" },
-      lualine_b = { "branch" },
+      lualine_b = { "branch" }, --, icon =""} },
       lualine_c = { diff },
 --     lualine_x = { diff, spaces, "encoding", filetype },
-      lualine_x = { "diagnostics" },
+      lualine_x = { "diagnostics" }, -- { diagnostics },
       lualine_y = { "filetype" },
       lualine_z = { "progress" },
       -- lualine_z = { "location", padding = { left = 0, right = 1 } },
     },
-    extensions = { "quickfix", "man", "fugitive" },
+    extensions = { "quickfix", "man", "fugitive", "nvim-tree", "toggleterm" },
   }
 end
 

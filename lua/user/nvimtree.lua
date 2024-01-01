@@ -4,10 +4,14 @@ local M = {
   -- version = "*",
   dependencies = { "nvim-tree/nvim-web-devicons", },
   commit = "40b9b887d090d5da89a84689b4ca0304a9649f62",
+  cmd = "NvimTreeToggle",
 }
 
-function M.config()
+function M.init()
   vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = 'Toggle NvimTree'})
+end
+
+function M.config()
   local function my_on_attach(bufnr)
     local api = require "nvim-tree.api"
 

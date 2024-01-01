@@ -1,10 +1,19 @@
 return {
   "numToStr/Comment.nvim",
-  event = "VeryLazy",
-  commit = "0236521ea582747b58869cb72f70ccfa967d2e89",
-  config = function()
+  -- event = "VeryLazy",
+  -- commit = "0236521ea582747b58869cb72f70ccfa967d2e89",
+  keys = {
+    {"<Plug>(comment_toggle_linewise_current)", mode = "n"},
+    {"<Plug>(comment_toggle_linewise_visual)" , mode = "v"},
+  },
+  init = function()
+    -- TODO: this does not cover block comment keymaps
     vim.keymap.set("n", "<leader>/", "<Plug>(comment_toggle_linewise_current)", { desc = 'Comment out current line'         })
     vim.keymap.set("v", "<leader>/", "<Plug>(comment_toggle_linewise_visual)" , { desc = 'Comment out visual-selected text' })
+    -- Comment toggle linewise (normal)
+    -- Comment toggle linewise (visual)
+  end,
+  config = function()
     require("Comment").setup {
       ---Add a space b/w comment and the line
       padding = true,
@@ -44,12 +53,12 @@ return {
         extra = true,
       },
       ---Function to call before (un)comment
-      pre_hook = function(...)
+      pre_hook = function(ctx)
         local loaded, ts_comment = pcall(require, "ts_context_commentstring.integrations.comment_nvim")
         if loaded and ts_comment then
-          return ts_comment.create_pre_hook()(...)
+          return ts_comment.create_pre_hook()(ctx)
         end
-      end,
+      end, -- require('Comment.ft').calculate
       ---Function to call after (un)comment
       post_hook = nil,
     }
