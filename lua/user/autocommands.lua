@@ -1,19 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd({ "BufNewFile", "BufRead" }, { pattern = { "Jenkinsfile" },
-  callback = function()
-    -- vim.opt_local.filetype = "groovy"
-    vim.cmd "setf groovy"
-  end,
-})
-
-autocmd({ "BufNewFile", "BufRead" }, { pattern = { "*.launch" },
-  callback = function()
-    -- vim.opt_local.filetype = "xml"
-    vim.cmd "setf xml"
-  end,
-})
-
 autocmd({ "BufWritePre" }, {
   callback = function()
     vim.cmd [[ %s/\s\+$//e   ]] -- remove trailing whitespace

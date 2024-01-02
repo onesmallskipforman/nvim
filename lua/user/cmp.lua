@@ -1,4 +1,3 @@
--- TODO: figure out how to trigger search completion without previosly triggering cmp in-buffer
 local M = {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
@@ -48,22 +47,39 @@ local M = {
       "hrsh7th/cmp-nvim-lua",
       commit = "f12408bdb54c39c23e67cab726264c10db33ada8",
     },
+    -- TODO: dictionary completion is not working
     {
       "uga-rosa/cmp-dictionary",
-      config = function ()
-        require("cmp_dictionary").setup{
-            dic = {
-                ["*"] = "/usr/share/dict/words",
-                ["markdown"] = { "path/to/mddict", "path/to/mddict2" },
-                ["javascript,typescript"] = { "path/to/jsdict" },
-            },
-            -- The following are default values, so you don't need to write them if you don't want to change them
-            exact = 2,
-            async = false,
-            capacity = 5,
-            debug = false,
-        }
-      end
+      -- config = function ()
+      --   local dict = require("cmp_dictionary")
+      --   dict.setup{
+      --       -- dic = {
+      --       --     ["*"] = "/usr/share/dict/words",
+      --       --     ["markdown"] = { "path/to/mddict", "path/to/mddict2" },
+      --       --     ["javascript,typescript"] = { "path/to/jsdict" },
+      --       -- },
+      --       -- The following are default values, so you don't need to write them if you don't want to change them
+      --       exact = 2,
+      --       async = false,
+      --       capacity = 5,
+      --       debug = false,
+      --   }
+      --
+      --   dict.switcher({
+      --     filetype = {
+      --       -- lua = "/path/to/lua.dict",
+      --       txt = "/usr/share/dict/words"
+      --       -- javascript = { "/path/to/js.dict", "/path/to/js2.dict" },
+      --     },
+      --     -- filepath = {
+      --     --   [".*xmake.lua"] = { "/path/to/xmake.dict", "/path/to/lua.dict" },
+      --     --   ["%.tmux.*%.conf"] = { "/path/to/js.dict", "/path/to/js2.dict" },
+      --     -- },
+      --     -- spelllang = {
+      --     --   en = "/path/to/english.dict",
+      --     -- },
+      --   })
+      -- end
     },
     {
       "hrsh7th/cmp-cmdline",
@@ -140,7 +156,6 @@ function M.config()
       end, {
         "i",
         "s",
-        -- "c" -- TODO: this causes native cmd tab menu to not spawn after being in insert mode once
       }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
@@ -153,7 +168,6 @@ function M.config()
       end, {
         "i",
         "s",
-        -- "c" -- TODO: this causes native cmd tab menu to not spawn after being in insert mode once
       }),
     },
     formatting = {
@@ -209,15 +223,15 @@ function M.config()
       },
       { name = "luasnip" },
       { name = "nvim_lua" },
-      {
-        name = "buffer",
-        option = {
-          -- pull from all open buffers
-          get_bufnrs = function()
-            return vim.api.nvim_list_bufs()
-          end
-        }
-      },
+      -- {
+      --   name = "buffer",
+      --   option = {
+      --     -- pull from all open buffers
+      --     get_bufnrs = function()
+      --       return vim.api.nvim_list_bufs()
+      --     end
+      --   }
+      -- },
       { name = "path" },
       { name = "calc" },
       { name = "emoji" },
@@ -249,21 +263,7 @@ function M.config()
     },
   }
 
-  -- TODO: trigger dictionary only in select files (textfile, markdow, etc)
-  -- require("cmp_dictionary").setup{
-  --     dic = {
-  --         ["*"] = "/usr/share/dict/words",
-  --         ["markdown"] = { "path/to/mddict", "path/to/mddict2" },
-  --         ["javascript,typescript"] = { "path/to/jsdict" },
-  --     },
-  --     -- The following are default values, so you don't need to write them if you don't want to change them
-  --     exact = 2,
-  --     async = false,
-  --     capacity = 5,
-  --     debug = false,
-  -- }
-
-  -- TODO: cmp cmdline causes issues with tab completion in cmd mode
+  -- NOTE: cmp cmdline causes issues with tab completion in cmd mode
   -- https://github.com/hrsh7th/nvim-cmp/issues/874#issuecomment-1090099590
   -- https://github.com/hrsh7th/cmp-cmdline/issues/52
   cmp.setup.cmdline('/', {
@@ -297,6 +297,39 @@ function M.config()
 
     })
   })
+
+
+
+
+    local dict = require("cmp_dictionary")
+    dict.setup{
+        -- dic = {
+        --     ["*"] = "/usr/share/dict/words",
+        --     ["markdown"] = { "path/to/mddict", "path/to/mddict2" },
+        --     ["javascript,typescript"] = { "path/to/jsdict" },
+        -- },
+        -- The following are default values, so you don't need to write them if you don't want to change them
+        exact = 2,
+        async = false,
+        capacity = 5,
+        debug = false,
+    }
+
+    dict.switcher({
+      filetype = {
+        -- lua = "/path/to/lua.dict",
+        ['*'] = "/usr/share/dict/words"
+        -- javascript = { "/path/to/js.dict", "/path/to/js2.dict" },
+      },
+      -- filepath = {
+      --   [".*xmake.lua"] = { "/path/to/xmake.dict", "/path/to/lua.dict" },
+      --   ["%.tmux.*%.conf"] = { "/path/to/js.dict", "/path/to/js2.dict" },
+      -- },
+      -- spelllang = {
+      --   en = "/path/to/english.dict",
+      -- },
+    })
+
 
 
   pcall(function()

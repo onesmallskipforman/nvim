@@ -86,12 +86,6 @@ keymap("v", ">", ">gv")
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", {desc = "Move text down one line"})
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", {desc = "Move text up one line"})
--- keymap("v", "<A-j>", ":m .+1<CR>==")
--- keymap("v", "<A-k>", ":m .-2<CR>==")
--- keymap("x", "J", ":move '>+1<CR>gv-gv")
--- keymap("x", "K", ":move '<-2<CR>gv-gv")
--- keymap("x", "<A-j>", ":move '>+1<CR>gv-gv")
--- keymap("x", "<A-k>", ":move '<-2<CR>gv-gv")
 
 -- replace currently selected text with default register without yanking it
 -- see https://superuser.com/questions/321547/how-do-i-replace-paste-yanked-text-in-vim-without-yanking-the-deleted-lines
@@ -129,3 +123,41 @@ keymap("n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", { desc = "
 --   t = {name = "Tab"},
 --   T = {name = "Treesitter"},
 -- }
+
+
+
+
+  -- local opts = {
+  --   mode = "n", -- NORMAL mode
+  --   prefix = "<leader>",
+  --   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  --   silent = true, -- use `silent` when creating keymaps
+  --   noremap = true, -- use `noremap` when creating keymaps
+  --   nowait = true, -- use `nowait` when creating keymaps
+  -- }
+  --
+  --
+  -- local vopts = {
+  --   mode = "v", -- VISUAL mode
+  --   prefix = "<leader>",
+  --   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  --   silent = true, -- use `silent` when creating keymaps
+  --   noremap = true, -- use `noremap` when creating keymaps
+  --   nowait = true, -- use `nowait` when creating keymaps
+  -- }
+  --
+  --
+  -- -- which_key.register(mappings, opts)
+  -- -- which_key.register(vmappings, vopts)
+  --
+
+
+-- if you want generic, plugin agnostic maps (ie "leader-e opens file explorer")
+-- then you can set up mappings using <Plug> in keymaps.lua and set their
+-- functionality within each plugins 'init' block
+-- see https://vi.stackexchange.com/questions/31012/what-does-plug-do-in-vim
+-- add 'h <Plug>'
+-- hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-- <Plug> is cool, but nothing is really stopping a plugin from accidentally
+-- using the same <Plug> keys as you.
+-- Idea: try specifying keys in keymaps.lua and have plugin configs import them

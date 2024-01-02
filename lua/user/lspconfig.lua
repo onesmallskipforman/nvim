@@ -15,42 +15,33 @@ local M = {
 }
 
 local function lsp_keymaps(bufnr)
-  local opts = { noremap = true, silent = true }
-  local keymap = vim.api.nvim_buf_set_keymap
+  local keymap = function(mode, lhs, rhs, opts)
+    opts = opts or {}
+    opts = vim.tbl_extend("keep", opts,
+      { noremap = true, silent = true })
+    vim.keymap.set(mode, lhs, rhs, opts)
+  end
 
-  -- TODO: allow setting description
-  keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+  keymap("n", "gD", function() vim.lsp.buf.declaration()    end, { desc = "Goto declaration"           , buffer = bufnr})
+  keymap("n", "gd", function() vim.lsp.buf.definition()     end, { desc = "Goto definition"            , buffer = bufnr})
+  keymap("n", "K" , function() vim.lsp.buf.hover()          end, { desc = "Hover documentation"        , buffer = bufnr})
+  keymap("n", "gI", function() vim.lsp.buf.implementation() end, { desc = "Show implementations"       , buffer = bufnr})
+  keymap("n", "gr", function() vim.lsp.buf.references()     end, { desc = "Show references"            , buffer = bufnr})
+  keymap("n", "gl", function() vim.diagnostic.open_float()  end, { desc = "Show diagnostic (floating)" , buffer = bufnr})
+  keymap("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "Info" })
 
 
-
-
-  -- TODO: figure out how to combine existing opts with description
-  -- local keymap = function(bufnr, mode, lhs, rhs, opts)
-  --   opts = vim.tbl_extend("keep", opts,
-  --     { remap = false, silent = true, buffer = bufnr })
-  --   vim.keymap.set(mode, lhs, rhs, opts)
-  -- end
-  -- keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "LSP" })
-  -- keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "LSP" })
-  -- keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "LSP" })
-  -- keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "LSP" })
-  -- keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "LSP" })
-  -- keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "LSP" })
-  -- keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "LSP" })
-  -- keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", { desc = "Code Action" })
-  -- keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", { desc = "Format" })
+  -- TODO: figure out where these should go
+  -- keymap(bufnr, "n", "<leader>ls", function() vim.lsp.buf.signature_help() end, { desc = "LSP" })
+  -- keymap(bufnr, "n", "<leader>la", function() vim.lsp.buf.code_action() end, { desc = "Code Action" })
+  -- keymap(bufnr, "n", "<leader>lf", function() vim.lsp.buf.format() end, { desc = "Format" })
   -- keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "Info" })
-  -- keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", { desc = "Installer Info" })
-  -- keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", { desc = "Next Diagnostic" })
-  -- keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", { desc = "Prev Diagnostic" })
-  -- keymap(bufnr, "n", "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", { desc = "CodeLens Action" })
-  -- keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", { desc = "Quickfix" })
-  -- keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", { desc = "Rename" })
+  -- keymap(bufnr, "n", "<leader>lj", function() vim.lsp.diagnostic.goto_next() end, { desc = "Next Diagnostic" })
+  -- keymap(bufnr, "n", "<leader>lk", function() vim.lsp.diagnostic.goto_prev() end, { desc = "Prev Diagnostic" })
+  -- keymap(bufnr, "n", "<leader>ll", function() vim.lsp.codelens.run() end, { desc = "CodeLens Action" })
+  -- keymap(bufnr, "n", "<leader>lr", function() vim.lsp.buf.rename() end, { desc = "Rename" })
+
+
 end
 
 M.on_attach = function(client, bufnr)
@@ -83,7 +74,6 @@ end
 
 function M.config()
 
-  vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "Info" })
 
   local lspconfig = require "lspconfig"
   local icons = require "user.icons"
