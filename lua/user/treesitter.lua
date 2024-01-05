@@ -2,28 +2,33 @@ local M = {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPost", "BufNewFile" },
   commit = "afa103385a2b5ef060596ed822ef63276ae88016",
---  tag = 'v0.9.1',
+  tag = 'v0.9.1',
   build = ":TSUpdate",
   dependencies = {
     {
       "nvim-treesitter/nvim-treesitter-textobjects",
       event = "VeryLazy",
-     commit = "78c49ca7d2f7ccba2115c11422c037713c978ad1",
+      commit = "78c49ca7d2f7ccba2115c11422c037713c978ad1",
     },
     {
       "JoosepAlviste/nvim-ts-context-commentstring",
       event = "VeryLazy",
-     commit = "92e688f013c69f90c9bbd596019ec10235bc51de",
+      config = function()
+       require('ts_context_commentstring').setup {
+         enable_autocmd = false,
+       }
+      end,
+      -- commit = "92e688f013c69f90c9bbd596019ec10235bc51de",
     },
     {
       "windwp/nvim-ts-autotag",
       event = "VeryLazy",
-     commit = "6be1192965df35f94b8ea6d323354f7dc7a557e4",
+     -- commit = "6be1192965df35f94b8ea6d323354f7dc7a557e4",
     },
     {
       "windwp/nvim-autopairs",
       event = "InsertEnter",
-     commit = "f6c71641f6f183427a651c0ce4ba3fb89404fa9e",
+     -- commit = "f6c71641f6f183427a651c0ce4ba3fb89404fa9e",
     },
   },
 }
@@ -32,6 +37,9 @@ function M.init()
 end
 
 function M.config()
+
+  vim.g.skip_ts_context_commentstring_module = true
+
 
   require("nvim-treesitter.configs").setup {
     ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "python" }, -- put the language you want in this array, can also say "all"
@@ -51,11 +59,6 @@ function M.config()
     },
 
     autotag = { enable = true },
-
-    context_commentstring = {
-      enable = true,
-      enable_autocmd = false,
-    },
 
     autopairs = { enable = true },
 

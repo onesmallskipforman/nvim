@@ -19,7 +19,7 @@ require("user.lazy").setup({
   require("user.lualine"),
   require("user.mason"),
   require("user.nvimtree"),
-  require("user.project"),
+  require("user.project"), -- TODO: doesn't seem to be working
   require("user.telescope"),
   require("user.todo"),
   require("user.toggleterm"),

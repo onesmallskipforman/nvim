@@ -6,22 +6,21 @@ local M = {
 
 function M.config()
 
-  vim.keymap.set("n", "<leader>dt", function() require'dap'.toggle_breakpoint() end, { desc = "Toggle Breakpoint" })
-  vim.keymap.set("n", "<leader>db", function() require'dap'.step_back() end, { desc = "Step Back" })
-  vim.keymap.set("n", "<leader>dc", function() require'dap'.continue() end, { desc = "Continue" })
-  vim.keymap.set("n", "<leader>dC", function() require'dap'.run_to_cursor() end, { desc = "Run To Cursor" })
-  vim.keymap.set("n", "<leader>dd", function() require'dap'.disconnect() end, { desc = "Disconnect" })
-  vim.keymap.set("n", "<leader>dg", function() require'dap'.session() end, { desc = "Get Session" })
-  vim.keymap.set("n", "<leader>di", function() require'dap'.step_into() end, { desc = "Step Into" })
-  vim.keymap.set("n", "<leader>do", function() require'dap'.step_over() end, { desc = "Step Over" })
-  vim.keymap.set("n", "<leader>du", function() require'dap'.step_out() end, { desc = "Step Out" })
-  vim.keymap.set("n", "<leader>dp", function() require'dap'.pause() end, { desc = "Pause" })
-  vim.keymap.set("n", "<leader>dr", function() require'dap'.repl.toggle() end, { desc = "Toggle Repl" })
-  vim.keymap.set("n", "<leader>ds", function() require'dap'.continue() end, { desc = "Start" })
-  vim.keymap.set("n", "<leader>dq", function() require'dap'.close() end, { desc = "Quit" })
+  local dap = require("dap")
+  vim.keymap.set("n", "<leader>dt", function() dap.toggle_breakpoint() end, { desc = "Toggle Breakpoint" })
+  vim.keymap.set("n", "<leader>db", function() dap.step_back() end, { desc = "Step Back" })
+  vim.keymap.set("n", "<leader>dc", function() dap.continue() end, { desc = "Continue" })
+  vim.keymap.set("n", "<leader>dC", function() dap.run_to_cursor() end, { desc = "Run To Cursor" })
+  vim.keymap.set("n", "<leader>dd", function() dap.disconnect() end, { desc = "Disconnect" })
+  vim.keymap.set("n", "<leader>dg", function() dap.session() end, { desc = "Get Session" })
+  vim.keymap.set("n", "<leader>di", function() dap.step_into() end, { desc = "Step Into" })
+  vim.keymap.set("n", "<leader>do", function() dap.step_over() end, { desc = "Step Over" })
+  vim.keymap.set("n", "<leader>du", function() dap.step_out() end, { desc = "Step Out" })
+  vim.keymap.set("n", "<leader>dp", function() dap.pause() end, { desc = "Pause" })
+  vim.keymap.set("n", "<leader>dr", function() dap.repl.toggle() end, { desc = "Toggle Repl" })
+  vim.keymap.set("n", "<leader>ds", function() dap.continue() end, { desc = "Start" })
+  vim.keymap.set("n", "<leader>dq", function() dap.close() end, { desc = "Quit" })
   vim.keymap.set("n", "<leader>dU", function() require'dapui'.toggle({reset = true}) end, { desc = "Toggle UI" })
-
-  local dap = require "dap"
 
   local dap_ui_status_ok, dapui = pcall(require, "dapui")
   if not dap_ui_status_ok then

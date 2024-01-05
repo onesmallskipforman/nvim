@@ -3,7 +3,7 @@ local M = {
   event = "InsertEnter",
   -- event = { "InsertEnter", "CmdlineEnter" }, -- not sure if i need this or if in dependencies
   lazy = false,
-  -- commit = "d3a3056204e1a9dbb7c7fe36c114dc43b681768c",
+  commit = "d3a3056204e1a9dbb7c7fe36c114dc43b681768c",
   dependencies = {
     {
       "hrsh7th/cmp-nvim-lsp",
@@ -28,7 +28,7 @@ local M = {
     {
       "hrsh7th/cmp-cmdline",
       event = "InsertEnter",
-      -- commit = "8ee981b4a91f536f52add291594e89fb6645e451",
+      commit = "8ee981b4a91f536f52add291594e89fb6645e451",
     },
     {
       "saadparwaiz1/cmp_luasnip",
@@ -48,39 +48,40 @@ local M = {
       commit = "f12408bdb54c39c23e67cab726264c10db33ada8",
     },
     -- TODO: dictionary completion is not working
-    {
-      "uga-rosa/cmp-dictionary",
-      -- config = function ()
-      --   local dict = require("cmp_dictionary")
-      --   dict.setup{
-      --       -- dic = {
-      --       --     ["*"] = "/usr/share/dict/words",
-      --       --     ["markdown"] = { "path/to/mddict", "path/to/mddict2" },
-      --       --     ["javascript,typescript"] = { "path/to/jsdict" },
-      --       -- },
-      --       -- The following are default values, so you don't need to write them if you don't want to change them
-      --       exact = 2,
-      --       async = false,
-      --       capacity = 5,
-      --       debug = false,
-      --   }
-      --
-      --   dict.switcher({
-      --     filetype = {
-      --       -- lua = "/path/to/lua.dict",
-      --       txt = "/usr/share/dict/words"
-      --       -- javascript = { "/path/to/js.dict", "/path/to/js2.dict" },
-      --     },
-      --     -- filepath = {
-      --     --   [".*xmake.lua"] = { "/path/to/xmake.dict", "/path/to/lua.dict" },
-      --     --   ["%.tmux.*%.conf"] = { "/path/to/js.dict", "/path/to/js2.dict" },
-      --     -- },
-      --     -- spelllang = {
-      --     --   en = "/path/to/english.dict",
-      --     -- },
-      --   })
-      -- end
-    },
+    -- {
+    --   "uga-rosa/cmp-dictionary",
+    --   enable = false,
+    --   -- config = function ()
+    --   --   local dict = require("cmp_dictionary")
+    --   --   dict.setup{
+    --   --       -- dic = {
+    --   --       --     ["*"] = "/usr/share/dict/words",
+    --   --       --     ["markdown"] = { "path/to/mddict", "path/to/mddict2" },
+    --   --       --     ["javascript,typescript"] = { "path/to/jsdict" },
+    --   --       -- },
+    --   --       -- The following are default values, so you don't need to write them if you don't want to change them
+    --   --       exact = 2,
+    --   --       async = false,
+    --   --       capacity = 5,
+    --   --       debug = false,
+    --   --   }
+    --   --
+    --   --   dict.switcher({
+    --   --     filetype = {
+    --   --       -- lua = "/path/to/lua.dict",
+    --   --       txt = "/usr/share/dict/words"
+    --   --       -- javascript = { "/path/to/js.dict", "/path/to/js2.dict" },
+    --   --     },
+    --   --     -- filepath = {
+    --   --     --   [".*xmake.lua"] = { "/path/to/xmake.dict", "/path/to/lua.dict" },
+    --   --     --   ["%.tmux.*%.conf"] = { "/path/to/js.dict", "/path/to/js2.dict" },
+    --   --     -- },
+    --   --     -- spelllang = {
+    --   --     --   en = "/path/to/english.dict",
+    --   --     -- },
+    --   --   })
+    --   -- end
+    -- },
     {
       "hrsh7th/cmp-cmdline",
     },
@@ -238,7 +239,7 @@ function M.config()
       { name = "treesitter" },
       { name = "crates" },
       { name = "tmux" },
-      { name = "dictionary" },
+      -- { name = "dictionary" },
     },
     confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,
@@ -301,34 +302,34 @@ function M.config()
 
 
 
-    local dict = require("cmp_dictionary")
-    dict.setup{
-        -- dic = {
-        --     ["*"] = "/usr/share/dict/words",
-        --     ["markdown"] = { "path/to/mddict", "path/to/mddict2" },
-        --     ["javascript,typescript"] = { "path/to/jsdict" },
-        -- },
-        -- The following are default values, so you don't need to write them if you don't want to change them
-        exact = 2,
-        async = false,
-        capacity = 5,
-        debug = false,
-    }
+    -- local dict = require("cmp_dictionary")
+    -- dict.setup{
+    --     -- dic = {
+    --     --     ["*"] = "/usr/share/dict/words",
+    --     --     ["markdown"] = { "path/to/mddict", "path/to/mddict2" },
+    --     --     ["javascript,typescript"] = { "path/to/jsdict" },
+    --     -- },
+    --     -- The following are default values, so you don't need to write them if you don't want to change them
+    --     exact = 2,
+    --     async = false,
+    --     capacity = 5,
+    --     debug = false,
+    -- }
 
-    dict.switcher({
-      filetype = {
-        -- lua = "/path/to/lua.dict",
-        ['*'] = "/usr/share/dict/words"
-        -- javascript = { "/path/to/js.dict", "/path/to/js2.dict" },
-      },
-      -- filepath = {
-      --   [".*xmake.lua"] = { "/path/to/xmake.dict", "/path/to/lua.dict" },
-      --   ["%.tmux.*%.conf"] = { "/path/to/js.dict", "/path/to/js2.dict" },
-      -- },
-      -- spelllang = {
-      --   en = "/path/to/english.dict",
-      -- },
-    })
+    -- dict.switcher({
+    --   filetype = {
+    --     -- lua = "/path/to/lua.dict",
+    --     ['*'] = "/usr/share/dict/words"
+    --     -- javascript = { "/path/to/js.dict", "/path/to/js2.dict" },
+    --   },
+    --   -- filepath = {
+    --   --   [".*xmake.lua"] = { "/path/to/xmake.dict", "/path/to/lua.dict" },
+    --   --   ["%.tmux.*%.conf"] = { "/path/to/js.dict", "/path/to/js2.dict" },
+    --   -- },
+    --   -- spelllang = {
+    --   --   en = "/path/to/english.dict",
+    --   -- },
+    -- })
 
 
 

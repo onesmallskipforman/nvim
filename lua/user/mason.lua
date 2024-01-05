@@ -21,7 +21,9 @@ M.servers = {
   "marksman",
   -- "tailwindcss",
   "texlab",
-  "luau_lsp",
+  -- "luau_lsp",
+  "clangd",
+  "awk_ls",
 }
 
 function M.config()
