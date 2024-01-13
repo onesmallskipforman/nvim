@@ -4,6 +4,21 @@ local M = {
   commit = "234822140b265ec4ba3203e3e0be0e0bb826dff5",
 }
 
+-- turn off tabline for alpha
+-- function M.init()
+--   vim.api.nvim_create_autocmd("User", { pattern = "AlphaReady",
+--     callback = function()
+--       vim.opt.showtabline = 0
+--     end,
+--   })
+--
+--   vim.api.nvim_create_autocmd("User", { pattern = "AlphaClosed",
+--     callback = function()
+--       vim.opt.showtabline = 2
+--     end,
+--   })
+-- end
+
 function M.config()
 
   vim.keymap.set("n", "<leader>a", "<cmd>Alpha<cr>", { desc = 'Alpha' })
