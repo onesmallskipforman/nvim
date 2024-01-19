@@ -52,7 +52,8 @@ vim.filetype.add {
     rasi = "css",
   },
   pattern = {
-    Jenkinsfile = "groovy"
+    Jenkinsfile = "groovy",
+    workrc = "sh"
   }
 }
 -- vim.g.loaded_netrw = 1
