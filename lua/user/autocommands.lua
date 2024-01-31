@@ -15,6 +15,13 @@ autocmd({ "FileType" }, { pattern = { "lua" },
   end,
 })
 
+autocmd({ "FileType" }, { pattern = { "sh" },
+  callback = function()
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+  end,
+})
+
 autocmd({ "BufWinEnter" }, {
   callback = function()
     vim.cmd "set formatoptions-=cro" -- doesn't work on startup so it needs to be an autocmd
