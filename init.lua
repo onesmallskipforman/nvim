@@ -25,5 +25,6 @@ require("user.lazy").setup({
   require("user.toggleterm"),
   require("user.treesitter"),
   require("user.whichkey"),
+  require("user.colorizer"),
   -- require("user.noice")
 })
