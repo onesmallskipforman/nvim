@@ -1,3 +1,4 @@
+-- vim.lsp.set_log_level("debug")
 require("user.options")
 require("user.keymaps")
 require("user.autocommands")
@@ -28,3 +29,5 @@ require("user.lazy").setup({
   require("user.colorizer"),
   -- require("user.noice")
 })
+
+-- TODO: set nvim to recognize camel_case and SnakeCase as having distinct words
