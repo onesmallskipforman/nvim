@@ -54,4 +54,23 @@ return {
   },
   { "lunarvim/colorschemes" }, -- Multiple colorschemes to try out
   { "lunarvim/darkplus.nvim" }, -- Colorscheme
+  {
+    "oncomouse/lushwal.nvim",
+    cmd = { "LushwalCompile" },
+    -- lazy = false,
+    dependencies = {
+      { "rktjmp/lush.nvim" },
+      { "rktjmp/shipwright.nvim" },
+    },
+    --config = function()
+    --    require("lushwal").setup()
+    --    vim.cmd.colorscheme("lushwal")
+    --end,
+  },
+  {
+    "AlphaTechnolog/pywal.nvim",
+    config = function()
+        require("pywal").setup()
+    end,
+  },
 }

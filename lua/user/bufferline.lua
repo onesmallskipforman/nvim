@@ -50,6 +50,8 @@ function M.config()
       buffer_selected = {
         fg = { attribute = "fg", highlight = "Normal" },
         bg = { attribute = "bg", highlight = "Normal" },
+        -- fg = { attribute = "fg", highlight = "BufferLineTabSelected" },
+        -- bg = { attribute = "bg", highlight = "BufferLineTabSelected" },
       },
       close_button = {
         fg = { attribute = "fg", highlight = "TabLine" },

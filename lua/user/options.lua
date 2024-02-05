@@ -49,7 +49,7 @@ vim.filetype.add {
   extension = {
     conf = "dosini",
     launch = "xml",
-    rasi = "css",
+    -- rasi = "css",
   },
   pattern = {
     Jenkinsfile = "groovy",
