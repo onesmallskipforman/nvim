@@ -32,6 +32,10 @@ function M.config()
       section_separators = { left = "", right = "" },
 
       ignore_focus = { "NvimTree" },
+
+
+      -- theme = 'pywal16-nvim',
+
     },
     sections = {
       lualine_a = { "mode" },

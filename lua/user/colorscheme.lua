@@ -56,21 +56,32 @@ return {
   { "lunarvim/darkplus.nvim" }, -- Colorscheme
   {
     "oncomouse/lushwal.nvim",
-    cmd = { "LushwalCompile" },
     -- lazy = false,
+    -- priority = 1000,
+    cmd = { "LushwalCompile" },
     dependencies = {
       { "rktjmp/lush.nvim" },
       { "rktjmp/shipwright.nvim" },
     },
-    --config = function()
-    --    require("lushwal").setup()
-    --    vim.cmd.colorscheme("lushwal")
-    --end,
+    -- config = function()
+    --   -- vim.cmd "LushwalCompile"
+    --   require("lushwal").setup()
+    --   vim.cmd.colorscheme("lushwal")
+    -- end,
   },
   {
     "AlphaTechnolog/pywal.nvim",
     config = function()
         require("pywal").setup()
+    end,
+  },
+  {
+    "uZer/pywal16.nvim",
+    lazy = true,
+    priority = 1000,
+    config = function()
+      require('pywal16').setup()
+      vim.cmd.colorscheme("pywal")
     end,
   },
 }
