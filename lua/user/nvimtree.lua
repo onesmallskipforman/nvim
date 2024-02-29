@@ -33,7 +33,8 @@ function M.config()
   local icons = require "user.icons"
   require("nvim-tree").setup{
     on_attach = my_on_attach,
-    sync_root_with_cwd = true,
+    sync_root_with_cwd = false,
+    respect_buf_cwd = true,
     renderer = {
       add_trailing = false,
       group_empty = false,
@@ -89,10 +90,14 @@ function M.config()
      ignore = true,
      timeout = 500,
     },
+    filters = {
+      git_ignored = false, -- show files that are listed in gitignore
+    },
     update_focused_file = {
       enable = true,
       debounce_delay = 15,
-      update_root = true,
+      update_root = false, -- prevents jumping root when moving around filesystem (matches vscode default behavior)
+      -- TODO: find out command to manually change to another project (i think telescope Projects does the trick but it would be nice to make it more automatic based on current buffer)
       ignore_list = {},
     },
     diagnostics = {
