@@ -98,6 +98,8 @@ function M.config()
       debounce_delay = 15,
       update_root = false, -- prevents jumping root when moving around filesystem (matches vscode default behavior)
       -- TODO: find out command to manually change to another project (i think telescope Projects does the trick but it would be nice to make it more automatic based on current buffer)
+      -- okay so project_nvim 'manual_mode = false' will change the project automatically, but i have to still reopen nvimtree to see the change and it does not change back for files not detected in a project
+      -- probably better to do it manually with telescope
       ignore_list = {},
     },
     diagnostics = {

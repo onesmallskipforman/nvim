@@ -18,8 +18,8 @@ function M.setup(lazy_plugin_spec)
   require("lazy").setup {
     spec = lazy_plugin_spec,
     install = {
-      -- colorscheme = { "gruvbox" },
-      colorscheme = { "pywal16" },
+      colorscheme = { "gruvbox" },
+      -- colorscheme = { "pywal16" },
     },
     ui = {
       border = "rounded",
