@@ -28,6 +28,7 @@ opt.cursorline = false                       -- highlight the current line
 opt.number = true                           -- set numbered lines
 opt.numberwidth = 2                         -- set number column width to 2 {default 4}
 opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
+opt.statuscolumn="%=%l%s%C"
 opt.laststatus = 3
 opt.showcmd = false
 opt.ruler = false
