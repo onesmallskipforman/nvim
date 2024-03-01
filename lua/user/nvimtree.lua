@@ -3,7 +3,7 @@ local M = {
   event = "VeryLazy",
   -- version = "*",
   dependencies = { "nvim-tree/nvim-web-devicons", },
-  commit = "40b9b887d090d5da89a84689b4ca0304a9649f62",
+  -- commit = "40b9b887d090d5da89a84689b4ca0304a9649f62",
   cmd = "NvimTreeToggle",
 }
 
@@ -33,12 +33,20 @@ function M.config()
   local icons = require "user.icons"
   require("nvim-tree").setup{
     on_attach = my_on_attach,
-    sync_root_with_cwd = false,
+    sync_root_with_cwd = true,
     respect_buf_cwd = true,
+    view = {
+      signcolumn = "yes",
+      -- width = {
+      --   padding = 0,
+      -- },
+    },
     renderer = {
+      -- highlight_git = "name",
+      -- highlight_diagnostics = "name",
+      -- highlight_modified = "all",
       add_trailing = false,
       group_empty = false,
-      highlight_git = false,
       full_name = false,
       highlight_opened_files = "none",
       root_folder_label = ":t",
@@ -54,22 +62,29 @@ function M.config()
         },
       },
       icons = {
-        git_placement = "before",
+        git_placement = "signcolumn",
+        modified_placement = "signcolumn",
+        diagnostics_placement = "signcolumn",
         padding = " ",
         symlink_arrow = " ➛ ",
+        show = {
+          folder_arrow = false,
+          folder = true,
+        },
         glyphs = {
           default = icons.ui.Text,
           symlink = icons.ui.FileSymlink,
           bookmark = icons.ui.BookMark,
           folder = {
+            -- TODO: symlink folder icons appear to not be working
+            -- symlink = icons.ui.FolderSymlink,
+            -- symlink_open = icons.ui.FolderSymlink,
             arrow_closed = icons.ui.ChevronRight,
             arrow_open = icons.ui.ChevronShortDown,
-            default = icons.ui.Folder,
+            -- default = icons.ui.Folder,
             open = icons.ui.FolderOpen,
             empty = icons.ui.EmptyFolder,
             empty_open = icons.ui.EmptyFolderOpen,
-            symlink = icons.ui.FolderSymlink,
-            symlink_open = icons.ui.FolderOpen,
           },
           git = {
             unstaged = icons.git.FileUnstaged,
@@ -78,7 +93,7 @@ function M.config()
             renamed = icons.git.FileRenamed,
             untracked = icons.git.FileUntracked,
             deleted = icons.git.FileDeleted,
-            ignored = icons.git.FileIgnored,
+            ignored = "", -- icons.git.FileIgnored,
           },
         },
       },
@@ -96,7 +111,7 @@ function M.config()
     update_focused_file = {
       enable = true,
       debounce_delay = 15,
-      update_root = false, -- prevents jumping root when moving around filesystem (matches vscode default behavior)
+      update_root = true, -- prevents jumping root when moving around filesystem (false matches vscode default behavior)
       -- TODO: find out command to manually change to another project (i think telescope Projects does the trick but it would be nice to make it more automatic based on current buffer)
       -- okay so project_nvim 'manual_mode = false' will change the project automatically, but i have to still reopen nvimtree to see the change and it does not change back for files not detected in a project
       -- probably better to do it manually with telescope
