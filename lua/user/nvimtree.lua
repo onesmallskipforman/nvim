@@ -28,6 +28,9 @@ function M.config()
     vim.keymap.set("n", "<S-k>", api.node.open.preview, opts "Open Preview")
 
     vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
+
+
+    -- vim.keymap.set('n', '<C-c>', require("nvim-tree.api").tree.change_root(vim.fn.expand('%:p:h')), opts("Change Dir to current file"))
   end
 
   local icons = require "user.icons"
@@ -35,6 +38,7 @@ function M.config()
     on_attach = my_on_attach,
     sync_root_with_cwd = true,
     respect_buf_cwd = true,
+    -- prefer_startup_root = true,
     view = {
       signcolumn = "yes",
       -- width = {
@@ -50,7 +54,7 @@ function M.config()
       full_name = false,
       highlight_opened_files = "none",
       root_folder_label = ":t",
-      indent_width = 2,
+      indent_width = 1,
       indent_markers = {
         enable = false,
         inline_arrows = true,
@@ -111,7 +115,7 @@ function M.config()
     update_focused_file = {
       enable = true,
       debounce_delay = 15,
-      update_root = true, -- prevents jumping root when moving around filesystem (false matches vscode default behavior)
+      -- update_root = true, -- prevents jumping root when moving around filesystem (false matches vscode default behavior)
       -- TODO: find out command to manually change to another project (i think telescope Projects does the trick but it would be nice to make it more automatic based on current buffer)
       -- okay so project_nvim 'manual_mode = false' will change the project automatically, but i have to still reopen nvimtree to see the change and it does not change back for files not detected in a project
       -- probably better to do it manually with telescope

@@ -1,3 +1,5 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 local opt = vim.opt
 opt.backup = false                          -- creates a backup file
 opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
@@ -39,6 +41,7 @@ opt.sidescrolloff = 8
 opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 opt.incsearch = true                       -- prevent incremental highlight while typing a search
 opt.fillchars:append 'eob: '
+-- opt.fillchars:append 'vert:│'
 opt.fillchars:append 'vert: '
 opt.fillchars:append 'vertright:─'
 opt.fillchars:append 'vertleft:─'

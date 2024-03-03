@@ -20,7 +20,8 @@ require("user.lazy").setup({
   require("user.lualine"),
   require("user.mason"),
   require("user.nvimtree"),
-  require("user.project"), -- TODO: doesn't seem to be working
+  -- require("user.project"), -- TODO: doesn't seem to be working
+  require("user.workspaces"), -- TODO: doesn't seem to be working
   require("user.telescope"),
   require("user.todo"),
   require("user.toggleterm"),
@@ -31,3 +32,7 @@ require("user.lazy").setup({
 })
 
 -- TODO: set nvim to recognize camel_case and SnakeCase as having distinct words
+
+
+-- TODO:  figure out how to change lsp cmd when doing LspRestart so that clangd can use the cwd or current workspace
+-- also consider https://github.com/VonHeikemen/lsp-zero.nvim

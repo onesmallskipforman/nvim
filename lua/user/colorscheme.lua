@@ -47,8 +47,8 @@ return {
         vim.api.nvim_set_hl(0, "SignColumn" , { link="Normal" })
         -- vim.api.nvim_set_hl(0, "NvimTreeWinSeparator" , {
         --     -- fg=string.format("#%06x", vim.api.nvim_get_hl_by_name("TabLine", true)["background"]),
-        --     fg=require("bufferline.config").highlights.fill.bg,
-        --     bg=require("bufferline.config").highlights.fill.bg,
+        --     fg=require("bufferline.config").highlights.fill.fg,
+        --     -- bg=require("bufferline.config").highlights.fill.bg,
         -- })
     end,
   },

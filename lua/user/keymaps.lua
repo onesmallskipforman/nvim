@@ -110,6 +110,10 @@ keymap("n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<cr>", { desc = "N
 keymap("n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev()<cr>", { desc = "Prev Diagnostic" })
 keymap("n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", { desc = "Quickfix" })
 
+
+keymap('n', '<leader>d', ':cd %:p:h<CR>', { desc = "Change Dir to current file" })
+
+
 -- local mappings = {
 --   p = {name = "Plugins"},
 --   b = {name = "Buffers"},

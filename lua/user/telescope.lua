@@ -3,14 +3,16 @@ local M = {
   dependencies = {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     { "nvim-lua/plenary.nvim" },
-    { "ahmedkhalf/project.nvim" },
+    -- { "ahmedkhalf/project.nvim" },
+    { "natecraddock/workspaces.nvim" },
   },
   cmd = "Telescope",
 }
 
 function M.init()
   -- vim.keymap.set("n", "<leader>P" , "<cmd>Telescope projects<cr>"    , { desc = "Projects"})
-  vim.keymap.set("n", "<leader>sp" , "<cmd>lua require('telescope').extensions.projects.projects()<cr>"    , { desc = "Projects"})
+  -- vim.keymap.set("n", "<leader>sp" , "<cmd>lua require('telescope').extensions.projects.projects()<cr>"    , { desc = "Projects"})
+  vim.keymap.set("n", "<leader>sw" , "<cmd>lua require('telescope').extensions.workspaces.workspaces()<cr>"    , { desc = "Workspaces"})
   -- vim.keymap.set("n", "<leader>si" , "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>"    , { desc = "Media"}) -- requires https://github.com/nvim-telescope/telescope-media-files.nvim
   vim.keymap.set("n", "<leader>F" , "<cmd>Telescope live_grep<cr>"   , { desc = 'Live Grep'})
   -- vim.keymap.set("n", "<leader>t" , "<cmd>Telescope live_grep<cr>"   , { desc = 'Find Text'         })
@@ -161,6 +163,9 @@ function M.config()
       },
     },
   }
+  -- require('telescope').load_extension('projects')
+  require('telescope').load_extension('workspaces')
+  require('telescope').load_extension('fzf')
 end
 
 return M
