@@ -21,7 +21,7 @@ require("user.lazy").setup({
   require("user.mason"),
   require("user.nvimtree"),
   -- require("user.project"), -- TODO: doesn't seem to be working
-  require("user.workspaces"), -- TODO: doesn't seem to be working
+  require("user.workspaces"),
   require("user.telescope"),
   require("user.todo"),
   require("user.toggleterm"),
