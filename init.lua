@@ -29,6 +29,21 @@ require("user.lazy").setup({
   require("user.whichkey"),
   require("user.colorizer"),
   -- require("user.noice")
+  {
+      "iamcco/markdown-preview.nvim",
+      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+      ft = { "markdown" },
+      build = function() vim.fn["mkdp#util#install"]() end,
+  },
+  {
+      'Vonr/align.nvim',
+      branch = "v2",
+      lazy = true,
+      init = function()
+          -- Create your mappings here
+      end
+  },
+  { 'echasnovski/mini.align', version = '*', config = true, lazy = false },
 })
 
 -- TODO: set nvim to recognize camel_case and SnakeCase as having distinct words
@@ -36,3 +51,5 @@ require("user.lazy").setup({
 
 -- TODO:  figure out how to change lsp cmd when doing LspRestart so that clangd can use the cwd or current workspace
 -- also consider https://github.com/VonHeikemen/lsp-zero.nvim
+
+-- TODO: im not sure telescope is using fzf
