@@ -32,6 +32,48 @@ function M.config()
     return b
   end
 
+
+
+  dashboard.section.header.val = {
+    '                                                              ',
+    '                                                              ',
+    '                                                              ',
+    '                                                              ',
+    '    ⢀⣀⣤⣤⣤⠤⢤⣤⣤⣤⣤⣄⣀⡀           ⢀⣠⣤⣄⡀            ⣀⣀⣀⣤⣤⣤⣤⣤⣤⣤⣤⣀⡀   ',
+    ' ⢀⣤⠚⠩⠁⡄ ⠠⣤⠒⠒⣂ ⢈⣨⣭⣿⠛⠶⣦⣤⣄⡀   ⢠⣾⡟⠉⠉⠝⠿⠇    ⢀⣠⡤⠔⠒⣻⠟⠋⠩⠉⢁⣀⡀  ⣶  ⠙⡛⠷  ',
+    ' ⠸⢟⡠⠒⢊⡤  ⠋⣠ ⠈⣉⣉⣉⣉⣀⣛⣿⡒⠭⡿⢿⣷⣤⣤⣀⣽⣇⣴⠆⣴⡃⢀⣠⣤⠴⣚⣫⡥ ⠒⠛⠁⣀⣉⣉⣙⢏⡉  ⢀⣼⣤⣜⠳⡦⠂  ',
+    '   ⠐⠚⠫⣤⠖⢣⣤⡕ ⠉⣩⣤⠔ ⠂⣋⣭⣥⣤⠴⠛⣛⠈⢩⣿⠿⠛⢉  ⡐⠞⠫⢍⠙⣓⠢⠴⣥⣍⣙⠛⢓⡢⢤⣬⠉⠅ ⣤⡜⢛⠻⠛⠉⠁   ',
+    '      ⠘⢔⢎⣡⡔⠂⣠⡿⠁⠒⢛⡻⢛⣩⠅  ⠉  ⠚⣯⣄⢠⣿⢀⣾⠇ ⠓ ⠁⠂⠈⠍⠐⠈⡉⣿⠛⣛⠛⠉⣤⣰⣿⣿⡟⠛⠁      ',
+    '        ⠙⠛⠐⠚⠋ ⠒⣲⡿⠇⣋        ⢺⡏⠈⣀ ⠉⠈        ⠙⢿⠟⢰⣖⡢ ⠂⠒⠚⠉         ',
+    '             ⣴⠛⠅⢀⣾⠟⢃       ⢹⠃⠠⠁⠈⠩         ⢠⣿ ⣀⢹⣿⡷             ',
+    '             ⢿⣤⢚⣫⠅         ⢸⠇ ⢚ ⢀         ⣸⡇ ⠉⣿⣿⠇             ',
+    '             ⠈⠛⢻⣥⡚⠔⣠⢣⣄⡀    ⢸⡇ ⢘ ⠈ ⠠⠈    ⣀⣰⡿⣧⣄⠾⠋⠁              ',
+    '                ⠈⠑⠁        ⠘⣿⡀⣈⣀    ⠈  ⠈⠙⠁                    ',
+    '                            ⠘⣷⠁                               ',
+    '                             ⠙⣤                               ',
+    '                              ⠛⠂                              ',
+    '                                                              ',
+  }
+
+  dashboard.section.header.val = {
+    [[                       ,;    t#,                                        ]],
+    [[                     f#i    ;##W.              t                        ]],
+    [[ L.                .E#t    :#L:WE              Ej            ..       : ]],
+    [[ EW:        ,ft   i#W,    .KG  ,#D  t      .DD.E#,          ,W,     .Et ]],
+    [[ E##;       t#E  L#D.     EE    ;#f EK:   ,WK. E#t         t##,    ,W#t ]],
+    [[ E###t      t#E:K#Wfff;  f#.     t#iE#t  i#D   E#t        L###,   j###t ]],
+    [[ E#fE#f     t#Ei##WLLLLt :#G     GK E#t j#f    E#t      .E#j##,  G#fE#t ]],
+    [[ E#t D#G    t#E .E#L      ;#L   LW. E#tL#i     E#t     ;WW; ##,:K#i E#t ]],
+    [[ E#t  f#E.  t#E   f#E:     t#f f#:  E#WW,      E#t    j#E.  ##f#W,  E#t ]],
+    [[ E#t   t#K: t#E    ,WW;     f#D#;   E#K:       E#t  .D#L    ###K:   E#t ]],
+    [[ E#t    ;#W,t#E     .D#;     G#t    ED.        E#t :K#t     ##D.    E#t ]],
+    [[ E#t     :K#D#E       tt      t     t          E#t ...      #G      ..  ]],
+    [[ E#t      .E##E                                ,;.          j           ]],
+    [[ ..         G#E                                                         ]],
+    [[             fE                                                         ]],
+    [[              ,                                                         ]],
+  }
+
   dashboard.section.header.val = {
     [[   ooooo      ooo                     oooooo     oooo  o8o                      ]],
     [[   `888b.     `8'                      `888.     .8'   `"'                      ]],
@@ -57,6 +99,8 @@ function M.config()
     -- [[                                                                                ]],
     -- [[                  A NeoVim Config by Skipper, Controls Engineer                 ]]
   }
+
+
 
   dashboard.section.buttons.val = {
     button("f", icons.ui.Files .. " Find file", ":Telescope find_files <CR>"),
