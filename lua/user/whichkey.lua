@@ -5,6 +5,10 @@ local M = {
     vim.o.timeout = true
     vim.o.timeoutlen = 300
   end,
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "echasnovski/mini.nvim",
+  },
   -- commit = "ce741eb559c924d72e3a67d2189ad3771a231414",
   opts = {
     -- your configuration comes here
@@ -15,6 +19,7 @@ local M = {
 
 function M.config()
   require("which-key").setup {
+    -- preset = "modern",
     plugins = {
       marks = false, -- shows a list of your marks on ' and `
       registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -41,16 +46,16 @@ function M.config()
 --     -- ["<cr>"] = "RET",
 --     -- ["<tab>"] = "TAB",
 --   },
-    popup_mappings = {
-      scroll_down = "<c-d>", -- binding to scroll down inside the popup
-      scroll_up = "<c-u>", -- binding to scroll up inside the popup
-    },
-    window = {
+    -- popup_mappings = {
+    --   scroll_down = "<c-d>", -- binding to scroll down inside the popup
+    --   scroll_up = "<c-u>", -- binding to scroll up inside the popup
+    -- },
+    win = {
       border = "rounded", -- none, single, double, shadow
-      position = "bottom", -- bottom, top
-      margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+      -- position = "bottom", -- bottom, top
+      -- margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
       padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-      winblend = 0,
+      -- winblend = 0,
     },
     layout = {
       height = { min = 4, max = 25 }, -- min and max height of the columns
@@ -58,19 +63,19 @@ function M.config()
       spacing = 3, -- spacing between columns
       align = "left", -- align columns left, center or right
     },
-    ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-    hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
+    -- ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
+    -- hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
     show_help = true, -- show help message on the command line when the popup is visible
     show_keys = true, -- show the currently pressed key and its label as a message in the command line
-    triggers = "auto", -- automatically setup triggers
+    -- triggers = "auto", -- automatically setup triggers
     -- triggers = {"<leader>"} -- or specify a list manually
-    triggers_blacklist = {
-      -- list of mode / prefixes that should never be hooked by WhichKey
-      -- this is mostly relevant for key maps that start with a native binding
-      -- most people should not need to change this
-      i = { "j", "k" },
-      v = { "j", "k" },
-    },
+    -- triggers_blacklist = {
+    --   -- list of mode / prefixes that should never be hooked by WhichKey
+    --   -- this is mostly relevant for key maps that start with a native binding
+    --   -- most people should not need to change this
+    --   i = { "j", "k" },
+    --   v = { "j", "k" },
+    -- },
     -- disable the WhichKey popup for certain buf types and file types.
     -- Disabled by default for Telescope
     disable = {

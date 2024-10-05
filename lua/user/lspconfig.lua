@@ -1,11 +1,11 @@
 local M = {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
-  commit = "e49b1e90c1781ce372013de3fa93a91ea29fc34a",
+  -- commit = "e49b1e90c1781ce372013de3fa93a91ea29fc34a",
   dependencies = {
     {
       "folke/neodev.nvim",
-      commit = "b094a663ccb71733543d8254b988e6bebdbdaca4",
+      -- commit = "b094a663ccb71733543d8254b988e6bebdbdaca4",
     },
     {
       "b0o/schemastore.nvim",
@@ -83,7 +83,7 @@ function M.config()
     -- "luau_lsp",
     "cssls",
     "html",
-    "tsserver",
+    -- "tsserver",
     "astro",
     "pyright",
     "bashls",
@@ -93,6 +93,7 @@ function M.config()
     -- "tailwindcss",
     "texlab",
     "awk_ls",
+    "nil_ls",
     "clangd",
   }
 

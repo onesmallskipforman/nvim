@@ -1,7 +1,6 @@
 local M = {
   "lewis6991/gitsigns.nvim",
   event = "BufEnter",
-  commit = "5a9a6ac29a7805c4783cda21b80a1e361964b3f2",
   cmd = "Gitsigns",
 }
 M.config = function()
@@ -20,36 +19,11 @@ M.config = function()
 
   require("gitsigns").setup {
     signs = {
-      add = {
-        hl = "GitSignsAdd",
-        text = icons.ui.BoldLineRight,
-        numhl = "GitSignsAddNr",
-        linehl = "GitSignsAddLn",
-      },
-      change = {
-        hl = "GitSignsChange",
-        text = icons.ui.BoldLineRight,
-        numhl = "GitSignsChangeNr",
-        linehl = "GitSignsChangeLn",
-      },
-      delete = {
-        hl = "GitSignsDelete",
-        text = icons.ui.TriangleShortArrowRight,
-        numhl = "GitSignsDeleteNr",
-        linehl = "GitSignsDeleteLn",
-      },
-      topdelete = {
-        hl = "GitSignsDelete",
-        text = icons.ui.TriangleShortArrowRight,
-        numhl = "GitSignsDeleteNr",
-        linehl = "GitSignsDeleteLn",
-      },
-      changedelete = {
-        hl = "GitSignsChange",
-        text = icons.ui.BoldLineRight,
-        numhl = "GitSignsChangeNr",
-        linehl = "GitSignsChangeLn",
-      },
+      add          = { text = icons.ui.BoldLineRight           },
+      change       = { text = icons.ui.BoldLineRight           },
+      delete       = { text = icons.ui.TriangleShortArrowRight },
+      topdelete    = { text = icons.ui.TriangleShortArrowRight },
+      changedelete = { text = icons.ui.BoldLineRight           },
     },
     watch_gitdir = {
       interval = 1000,

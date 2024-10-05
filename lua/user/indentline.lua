@@ -1,13 +1,14 @@
 local M = {
   "lukas-reineke/indent-blankline.nvim",
-  event = "VeryLazy",
-  commit = "9637670896b68805430e2f72cf5d16be5b97a22a",
+  -- event = "VeryLazy",
+  main = "ibl",
+  -- commit = "9637670896b68805430e2f72cf5d16be5b97a22a",
 }
 
 function M.config()
   local icons = require("user.icons")
 
-  require("indent_blankline").setup {
+  require("ibl").setup {
     buftype_exclude = { "terminal", "nofile" },
     filetype_exclude = {
       "help",

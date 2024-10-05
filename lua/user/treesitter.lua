@@ -1,14 +1,14 @@
 local M = {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPost", "BufNewFile" },
-  commit = "afa103385a2b5ef060596ed822ef63276ae88016",
-  tag = 'v0.9.1',
+  -- commit = "afa103385a2b5ef060596ed822ef63276ae88016",
+  -- tag = 'v0.9.1',
   build = ":TSUpdate",
   dependencies = {
     {
       "nvim-treesitter/nvim-treesitter-textobjects",
       event = "VeryLazy",
-      commit = "78c49ca7d2f7ccba2115c11422c037713c978ad1",
+      -- commit = "78c49ca7d2f7ccba2115c11422c037713c978ad1",
     },
     {
       "JoosepAlviste/nvim-ts-context-commentstring",
