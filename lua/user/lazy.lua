@@ -17,9 +17,9 @@ function M.setup(lazy_plugin_spec)
 
   require("lazy").setup {
     spec = lazy_plugin_spec,
+    -- colorscheme that will be used when installing plugins.
     install = {
-      colorscheme = { "gruvbox" },
-      -- colorscheme = { "pywal16" },
+      colorscheme = { "default" },
     },
     ui = {
       border = "rounded",
