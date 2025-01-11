@@ -58,16 +58,24 @@ return {
     "oncomouse/lushwal.nvim",
     -- lazy = false,
     -- priority = 1000,
-    cmd = { "LushwalCompile" },
     dependencies = {
       { "rktjmp/lush.nvim" },
       { "rktjmp/shipwright.nvim" },
     },
-    -- config = function()
-    --   -- vim.cmd "LushwalCompile"
-    --   require("lushwal").setup()
-    --   vim.cmd.colorscheme("lushwal")
-    -- end,
+
+    -- https://github.com/oncomouse/lushwal.nvim/issues/3
+    init = function()
+      vim.g.lushwal_configuration = {
+        compile_to_vimscript = false,
+      }
+    end,
+
+    config = function()
+      require("lushwal").add_reload_hook({
+        vim.cmd("LushwalCompile")
+      })
+    end,
+    cmd = { "LushwalCompile" },
   },
   {
     "AlphaTechnolog/pywal.nvim",
