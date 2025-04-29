@@ -1,17 +1,14 @@
 local M = {
   "neovim/nvim-lspconfig",
-  event = { "BufReadPre", "BufNewFile" },
-  -- commit = "e49b1e90c1781ce372013de3fa93a91ea29fc34a",
+  -- event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     {
-      "folke/neodev.nvim",
-      -- commit = "b094a663ccb71733543d8254b988e6bebdbdaca4",
-    },
-    {
-      "b0o/schemastore.nvim",
+      "folke/lazydev.nvim",
+      ft = "lua",
+      opts = {},
     },
   },
-  lazy = false
+  lazy = false,
 }
 
 local function lsp_keymaps(bufnr)
@@ -22,12 +19,12 @@ local function lsp_keymaps(bufnr)
     vim.keymap.set(mode, lhs, rhs, opts)
   end
 
-  keymap("n", "gD", function() vim.lsp.buf.declaration()    end, { desc = "Goto declaration"           , buffer = bufnr})
-  keymap("n", "gd", function() vim.lsp.buf.definition()     end, { desc = "Goto definition"            , buffer = bufnr})
-  keymap("n", "K" , function() vim.lsp.buf.hover()          end, { desc = "Hover documentation"        , buffer = bufnr})
-  keymap("n", "gI", function() vim.lsp.buf.implementation() end, { desc = "Show implementations"       , buffer = bufnr})
-  keymap("n", "gr", function() vim.lsp.buf.references()     end, { desc = "Show references"            , buffer = bufnr})
-  keymap("n", "gl", function() vim.diagnostic.open_float()  end, { desc = "Show diagnostic (floating)" , buffer = bufnr})
+  keymap("n", "gD", vim.lsp.buf.declaration   , { desc = "Goto declaration"           , buffer = bufnr})
+  keymap("n", "gd", vim.lsp.buf.definition    , { desc = "Goto definition"            , buffer = bufnr})
+  keymap("n", "K" , vim.lsp.buf.hover         , { desc = "Hover documentation"        , buffer = bufnr})
+  keymap("n", "gI", vim.lsp.buf.implementation, { desc = "Show implementations"       , buffer = bufnr})
+  keymap("n", "gr", vim.lsp.buf.references    , { desc = "Show references"            , buffer = bufnr})
+  keymap("n", "gl", vim.diagnostic.open_float , { desc = "Show diagnostic (floating)" , buffer = bufnr})
   keymap("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "Info" })
 
 
@@ -40,13 +37,14 @@ local function lsp_keymaps(bufnr)
   -- keymap(bufnr, "n", "<leader>lk", function() vim.lsp.diagnostic.goto_prev() end, { desc = "Prev Diagnostic" })
   -- keymap(bufnr, "n", "<leader>ll", function() vim.lsp.codelens.run() end, { desc = "CodeLens Action" })
   -- keymap(bufnr, "n", "<leader>lr", function() vim.lsp.buf.rename() end, { desc = "Rename" })
-
-
 end
 
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
-  client.server_capabilities.semanticTokensProvider = nil
+
+  if client.supports_method "textDocument/inlayHint" then
+    vim.lsp.inlay_hint.enable(true, { bufnr })
+  end
 end
 
 function M.common_capabilities()
@@ -143,11 +141,9 @@ function M.config()
       opts = vim.tbl_deep_extend("force", settings, opts)
     end
 
-    if server == "lua_ls" then
-      require("neodev").setup {}
-    end
-
     lspconfig[server].setup(opts)
+    -- vim.lsp.config(server, opts)
+
   end
 end
 

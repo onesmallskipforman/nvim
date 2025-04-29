@@ -28,7 +28,7 @@ opt.shiftwidth = 4                          -- the number of spaces inserted for
 opt.tabstop = 4                             -- insert 2 spaces for a tab
 opt.cursorline = false                       -- highlight the current line
 opt.number = true                           -- set numbered lines
-opt.numberwidth = 2                         -- set number column width to 2 {default 4}
+opt.numberwidth = 4                         -- set number column width to 2 {default 4}
 opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
 opt.statuscolumn="%=%l%s%C"
 opt.laststatus = 3
