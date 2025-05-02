@@ -9,7 +9,10 @@ local M = {
 }
 
 M.keys = {
-  {"<leader>f", "<cmd>FzfLua files<cr>", desc = 'Find Files'}
+  {"<leader>f", "<cmd>FzfLua files<cr>"    , desc = 'Find Files' },
+  {"<leader>F", "<cmd>FzfLua live_grep<cr>", desc = 'Find Files' },
+  {"<leader>b", "<cmd>FzfLua buffers<cr>"  , desc = 'Find Files' },
+  {"<leader>l", "<cmd>Telescope resume<cr>", desc = "Last Search"},
 }
 
 function M.config()

@@ -12,6 +12,11 @@ function M.init()
 end
 
 function M.config()
+  -- make sure vim-illuminate highlighting is aligned with lsp highlighting
+  vim.api.nvim_set_hl(0, "IlluminatedWordText" , { link = "LspReferenceText" })
+  vim.api.nvim_set_hl(0, "IlluminatedWordRead" , { link = "LspReferenceText" })
+  vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "LspReferenceText" })
+
   require("illuminate").configure {
     delay = 100, -- 300
     under_cursor = true,

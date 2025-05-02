@@ -5,7 +5,7 @@ require("user.keymaps")
 require("user.autocommands")
 require("user.lazy").setup({
   -- require("user.alpha"),
-  -- require("user.autopairs"),
+  require("user.autopairs"),
   require("user.bufferline"),
   -- require("user.cmp"),
   require("user.colorscheme"),
@@ -17,7 +17,7 @@ require("user.lazy").setup({
   -- require("user.gitblame"),
   -- require("user.illuminate"),
   -- require("user.indentline"),
-  require("user.lspconfig"),
+  -- require("user.lspconfig"),
   -- require("user.lualine"),
   -- require("user.mason"),
   require("user.nvimtree"),
@@ -45,7 +45,7 @@ require("user.lazy").setup({
       -- Create your mappings here
     end
   },
-  { 'echasnovski/mini.align', version = '*', config = true, lazy = false },
+  -- { 'echasnovski/mini.align', version = '*', config = true, lazy = false },
 
 
 })

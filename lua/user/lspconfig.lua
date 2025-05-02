@@ -42,7 +42,7 @@ end
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
 
-  if client.supports_method "textDocument/inlayHint" then
+  if client:supports_method "textDocument/inlayHint" then
     vim.lsp.inlay_hint.enable(true, { bufnr })
   end
 end
@@ -71,6 +71,9 @@ function M.common_capabilities()
 end
 
 function M.config()
+  vim.api.nvim_set_hl(0, "LspReferenceText"  , { link = "CursorLine" })
+  vim.api.nvim_set_hl(0, "LspReferenceWrite" , { link = "CursorLine" })
+  vim.api.nvim_set_hl(0, "LspReferenceRead"  , { link = "CursorLine" })
 
 
   local lspconfig = require "lspconfig"
@@ -121,9 +124,9 @@ function M.config()
 
   vim.diagnostic.config(default_diagnostic_config)
 
-  for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
-  end
+  -- for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
+  --   vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
+  -- end
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
