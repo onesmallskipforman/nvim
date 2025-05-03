@@ -1,9 +1,8 @@
 return {
   "norcalli/nvim-colorizer.lua",
-  lazy = false,
-  -- event = "VeryLazy",
-
-  config = function() require("colorizer").setup({
+  lazy = true,
+  opts = {
     css = {rgb_fn = true},
-  }) end,
+  },
+  cmd = "ColorizerToggle",
 }

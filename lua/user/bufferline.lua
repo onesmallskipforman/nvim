@@ -20,7 +20,7 @@ function M.config(_, opts)
   require("bufferline").setup(opts)
   -- TODO: this doesn't work in init. why?
   vim.api.nvim_set_hl(0, "NvimTreeOffset", {
-    fg=vim.api.nvim_get_hl(0, { name = "TabLine", link = false})["bg"],
+    fg=vim.api.nvim_get_hl(0, { name = "TabLine"       , link = false})["bg"],
     bg=vim.api.nvim_get_hl(0, { name = "BufferLineFill", link = false})["bg"],
     force = true,
   })
@@ -40,13 +40,6 @@ M.opts = {
       text_align = "left",
       -- highlight = 'BufferLineFill',
       highlight = 'NvimTreeOffset',
-
-      -- highlight = {
-      --   fg=vim.api.nvim_get_hl(0, { name = "TabLine", link = false})["bg"],
-      --   bg=vim.api.nvim_get_hl(0, { name = "BufferLineFill", link = false})["bg"],
-      -- },
-
-
       -- separator = " ",
       -- separator = icons.ui.BoldLineLeft,
     } },

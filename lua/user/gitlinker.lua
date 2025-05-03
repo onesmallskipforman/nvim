@@ -1,11 +1,15 @@
 local M = {
   "ruifm/gitlinker.nvim",
-  event = "VeryLazy",
+  dependencies = { "nvim-lua/plenary.nvim" },
+  lazy = true,
+}
+
+M.keys = {
+  {"<leader>gy", function() require("gitlinker").get_buf_range_url('n') end, desc = 'gitlinker' },
 }
 
 function M.config()
-  vim.keymap.set("n", "<leader>gy", "<cmd>lua require'gitlinker'.get_buf_range_url('n')<cr>", { desc = 'gitlinker' })
-  require("gitlinker").setup {
+  require("gitlinker").setup({
     opts = {
       remote = nil, -- force the use of a specific remote
       -- adds current line nr in the url for normal mode
@@ -30,7 +34,7 @@ function M.config()
     },
     -- default mapping to call url generation with action_callback
     mappings = nil
-  }
+  })
 end
 
 return M

@@ -4,21 +4,22 @@ require("user.options")
 require("user.keymaps")
 require("user.autocommands")
 require("user.lazy").setup({
-  -- require("user.alpha"),
+  require("user.alpha"),
   require("user.autopairs"),
   require("user.bufferline"),
-  -- require("user.cmp"),
+  require("user.cmp"),
+  require("user.colorizer"),
   require("user.colorscheme"),
   require("user.comment"),
-  -- require("user.devicons"),
+  require("user.devicons"),
   -- require("user.dressing"),
-  -- require("user.gitlinker"),
-  -- require("user.gitsigns"),
+  require("user.gitlinker"),
+  require("user.gitsigns"),
   -- require("user.gitblame"),
   -- require("user.illuminate"),
   -- require("user.indentline"),
-  -- require("user.lspconfig"),
-  -- require("user.lualine"),
+  require("user.lspconfig"),
+  require("user.lualine"),
   -- require("user.mason"),
   require("user.nvimtree"),
   require("user.fzf"),
@@ -29,7 +30,6 @@ require("user.lazy").setup({
   -- require("user.toggleterm"),
   -- require("user.treesitter"),
   -- require("user.whichkey"),
-  -- require("user.colorizer"),
   -- require("user.noice")
   {
       "iamcco/markdown-preview.nvim",

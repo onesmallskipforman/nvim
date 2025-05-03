@@ -22,9 +22,8 @@ return {
       invert_intend_guides = false,
       inverse = true, -- invert background for search, diffs, statuslines and errors
       contrast = "hard", -- can be "hard", "soft" or empty string
-      -- NOTE: This theme links vim-illuminate groups to lspreference groups
       overrides = {
-          SignColumn        = { link = "Normal"     }, -- TODO: might want to do this for all themes
+          SignColumn = { link = "Normal" }, -- TODO: might want to do this for all themes
       },
     },
     config = function(_,opts)

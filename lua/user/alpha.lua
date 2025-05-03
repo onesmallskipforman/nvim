@@ -1,8 +1,16 @@
 local M = {
   "goolord/alpha-nvim",
   event = "VimEnter",
-  -- commit = "234822140b265ec4ba3203e3e0be0e0bb826dff5",
 }
+
+
+
+
+
+
+
+
+
 
 -- turn off tabline for alpha
 -- function M.init()
@@ -232,15 +240,15 @@ function M.config()
 
 
   dashboard.section.buttons.val = {
-    button("f", icons.ui.Files .. " Find file", ":Telescope find_files <CR>"),
-    button("n", icons.ui.NewFile .. " New file", ":ene <BAR> startinsert <CR>"),
+    button("f", icons.ui.Files   .. " Find file"     , ":Telescope find_files <CR>"),
+    button("n", icons.ui.NewFile .. " New file"      , ":ene <BAR> startinsert <CR>"),
+    button("w", icons.git.Repo   .. " Find Workspace", ":lua require('telescope').extensions.workspaces.workspaces()<CR>"),
+    button("r", icons.ui.History .. " Recent files"  , ":Telescope oldfiles <CR>"),
+    button("t", icons.ui.Text    .. " Find text"     , ":Telescope live_grep <CR>"),
+    button("c", icons.ui.Gear    .. " Config"        , ":e ~/.config/nvim/init.lua <CR>"),
+    button("q", icons.ui.SignOut .. " Quit"          , ":qa<CR>"                        ),
     -- button("s", icons.ui.SignIn .. " Load session", ":lua require('persistence').load()<CR>"),
     -- button("p", icons.git.Repo .. " Find project", ":lua require('telescope').extensions.projects.projects()<CR>"),
-    button("w", icons.git.Repo .. " Find Workspace", ":lua require('telescope').extensions.workspaces.workspaces()<CR>"),
-    button("r", icons.ui.History .. " Recent files", ":Telescope oldfiles <CR>"),
-    button("t", icons.ui.Text .. " Find text", ":Telescope live_grep <CR>"),
-    button("c", icons.ui.Gear .. " Config", ":e ~/.config/nvim/init.lua <CR>"),
-    button("q", icons.ui.SignOut .. " Quit", ":qa<CR>"),
   }
   local function footer()
     return "github.com/onesmallskipforman"
