@@ -7,9 +7,7 @@ local M = {
   end,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
-    "echasnovski/mini.nvim",
   },
-  -- commit = "ce741eb559c924d72e3a67d2189ad3771a231414",
 }
 
 M.opts = {

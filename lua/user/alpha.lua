@@ -1,6 +1,7 @@
 local M = {
   "goolord/alpha-nvim",
-  event = "VimEnter",
+  -- event = "VimEnter",
+  lazy = false
 }
 
 

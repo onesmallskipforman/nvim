@@ -2,7 +2,7 @@
 -- TODO: consider barbar.nvim
 local M = {
   "akinsho/bufferline.nvim",
-  event = { "BufEnter", "BufReadPre", "BufAdd", "BufNew", "BufReadPost" },
+  event = "BufReadPre",
   dependencies = {
     {
       -- TODO: replace with snacks.nvim

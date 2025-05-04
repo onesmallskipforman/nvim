@@ -1,6 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
-  "LuaSnip": { "branch": "master", "commit": "7351d673f430e89f11962dc45b7360d6a0a26d2d" },
+  "LuaSnip": { "branch": "master", "commit": "0d469d83bf4fd90e3420998159012859d694152b" },
   "align.nvim": { "branch": "v2", "commit": "bc5d57df5f4c26f6abee6b6c8529308c2c126d2b" },
   "alpha-nvim": { "branch": "main", "commit": "de72250e054e5e691b9736ee30db72c65d560771" },
   "bufdelete.nvim": { "branch": "master", "commit": "f6bcea78afb3060b198125256f897040538bcb81" },
@@ -15,7 +15,7 @@
   "colorschemes": { "branch": "master", "commit": "e29f32990d6e2c7c3a4763326194fbd847b49dac" },
   "darkplus.nvim": { "branch": "master", "commit": "c7fff5ce62406121fc6c9e4746f118b2b2499c4c" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
-  "fzf-lua": { "branch": "main", "commit": "1cc70fb29e63ff26acba1e0cbca04705f8a485f1" },
+  "fzf-lua": { "branch": "main", "commit": "fe71a7c072e98e43d448d8d198595ee9ebdcb27a" },
   "gitlinker.nvim": { "branch": "master", "commit": "cc59f732f3d043b626c8702cb725c82e54d35c25" },
   "gitsigns.nvim": { "branch": "main", "commit": "1796c7cedfe7e5dd20096c5d7b8b753d8f8d22eb" },
   "gruvbox": { "branch": "main", "commit": "91a0f8e460197a521d42a2e84a7a2a4010be4bbb" },
@@ -34,5 +34,7 @@
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "pywal.nvim": { "branch": "main", "commit": "d11b673c0e3d6eb8cbee7ea8cf4a8911f6ee24b9" },
   "pywal16.nvim": { "branch": "main", "commit": "446ae689c8e4569b9537cddadb28d6e939658ea5" },
-  "shipwright.nvim": { "branch": "master", "commit": "e596ab48328c31873f4f4d2e070243bf9de16ff3" }
+  "shipwright.nvim": { "branch": "master", "commit": "e596ab48328c31873f4f4d2e070243bf9de16ff3" },
+  "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
+  "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
 }

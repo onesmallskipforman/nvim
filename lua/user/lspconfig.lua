@@ -1,14 +1,8 @@
 local M = {
   "neovim/nvim-lspconfig",
-  -- event = { "BufReadPre", "BufNewFile" },
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    {
-      "folke/lazydev.nvim",
-      ft = "lua",
-      opts = {},
-    },
   },
-  lazy = false,
 }
 
 local function lsp_keymaps(bufnr)

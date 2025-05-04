@@ -19,6 +19,12 @@ require("user.lazy").setup({
   -- require("user.illuminate"),
   -- require("user.indentline"),
   require("user.lspconfig"),
+  {
+    -- TODO: finish setup: https://github.com/folke/lazydev.nvim?tab=readme-ov-file#-installation
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {},
+  },
   require("user.lualine"),
   -- require("user.mason"),
   require("user.nvimtree"),
@@ -26,10 +32,10 @@ require("user.lazy").setup({
   -- require("user.project"), -- TODO: doesn't seem to be working
   -- require("user.workspaces"),
   -- require("user.telescope"),
-  -- require("user.todo"),
+  require("user.todo"),
   -- require("user.toggleterm"),
   -- require("user.treesitter"),
-  -- require("user.whichkey"),
+  require("user.whichkey"),
   -- require("user.noice")
   {
       "iamcco/markdown-preview.nvim",
