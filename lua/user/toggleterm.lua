@@ -1,7 +1,5 @@
 local M = {
   "akinsho/toggleterm.nvim",
-  -- event = "VeryLazy",
-  lazy = true,
   cmd = "ToggleTerm",
 }
 

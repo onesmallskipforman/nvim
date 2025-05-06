@@ -64,8 +64,6 @@ return {
   },
   {
     "uZer/pywal16.nvim",
-    lazy = true,
-    priority = 1000,
     config = function()
       require('pywal16').setup()
       vim.cmd.colorscheme("pywal")

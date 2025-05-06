@@ -1,7 +1,6 @@
 local M = {
   "ruifm/gitlinker.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
-  lazy = true,
 }
 
 M.keys = {

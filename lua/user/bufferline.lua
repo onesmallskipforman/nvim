@@ -5,13 +5,18 @@ local M = {
   event = "BufReadPre",
   dependencies = {
     {
-      -- TODO: replace with snacks.nvim
-      "famiu/bufdelete.nvim",
-      init = function()
-        vim.keymap.set("n", "<leader>c", "<cmd>Bdelete!<CR>", { desc = "Close Buffer" })
-      end
-    },
+      "folke/snacks.nvim",
+      priority = 1000,
+      lazy = false,
+      opts = {
+        bufdelete = { enabled = true },
+      },
+    }
   },
+}
+
+M.keys = {
+  {"<leader>c", function() Snacks.bufdelete.delete() end, desc = "Close Buffer"},
 }
 
 local icons = require("user.icons")
@@ -31,8 +36,7 @@ end
 
 M.opts = {
   options = {
-    close_command = "Bdelete! %d",       -- can be a string | function, see "Mouse actions"
-    -- right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+    close_command = function(bufnum) Snacks.bufdelete.delete(bufnum) end, -- can be a string | function, see "Mouse actions"
     offsets = { {
       filetype = "NvimTree",
       text = "EXPLORER",
