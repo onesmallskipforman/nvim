@@ -15,22 +15,12 @@ require("user.lazy").setup({
 
 
 
-  -- require("user.gitlinker"),
-  require("user.gitsigns"),
+  require("user.gitlinker"),
+  -- require("user.gitportal"),
+  -- require("user.gitsigns"),
   -- require("user.gitblame"),
 
 
-  {
-    'trevorhauter/gitportal.nvim',
-    lazy = false,
-    opts = {},
-    keys = {
-
-      { "<leader>gy", "<cmd>GitPortal copy_link_to_clipboard<cr> <cmd>echo @+<cr>", desc = 'Copy File URL', mode = {'n', 'v'} },
-
-
-    },
-  },
 
 
 
@@ -57,8 +47,8 @@ require("user.lazy").setup({
   -- require("user.markdown-preview"),
   require("user.nvimtree"),
   require("user.fzf"),
-  -- require("user.snacks"),
   -- require("user.project"), -- TODO: doesn't seem to be working
+  require("user.snacks"),
   -- require("user.workspaces"),
   -- require("user.telescope"),
   require("user.todo"),

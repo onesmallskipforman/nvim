@@ -1,11 +1,12 @@
 local M = {
   "ruifm/gitlinker.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
+  lazy = false,
 }
 
--- M.keys = {
---   {"<leader>gy", function() require("gitlinker").get_buf_range_url('n') end, desc = 'gitlinker' },
--- }
+M.keys = {
+  {"<leader>gy", function() require("gitlinker").get_buf_range_url('n') end, desc = 'gitlinker' },
+}
 
 function M.config()
   require("gitlinker").setup({
@@ -14,7 +15,7 @@ function M.config()
       -- adds current line nr in the url for normal mode
       add_current_line_on_normal_mode = false,
       -- callback for what to do with the url
-      action_callback = require("gitlinker.actions").copy_to_clipboard,
+      action_callback = require("gitlinker.actions").open_in_browser,
       -- print the url after performing the action
       print_url = true,
     },
