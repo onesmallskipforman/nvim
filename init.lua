@@ -12,9 +12,37 @@ require("user.lazy").setup({
   require("user.colorscheme"),
   require("user.comment"),
   require("user.devicons"),
-  require("user.gitlinker"),
+
+
+
+  -- require("user.gitlinker"),
   require("user.gitsigns"),
   -- require("user.gitblame"),
+
+
+  {
+    'trevorhauter/gitportal.nvim',
+    lazy = false,
+    opts = {},
+    keys = {
+
+      { "<leader>gy", "<cmd>GitPortal copy_link_to_clipboard<cr> <cmd>echo @+<cr>", desc = 'Copy File URL', mode = {'n', 'v'} },
+
+
+    },
+  },
+
+
+
+
+
+
+
+
+
+
+
+
   -- require("user.illuminate"),
   -- require("user.indentline"),
   -- require("user.lspconfig"),
@@ -56,3 +84,7 @@ vim.lsp.enable('luals')
 -- TODO:  figure out how to change lsp cmd when doing LspRestart so that clangd can use the cwd or current workspace
 -- also consider https://github.com/VonHeikemen/lsp-zero.nvim
 -- TODO: im not sure telescope is using fzf
+
+
+
+-- NOTE: use :command commandName to inspect the lua source of a vimscript command

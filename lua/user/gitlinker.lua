@@ -3,9 +3,9 @@ local M = {
   dependencies = { "nvim-lua/plenary.nvim" },
 }
 
-M.keys = {
-  {"<leader>gy", function() require("gitlinker").get_buf_range_url('n') end, desc = 'gitlinker' },
-}
+-- M.keys = {
+--   {"<leader>gy", function() require("gitlinker").get_buf_range_url('n') end, desc = 'gitlinker' },
+-- }
 
 function M.config()
   require("gitlinker").setup({

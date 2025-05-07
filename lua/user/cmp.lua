@@ -1,7 +1,7 @@
 local M = {
   "hrsh7th/nvim-cmp",
-  -- event = { "InsertEnter", "CmdlineEnter" },
-  event = "InsertEnter",
+  event = { "InsertEnter", "CmdlineEnter" },
+  -- event = "InsertEnter",
   dependencies = {
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-emoji" },
