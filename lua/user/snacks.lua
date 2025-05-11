@@ -1,4 +1,5 @@
 -- TODO: try snacks file explorer
+-- TODO: split into multiple specs for different lazy loading settings
 return {
   "folke/snacks.nvim",
   priority = 1000,
