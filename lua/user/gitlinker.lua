@@ -4,9 +4,12 @@ local M = {
   lazy = false,
 }
 
-M.keys = {
-  {"<leader>gy", function() require("gitlinker").get_buf_range_url('n') end, desc = 'gitlinker' },
-}
+-- M.keys = {
+--   -- {"<leader>gy", function() require("gitlinker").get_buf_range_url({'n','v'}) end, desc = 'gitlinker' },
+--   -- {"<leader>gy", function() require("gitlinker").get_buf_range_url('v') end, desc = 'gitlinker', mode = 'v' },
+--   -- {"<leader>go", function() require("gitlinker").get_buf_range_url('n') end, desc = 'gitlinker'             },
+--   -- {"<leader>go", function() require("gitlinker").get_buf_range_url('v') end, desc = 'gitlinker', mode = 'v' },
+-- }
 
 function M.config()
   require("gitlinker").setup({
@@ -15,7 +18,7 @@ function M.config()
       -- adds current line nr in the url for normal mode
       add_current_line_on_normal_mode = false,
       -- callback for what to do with the url
-      action_callback = require("gitlinker.actions").open_in_browser,
+      action_callback = require("gitlinker.actions").copy_to_clipboard,
       -- print the url after performing the action
       print_url = true,
     },
@@ -33,7 +36,7 @@ function M.config()
       ["git.savannah.gnu.org"] = require("gitlinker.hosts").get_cgit_type_url
     },
     -- default mapping to call url generation with action_callback
-    mappings = nil
+    -- mappings = nil,
   })
 end
 

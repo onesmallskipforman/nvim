@@ -12,29 +12,20 @@ require("user.lazy").setup({
   require("user.colorscheme"),
   require("user.comment"),
   require("user.devicons"),
-
-
-
+  require("user.gitblame"),
   require("user.gitlinker"),
-  -- require("user.gitportal"),
-  -- require("user.gitsigns"),
-  -- require("user.gitblame"),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  -- require("user.illuminate"),
+  require("user.gitportal"),
+  require("user.gitsigns"),
+  require("user.illuminate"),
   -- require("user.indentline"),
+
+
+  {
+    "nvimdev/indentmini.nvim",
+    lazy = false,
+    opts = {},
+  },
+
   -- require("user.lspconfig"),
   -- {
   --   -- TODO: finish setup: https://github.com/folke/lazydev.nvim?tab=readme-ov-file#-installation
@@ -70,6 +61,7 @@ require("user.lazy").setup({
 })
 vim.lsp.enable('luals')
 
+-- TODO: what does 'version' default do in lazy.nvim?
 -- TODO: set nvim to recognize camel_case and SnakeCase as having distinct words
 -- TODO:  figure out how to change lsp cmd when doing LspRestart so that clangd can use the cwd or current workspace
 -- also consider https://github.com/VonHeikemen/lsp-zero.nvim

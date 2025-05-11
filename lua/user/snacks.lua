@@ -13,6 +13,7 @@ return {
     -- indent       = { enabled = true },
     bufdelete = { enabled = true },
     input     = { enabled = true },
+    -- words     = { enabled = true },
     -- gitbrowse = { enabled = true },
     -- git       = { enabled = true },
     -- picker       = { enabled = true },
