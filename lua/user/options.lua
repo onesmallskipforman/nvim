@@ -1,3 +1,6 @@
+-- TODO: set nvim to recognize camel_case and SnakeCase as having distinct words
+vim.loader.enable()                         -- enable experimental vim loader
+-- vim.lsp.set_log_level("debug")
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 local opt = vim.opt

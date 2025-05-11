@@ -2,22 +2,12 @@
 -- TODO: consider barbar.nvim
 local M = {
   "akinsho/bufferline.nvim",
-  event = "BufReadPre",
-  -- event = { "BufEnter", "BufReadPre", "BufAdd", "BufNew", "BufReadPost" },
-  dependencies = {
-    {
-      "folke/snacks.nvim",
-      priority = 1000,
-      lazy = false,
-      opts = {
-        bufdelete = { enabled = true },
-      },
-    }
-  },
+  -- event = "BufReadPre",
+  event = { "BufEnter", "BufReadPre", "BufAdd", "BufNew", "BufReadPost" },
 }
 
 M.keys = {
-  {"<leader>c", function() Snacks.bufdelete.delete() end, desc = "Close Buffer"},
+  {"<leader>c", function() require('snacks').bufdelete.delete() end, desc = "Close Buffer"},
 }
 
 local icons = require("user.icons")
@@ -37,7 +27,7 @@ end
 
 M.opts = {
   options = {
-    close_command = function(bufnum) Snacks.bufdelete.delete(bufnum) end, -- can be a string | function, see "Mouse actions"
+    close_command = function(bufnum) require('snacks').bufdelete.delete(bufnum) end, -- can be a string | function, see "Mouse actions"
     offsets = { {
       filetype = "NvimTree",
       text = "EXPLORER",
@@ -143,4 +133,14 @@ M.opts = {
   },
 }
 
-return M
+return {
+  -- require('user.snacks'),
+  {
+    "folke/snacks.nvim",
+    lazy = true,
+    opts = {
+      bufdelete = { enabled = true },
+    },
+  },
+  M,
+}

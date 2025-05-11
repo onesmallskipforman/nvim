@@ -1,3 +1,6 @@
+-- NOTE: https://www.reddit.com/r/neovim/comments/1fhavpk/comment/ln9jxxk/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+-- https://lazy.folke.io/developers
+-- Dependencies for specs are only if they need to be installed AND loaded for the dependent plugin to work
 local M = {}
 
 function M.setup(lazy_plugin_spec)

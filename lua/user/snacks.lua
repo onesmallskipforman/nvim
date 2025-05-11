@@ -1,3 +1,4 @@
+-- TODO: try snacks file explorer
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -9,7 +10,7 @@ return {
     -- refer to the configuration section below
     -- bigfile      = { enabled = true },
     -- dashboard    = { enabled = true },
-    explorer     = { enabled = true },
+    -- explorer     = { enabled = true }, -- TODO: try this out
     indent    = {
       enabled = true,
       animate = {

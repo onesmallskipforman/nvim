@@ -1,8 +1,7 @@
+-- TODO:  figure out how to change lsp cmd when doing LspRestart so that clangd can use the cwd or current workspace
 local M = {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
-  dependencies = {
-  },
 }
 
 local function lsp_keymaps(bufnr)

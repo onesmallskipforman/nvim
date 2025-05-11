@@ -1,6 +1,7 @@
 local M = {
   "nvim-telescope/telescope.nvim",
   dependencies = {
+    -- NOTE: telescope does not actually use fzf! https://www.reddit.com/r/neovim/comments/1hhiidm/comment/m2xrz0r/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     { "nvim-lua/plenary.nvim" },
     { "ahmedkhalf/project.nvim" },

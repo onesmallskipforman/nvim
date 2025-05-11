@@ -1,3 +1,4 @@
+-- NOTE: use :command commandName to inspect the lua source of a vimscript command
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd({ "BufWritePre" }, {

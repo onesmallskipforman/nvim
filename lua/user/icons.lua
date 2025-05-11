@@ -151,7 +151,7 @@ return {
     Table = " ",
     Target = "󰀘 ",
     Telescope = " ",
-    Text = "",
+    Text = " ",
     Tree = "",
     Triangle = "󰐊",
     TriangleShortArrowDown = "",

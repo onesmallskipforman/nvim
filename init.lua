@@ -1,5 +1,3 @@
-vim.loader.enable() -- NOTE: https://github.com/lewis6991/impatient.nvim?tab=readme-ov-file#notice
--- vim.lsp.set_log_level("debug")
 require("user.options")
 require("user.keymaps")
 require("user.autocommands")
@@ -11,44 +9,24 @@ require("user.lazy").setup({
   require("user.colorizer"),
   require("user.colorscheme"),
   require("user.comment"),
+  require("user.conform"),
   require("user.devicons"),
   require("user.gitblame"),
   require("user.gitlinker"),
   require("user.gitportal"),
   require("user.gitsigns"),
   require("user.illuminate"),
+  require("user.lazydev"),
+  -- require("user.lspconfig"),
   require("user.lualine"),
   require("user.mason"),
   require("user.markdown-preview"),
-  require("user.nvimtree"), -- TODO: try snacks file explorer
+  require("user.minialign"),
+  require("user.noice"),
+  require("user.nvimtree"),
   require("user.fzf"),
   require("user.snacks"),
   require("user.todo"),
-  require("user.whichkey"),
-  require("user.noice"),
-  -- {
-  --   'Vonr/align.nvim',
-  --   branch = "v2",
-  --   lazy = true,
-  --   init = function()
-  --     -- Create your mappings here
-  --   end
-  -- },
-  -- { 'echasnovski/mini.align', version = '*', config = true, lazy = false },
   -- require("user.treesitter"),
-  -- require("user.workspaces"),
-  -- require("user.telescope"),
-  -- require("user.lspconfig"),
-  -- {
-  --   -- TODO: finish setup: https://github.com/folke/lazydev.nvim?tab=readme-ov-file#-installation
-  --   "folke/lazydev.nvim",
-  --   ft = "lua",
-  --   opts = {},
-  -- },
+  require("user.whichkey"),
 })
--- vim.lsp.enable('luals')
-
--- TODO: set nvim to recognize camel_case and SnakeCase as having distinct words
--- TODO:  figure out how to change lsp cmd when doing LspRestart so that clangd can use the cwd or current workspace
--- TODO: im not sure telescope is using fzf
--- NOTE: use :command commandName to inspect the lua source of a vimscript command
