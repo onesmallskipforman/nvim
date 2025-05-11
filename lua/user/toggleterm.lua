@@ -3,19 +3,20 @@ local M = {
   cmd = "ToggleTerm",
 }
 
+local execs = {
+  { nil      , "<M-1>", "Horizontal Terminal", "horizontal", 0.3 },
+  { nil      , "<M-2>", "Vertical Terminal"  , "vertical"  , 0.4 },
+  { nil      , "<M-3>", "Float Terminal"     , "float"     , nil },
+  { "python3", "<M-4>", "Python Terminal"    , "float"     , nil },
+  { "bc"     , "<M-5>", "Python Terminal"    , "float"     , nil },
+  { "calc"   , "<M-6>", "Python Terminal"    , "float"     , nil },
+  { "lazygit", "<M-7>", "Python Terminal"    , "float"     , nil },
+  { "node"   , "<M-8>", "Python Terminal"    , "float"     , nil },
+  { "ncdu"   , "<M-9>", "Python Terminal"    , "float"     , nil },
+  { "htop"   , "<M-0>", "Python Terminal"    , "float"     , nil },
+}
+
 function M.config()
-  local execs = {
-    { nil, "<M-1>", "Horizontal Terminal", "horizontal", 0.3 },
-    { nil, "<M-2>", "Vertical Terminal", "vertical", 0.4 },
-    { nil, "<M-3>", "Float Terminal", "float", nil },
-    { "python3", "<M-4>", "Python Terminal", "float", nil },
-    { "bc", "<M-5>", "Python Terminal", "float", nil },
-    { "calc", "<M-6>", "Python Terminal", "float", nil },
-    -- { "lazygit", "<M-4>", "Python Terminal", "float", nil },
-    -- { "node", "<M-4>", "Python Terminal", "float", nil },
-    -- { "ncdu", "<M-4>", "Python Terminal", "float", nil },
-    -- { "htop", "<M-4>", "Python Terminal", "float", nil },
-  }
 
   local function get_buf_size()
     local cbuf = vim.api.nvim_get_current_buf()

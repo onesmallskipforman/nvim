@@ -18,7 +18,15 @@ return {
     },
     bufdelete = { enabled = true },
     input     = { enabled = true },
-    -- terminal     = { enabled = true },
+    terminal     = {
+      enabled = true,
+      win = {
+        style = "terminal",
+        wo = {
+          winbar = "",
+        },
+      },
+    },
     -- words     = { enabled = true },
     -- gitbrowse = { enabled = true },
     -- git       = { enabled = true },

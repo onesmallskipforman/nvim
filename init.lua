@@ -25,8 +25,7 @@ require("user.lazy").setup({
   require("user.snacks"),
   require("user.todo"),
   require("user.whichkey"),
-  -- require("user.toggleterm"),
-  -- require("user.noice"),
+  require("user.noice"),
   -- {
   --   'Vonr/align.nvim',
   --   branch = "v2",
