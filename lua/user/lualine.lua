@@ -14,19 +14,19 @@ local diff = {
   }, -- Changes the symbols used by the diff.
 }
 
--- local diagnostics = {
---   "diagnostics",
---   sources = { "nvim_diagnostic" },
---   sections = { "error", "warn" },
---   symbols = { error = icons.diagnostics.Error .. " ", warn = icons.diagnostics.Warning .. " " },
---   colored = false,
---   update_in_insert = false,
---   always_visible = true,
--- }
---
--- local spaces = function()
---   return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
--- end
+local diagnostics = {
+  "diagnostics",
+  sources = { "nvim_diagnostic" },
+  sections = { "error", "warn" },
+  symbols = { error = icons.diagnostics.Error .. " ", warn = icons.diagnostics.Warning .. " " },
+  colored = false,
+  update_in_insert = false,
+  always_visible = true,
+}
+
+local spaces = function()
+  return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+end
 
 M.opts = {
   options = {

@@ -1,13 +1,17 @@
 local M = {
   "williamboman/mason-lspconfig.nvim",
-  -- commit = "e7b64c11035aa924f87385b72145e0ccf68a7e0a",
   dependencies = {
     "williamboman/mason.nvim",
-    "nvim-lua/plenary.nvim",
+    opts = {
+      ui = {
+        border = "rounded",
+      },
+    }
   },
-  lazy = false,
+  cmd = "Mason",
 }
 
+-- TODO: M.servers vs. local servers ?
 M.servers = {
   "lua_ls",
   "cssls",
@@ -26,17 +30,12 @@ M.servers = {
   "awk_ls",
 }
 
-function M.config()
-  vim.keymap.set("n", "<leader>lI", "<cmd>Mason<cr>", { desc = "Mason Info" })
+M.keys = {
+  { "<leader>lI", "<cmd>Mason<cr>", desc = "Mason Info" }
+}
 
-  require("mason").setup {
-    ui = {
-      border = "rounded",
-    },
-  }
-  require("mason-lspconfig").setup {
-    ensure_installed = M.servers,
-  }
-end
+M.opts = {
+  ensure_installed = M.servers,
+}
 
 return M

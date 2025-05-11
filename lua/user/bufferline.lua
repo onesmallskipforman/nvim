@@ -3,6 +3,7 @@
 local M = {
   "akinsho/bufferline.nvim",
   event = "BufReadPre",
+  -- event = { "BufEnter", "BufReadPre", "BufAdd", "BufNew", "BufReadPost" },
   dependencies = {
     {
       "folke/snacks.nvim",

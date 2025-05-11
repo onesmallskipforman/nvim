@@ -1,15 +1,14 @@
 local M = {
   "ruifm/gitlinker.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
-  lazy = false,
 }
 
--- M.keys = {
---   -- {"<leader>gy", function() require("gitlinker").get_buf_range_url({'n','v'}) end, desc = 'gitlinker' },
---   -- {"<leader>gy", function() require("gitlinker").get_buf_range_url('v') end, desc = 'gitlinker', mode = 'v' },
---   -- {"<leader>go", function() require("gitlinker").get_buf_range_url('n') end, desc = 'gitlinker'             },
---   -- {"<leader>go", function() require("gitlinker").get_buf_range_url('v') end, desc = 'gitlinker', mode = 'v' },
--- }
+M.keys = {
+  {"<leader>gy", function() require("gitlinker").get_buf_range_url('n') end, desc = 'gitlinker'             },
+  {"<leader>gy", function() require("gitlinker").get_buf_range_url('v') end, desc = 'gitlinker', mode = 'v' },
+  {"<leader>go", function() require("gitlinker").get_buf_range_url('n') end, desc = 'gitlinker'             },
+  {"<leader>go", function() require("gitlinker").get_buf_range_url('v') end, desc = 'gitlinker', mode = 'v' },
+}
 
 function M.config()
   require("gitlinker").setup({

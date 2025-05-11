@@ -9,10 +9,16 @@ return {
     -- refer to the configuration section below
     -- bigfile      = { enabled = true },
     -- dashboard    = { enabled = true },
-    -- explorer     = { enabled = true },
-    -- indent       = { enabled = true },
+    explorer     = { enabled = true },
+    indent    = {
+      enabled = true,
+      animate = {
+        enabled = false,
+      },
+    },
     bufdelete = { enabled = true },
     input     = { enabled = true },
+    -- terminal     = { enabled = true },
     -- words     = { enabled = true },
     -- gitbrowse = { enabled = true },
     -- git       = { enabled = true },
