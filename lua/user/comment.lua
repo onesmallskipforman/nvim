@@ -1,4 +1,4 @@
-return {
+local M = {
   "numToStr/Comment.nvim",
   keys = {
     {"<leader>/", "<Plug>(comment_toggle_linewise_current)", mode = "n", desc = 'Comment out current line'         },
@@ -44,12 +44,18 @@ return {
     },
     ---Function to call before (un)comment
     pre_hook = function(ctx)
-      local loaded, ts_comment = pcall(require, "ts_context_commentstring.integrations.comment_nvim")
-      if loaded and ts_comment then
-        return ts_comment.create_pre_hook()(ctx)
-      end
-    end, -- require('Comment.ft').calculate
+      require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook()(ctx)
+    end,
     ---Function to call after (un)comment
     post_hook = nil,
   },
+}
+
+return {
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    lazy = true,
+    opts = { enable_autocmd = false },
+  },
+  M,
 }

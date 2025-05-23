@@ -3,27 +3,9 @@ local M = {
   event = { "BufReadPost", "BufNewFile" },
   build = ":TSUpdate",
   dependencies = {
-    {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      event = "VeryLazy",
-    },
-    {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      event = "VeryLazy",
-      config = function()
-       require('ts_context_commentstring').setup {
-         enable_autocmd = false,
-       }
-      end,
-    },
-    {
-      "windwp/nvim-ts-autotag",
-      event = "VeryLazy",
-    },
-    {
-      "windwp/nvim-autopairs",
-      event = "InsertEnter",
-    },
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    -- "windwp/nvim-ts-autotag",
+    -- "windwp/nvim-autopairs",
   },
 }
 function M.init()
@@ -36,26 +18,34 @@ function M.config()
 
 
   require("nvim-treesitter.configs").setup {
-    ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "python" }, -- put the language you want in this array, can also say "all"
-    ignore_install = { "" },
+    ensure_installed = {
+      -- put the language you want in this array, can also say "all"
+      "lua",
+      "vim",
+      "markdown",
+      "markdown_inline",
+      "bash",
+      "python",
+    },
+    ignore_install = {},
     sync_install = false,
     highlight = {
       enable = true,
       disable = { "markdown" },
-      additional_vim_regex_highlighting = false, -- TODO: see what this does
+      additional_vim_regex_highlighting = false,
     },
 
     indent = { enable = true }, -- disable = { "yaml", "python" } }
 
-    matchup = {
-      enable = { "astro" },
-      disable = { "lua" },
-    },
+    -- matchup = {
+    --   enable = { "astro" },
+    --   disable = { "lua" },
+    -- },
 
-    autotag = { enable = true },
-
-    autopairs = { enable = true },
-
+    -- autotag = { enable = true },
+    --
+    -- autopairs = { enable = true },
+    --
     textobjects = {
       select = {
         enable = true,
