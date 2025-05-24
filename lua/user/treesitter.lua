@@ -4,8 +4,6 @@ local M = {
   build = ":TSUpdate",
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    -- "windwp/nvim-ts-autotag",
-    -- "windwp/nvim-autopairs",
   },
 }
 function M.init()
@@ -37,15 +35,6 @@ function M.config()
 
     indent = { enable = true }, -- disable = { "yaml", "python" } }
 
-    -- matchup = {
-    --   enable = { "astro" },
-    --   disable = { "lua" },
-    -- },
-
-    -- autotag = { enable = true },
-    --
-    -- autopairs = { enable = true },
-    --
     textobjects = {
       select = {
         enable = true,
