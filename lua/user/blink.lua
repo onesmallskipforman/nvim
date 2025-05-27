@@ -1,4 +1,5 @@
 -- TODO: get sources matched with cmp
+-- TODO: get search and command modes to select and immediately run upon hitting enter
 local M = {
   'saghen/blink.cmp',
   -- optional: provides snippets for the snippet source

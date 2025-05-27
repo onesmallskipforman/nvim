@@ -1,4 +1,5 @@
 -- TODO: set nvim to recognize camel_case and SnakeCase as having distinct words
+-- TODO: https://github.com/nvim-lua/kickstart.nvim/pull/1495/files#diff-3604a286a2c7be927f13d640e83f92c709c296b63ce28e9ac05849f437876d54
 vim.loader.enable()                         -- enable experimental vim loader
 -- vim.lsp.set_log_level("debug")
 vim.g.loaded_netrw = 1
@@ -67,3 +68,29 @@ vim.filetype.add {
 -- vim.g.loaded_netrwPlugin = 1
 -- vim.g.netrw_banner = 0
 -- vim.g.netrw_mouse = 2
+
+local icons = require "user.icons"
+local default_diagnostic_config = {
+  signs = {
+    active = true,
+    values = {
+      { name = "DiagnosticSignError", text = icons.diagnostics.Error },
+      { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
+      { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
+      { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
+    },
+  },
+  virtual_text = false,
+  update_in_insert = false,
+  underline = true,
+  severity_sort = true,
+  float = {
+    focusable = true,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+  },
+}
+vim.diagnostic.config(default_diagnostic_config)

@@ -14,7 +14,7 @@ M.keys = {
   {"<leader>gR", function() require("gitsigns").reset_buffer()    end,  desc = "Reset Buffer"    },
   {"<leader>gs", function() require("gitsigns").stage_hunk()      end,  desc = "Stage Hunk"      },
   {"<leader>gu", function() require("gitsigns").undo_stage_hunk() end,  desc = "Undo Stage Hunk" },
-  {"<leader>gd", function() require("gitsigns").diffthis('HEAD')  end,  desc = "Git Diff"        },
+  -- {"<leader>gd", function() require("gitsigns").diffthis('HEAD')  end,  desc = "Git Diff"        },
 }
 
 local icons = require("user.icons")
