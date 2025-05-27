@@ -1,14 +1,14 @@
 -- TODO: set nvim to recognize camel_case and SnakeCase as having distinct words
 -- TODO: https://github.com/nvim-lua/kickstart.nvim/pull/1495/files#diff-3604a286a2c7be927f13d640e83f92c709c296b63ce28e9ac05849f437876d54
+-- For more options, you can see `:help option-list`
 vim.loader.enable()                         -- enable experimental vim loader
 -- vim.lsp.set_log_level("debug")
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-local opt = vim.opt
+local opt = vim.o
 opt.backup = false                          -- creates a backup file
 opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
 opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages
-opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 opt.conceallevel = 0                        -- so that `` is visible in markdown files
 opt.fileencoding = "utf-8"                  -- the encoding written to a file
 opt.hlsearch = true                         -- highlight all matches on previous search pattern
@@ -44,15 +44,15 @@ opt.scrolloff = 8                           -- is one of my fav
 opt.sidescrolloff = 8
 opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 opt.incsearch = true                       -- prevent incremental highlight while typing a search
-opt.fillchars:append 'eob: '
--- opt.fillchars:append 'vert:│'
-opt.fillchars:append 'vert: '
-opt.fillchars:append 'vertright:─'
-opt.fillchars:append 'vertleft:─'
-opt.fillchars:append 'verthoriz:─'
-opt.shortmess:append "c"
-opt.whichwrap:append "<,>,[,],h,l"
-opt.iskeyword:append "-,_"
+-- opt.winborder = 'rounded' -- NOTE: https://github.com/folke/lazy.nvim/issues/1951
+opt.fillchars =
+  'eob: '
+  .. ',vert: '
+  -- .. 'vert:│'
+  .. ',vertright:─'
+  .. ',vertleft:─'
+  .. ',verthoriz:─'
+
 vim.filetype.add {
   extension = {
     conf = "dosini",
@@ -69,7 +69,7 @@ vim.filetype.add {
 -- vim.g.netrw_banner = 0
 -- vim.g.netrw_mouse = 2
 
-local icons = require "user.icons"
+local icons = require("user.icons")
 local default_diagnostic_config = {
   signs = {
     active = true,

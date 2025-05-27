@@ -1,5 +1,7 @@
 -- TODO: get sources matched with cmp
 -- TODO: get search and command modes to select and immediately run upon hitting enter
+-- TODO: continue completion on backspace
+-- TODO: still don't totally understand keys when interacting with snippet placeholders
 local M = {
   'saghen/blink.cmp',
   -- optional: provides snippets for the snippet source
@@ -17,7 +19,7 @@ local M = {
   ---@type blink.cmp.Config
   opts = {
     cmdline = {
-      keymap = { preset = 'inherit' },
+      keymap = { preset = 'cmdline' },
       completion = { menu = { auto_show = true } },
     },
 
@@ -35,7 +37,14 @@ local M = {
     -- See :h blink-cmp-config-keymap for defining your own keymap
     -- keymap = { preset = 'default' },
     keymap = {
-      preset = 'enter',
+      preset = 'none',
+      ['<Tab>']   = { 'select_next', 'snippet_forward' , 'fallback'},
+      ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback'},
+      ['<CR>']    = { 'accept',                    'fallback' },
+      ['<C-j>']   = { 'snippet_forward',           'fallback' },
+      ['<C-k>']   = { 'snippet_backward',          'fallback' },
+      ['<C-u>']   = { 'scroll_documentation_up',   'fallback' },
+      ['<C-d>']   = { 'scroll_documentation_down', 'fallback' },
     },
 
     appearance = {
@@ -44,12 +53,34 @@ local M = {
       nerd_font_variant = 'mono'
     },
 
-    -- (Default) Only show the documentation popup when manually triggered
-    completion = { documentation = { auto_show = false } },
+    -- (Default: false) Only show the documentation popup when manually triggered
+    completion = {
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 0, -- default: 500
+      },
+      list = {
+        selection = {
+          -- TODO: preselct=true and auto_insert=true doesn't work as expected
+          preselect = false,
+          auto_insert = true,
+        }
+      },
+      -- https://cmp.saghen.dev/configuration/completion.html#ghost-text
+      menu = {
+        auto_show = true,
+      },
+      ghost_text = {
+        enabled = false,
+        show_with_menu = false,
+      },
+
+    },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
+      -- TODO: what is 'omni'?
       default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
       providers = {
         lazydev = {
@@ -71,7 +102,6 @@ local M = {
   },
   opts_extend = { "sources.default" }
 }
-
 
 return {
   M,

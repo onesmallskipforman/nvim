@@ -6,7 +6,6 @@ require("user.lazy").setup({
   require("user.autopairs"),
   require("user.blink"),
   require("user.bufferline"),
-  require("user.cmp"),
   require("user.colorizer"),
   require("user.colorscheme"),
   require("user.conform"),

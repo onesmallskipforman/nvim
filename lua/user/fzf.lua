@@ -18,8 +18,14 @@ M.opts = {
   actions = {
     files = {
       true,
-      ["enter"] = function(...) FzfLua.actions.file_edit(...) end,
+      ["enter"] = function(...) require('fzf-lua').actions.file_edit(...) end,
     },
+  },
+  winopts = {
+    border = vim.o.winborder~='' and vim.o.winborder or 'rounded',
+    preview = {
+      border = vim.o.winborder~='' and vim.o.winborder or 'rounded',
+    }
   },
 }
 

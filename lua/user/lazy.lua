@@ -25,7 +25,8 @@ function M.setup(lazy_plugin_spec)
       colorscheme = { "default" },
     },
     ui = {
-      border = "rounded",
+      border = vim.o.winborder,
+      backdrop = 60
     },
     change_detection = {
       enabled = false,
@@ -34,6 +35,9 @@ function M.setup(lazy_plugin_spec)
     defaults = {
       lazy = true,
     },
+    checker = {
+      enabled = true
+    }
   }
 
   vim.keymap.set("n", "<leader>pi", "<cmd>Lazy install<cr>", { desc = "Install" })
