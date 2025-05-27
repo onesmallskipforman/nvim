@@ -20,7 +20,16 @@ local M = {
   opts = {
     cmdline = {
       keymap = { preset = 'cmdline' },
-      completion = { menu = { auto_show = true } },
+      completion = {
+        menu = { auto_show = true },
+        list = {
+          selection = {
+            -- TODO: preselct=true and auto_insert=true doesn't work as expected
+            preselect = false,
+            auto_insert = true,
+          }
+        },
+      },
     },
 
     -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
