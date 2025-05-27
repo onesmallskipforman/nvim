@@ -1,3 +1,4 @@
+-- TODO: idea: search from the directory of the current file
 -- NOTE: https://www.reddit.com/r/neovim/comments/1hhiidm/comment/m2s4p8v/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 local M = {
   "ibhagwan/fzf-lua",

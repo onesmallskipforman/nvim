@@ -1,5 +1,6 @@
 return {
   'trevorhauter/gitportal.nvim',
+  cond = false,
   opts = {},
   keys = {
     {

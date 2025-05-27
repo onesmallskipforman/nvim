@@ -1,6 +1,7 @@
 -- TODO: condier blink.cmp
 local M = {
   "hrsh7th/nvim-cmp",
+  cond = false,
   event = { "InsertEnter", "CmdlineEnter" },
   -- event = "InsertEnter",
   dependencies = {
