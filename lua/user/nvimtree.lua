@@ -73,9 +73,8 @@ M.opts = {
         symlink = icons.ui.FileSymlink,
         bookmark = icons.ui.BookMark,
         folder = {
-          -- TODO: symlink folder icons appear to not be working
-          -- symlink = icons.ui.FolderSymlink,
-          -- symlink_open = icons.ui.FolderSymlink,
+          symlink = icons.ui.FolderSymlink,
+          symlink_open = icons.ui.FolderSymlink,
           arrow_closed = icons.ui.ChevronRight,
           arrow_open = icons.ui.ChevronShortDown,
           -- default = icons.ui.Folder,
@@ -95,7 +94,7 @@ M.opts = {
       },
     },
     special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
-    symlink_destination = true,
+    symlink_destination = false,
   },
   git = {
    enable = true,
