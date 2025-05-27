@@ -4,11 +4,10 @@ require("user.autocommands")
 require("user.lazy").setup({
   require("user.alpha"),
   require("user.autopairs"),
+  require("user.blink"),
   require("user.bufferline"),
-  require("user.cmp"),
   require("user.colorizer"),
   require("user.colorscheme"),
-  require("user.comment"),
   require("user.conform"),
   require("user.devicons"),
   require("user.gitblame"),

@@ -1,12 +1,15 @@
 local M = {
   "williamboman/mason-lspconfig.nvim",
   dependencies = {
-    "williamboman/mason.nvim",
-    opts = {
-      ui = {
-        border = "rounded",
-      },
-    }
+    {
+      "williamboman/mason.nvim",
+      opts = {
+        ui = {
+          border = "rounded",
+        },
+      }
+    },
+    {"neovim/nvim-lspconfig"},
   },
   cmd = "Mason",
 }
@@ -28,6 +31,7 @@ M.servers = {
   -- "luau_lsp",
   "clangd",
   "awk_ls",
+  "rust_analyzer",
 }
 
 M.keys = {

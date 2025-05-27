@@ -5,7 +5,7 @@
 --   opts = vim.tbl_extend("keep", opts, { noremap = true, silent = true, buffer = true })
 --   prefix = prefix or ""
 --
---   return function (lhs, rhs, desc)
+-- return function (lhs, rhs, desc)
 --     opts = vim.tbl_extend("keep", opts, { desc = desc })
 --     vim.keymap.set(mode, prefix..lhs, rhs, opts)
 --   end
@@ -57,6 +57,8 @@ keymap("n", "<C-h>", "<C-w>h")
 keymap("n", "<C-j>", "<C-w>j")
 keymap("n", "<C-k>", "<C-w>k")
 keymap("n", "<C-l>", "<C-w>l")
+keymap("n", "<leader>/", "gcc", {desc = "Toggle comment Line", remap = true})
+keymap("v", "<leader>/", "gc" , {desc = "Toggle comment"     , remap = true})
 
 -- Save, close and, exit
 keymap("n", "<leader>w", "<cmd>w!<CR>", { desc = "Save" })

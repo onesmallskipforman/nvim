@@ -40,7 +40,6 @@ autocmd({ "FileType" }, {
     "lspinfo",
     "spectre_panel",
     "lir",
-    "DressingSelect",
     "tsplayground",
     "",
   },

@@ -22,13 +22,13 @@ M.opts = {
     -- the presets plugin, adds help for a bunch of default keybindings in Neovim
     -- No actual key bindings are created
     presets = {
-      operators = false, -- adds help for operators like d, y, ...
-      motions = false, -- adds help for motions
-      text_objects = false, -- help for text objects triggered after entering an operator
-      windows = false, -- default bindings on <c-w>
+      operators = true, -- adds help for operators like d, y, ...
+      motions = true, -- adds help for motions
+      text_objects = true, -- help for text objects triggered after entering an operator
+      windows = true, -- default bindings on <c-w>
       nav = false, -- misc bindings to work with windows
       z = true, -- bindings for folds, spelling and others prefixed with z
-      g = false, -- bindings for prefixed with g
+      g = true, -- bindings for prefixed with g
     },
   },
 --   key_labels = {
@@ -69,10 +69,9 @@ M.opts = {
   --   v = { "j", "k" },
   -- },
   -- disable the WhichKey popup for certain buf types and file types.
-  -- Disabled by default for Telescope
   disable = {
     buftypes = {},
-    filetypes = { "TelescopePrompt" },
+    filetypes = {},
   },
 }
 

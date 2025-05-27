@@ -28,7 +28,6 @@ M.opts = {
   filetypes_denylist = {
     "mason",
     "harpoon",
-    "DressingInput",
     "NeogitCommitMessage",
     "qf",
     "dirvish",
@@ -46,8 +45,6 @@ M.opts = {
     "Jaq",
     "spectre_panel",
     "toggleterm",
-    "DressingSelect",
-    "TelescopePrompt",
   },
 }
 
