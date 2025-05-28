@@ -18,7 +18,7 @@ function M.setup(lazy_plugin_spec)
   end
   vim.opt.rtp:prepend(lazypath)
 
-  require("lazy").setup {
+  require("lazy").setup({
     spec = lazy_plugin_spec,
     -- colorscheme that will be used when installing plugins.
     install = {
@@ -38,7 +38,7 @@ function M.setup(lazy_plugin_spec)
     checker = {
       enabled = true
     }
-  }
+  })
 
   vim.keymap.set("n", "<leader>pi", "<cmd>Lazy install<cr>", { desc = "Install" })
   vim.keymap.set("n", "<leader>ps", "<cmd>Lazy sync<cr>"   , { desc = "Sync" })

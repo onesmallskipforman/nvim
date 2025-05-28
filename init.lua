@@ -31,3 +31,4 @@ require("user.lazy").setup({
   require("user.ts-comments"),
   require("user.whichkey"),
 })
+vim.cmd.colorscheme("gruvbox")

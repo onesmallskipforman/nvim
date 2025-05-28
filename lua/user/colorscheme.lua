@@ -1,9 +1,8 @@
+-- NOTE: priority = 1000, lazy = false are omitted in favor of just calling
+-- vim.cmd.colorscheme in init.lua, which appears to provide the same priority
 return {
   {
     "ellisonleao/gruvbox.nvim",
-    lazy = false,
-    name = "gruvbox",
-    priority = 1000,
     opts = {
       undercurl = true,
       underline = true,
@@ -26,47 +25,21 @@ return {
           SignColumn = { link = "Normal" }, -- TODO: might want to do this for all themes
       },
     },
-    config = function(_,opts)
-        require("gruvbox").setup(opts)
-        -- load the colorscheme here
-        vim.cmd.colorscheme("gruvbox")
-        -- vim.api.nvim_set_hl(0, "SignColumn", { link="Normal" })
-    end,
-  },
-  { "lunarvim/colorschemes"  }, -- Multiple colorschemes to try out
-  { "lunarvim/darkplus.nvim" }, -- Colorscheme
-  {
-    "oncomouse/lushwal.nvim",
-    -- lazy = false,
-    -- priority = 1000,
-    dependencies = {
-      { "rktjmp/lush.nvim" },
-      { "rktjmp/shipwright.nvim" },
-    },
-
-    -- https://github.com/oncomouse/lushwal.nvim/issues/3
-    init = function()
-      vim.g.lushwal_configuration = {
-        compile_to_vimscript = false,
-      }
-    end,
-
-    config = function()
-      require("lushwal").add_reload_hook({
-        vim.cmd("LushwalCompile")
-      })
-    end,
-    cmd = { "LushwalCompile" },
   },
   {
-    "AlphaTechnolog/pywal.nvim",
+    "RedsXDD/neopywal.nvim",
     opts = {},
   },
   {
-    "uZer/pywal16.nvim",
-    config = function()
-      require('pywal16').setup()
-      vim.cmd.colorscheme("pywal")
-    end,
+    "lunarvim/darkplus.nvim",
+    opts = {},
+  },
+  {
+    "loctvl842/monokai-pro.nvim",
+    opts = {},
+  },
+  {
+    "ofirgall/ofirkai.nvim",
+    opts = {},
   },
 }
