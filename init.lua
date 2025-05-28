@@ -22,6 +22,7 @@ require("user.lazy").setup({
   require("user.markdown-preview"),
   require("user.mason-lspconfig"),
   require("user.minialign"),
+  require("user.minicursorword"),
   require("user.noice"),
   require("user.nvimtree"),
   require("user.snacks"),

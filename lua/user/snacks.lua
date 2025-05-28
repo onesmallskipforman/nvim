@@ -29,7 +29,10 @@ return {
         },
       },
     },
-    -- words     = { enabled = true },
+    words     = {
+      enabled  = false,
+      debounce = 100,
+    },
     -- gitbrowse = { enabled = true },
     -- git       = { enabled = true },
     -- picker       = { enabled = true },
