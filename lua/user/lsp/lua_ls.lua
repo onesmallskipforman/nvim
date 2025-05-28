@@ -4,9 +4,6 @@ return {
       format = {
         enable = false,
       },
-      diagnostics = {
-        globals = { "vim", "spec" },
-      },
       runtime = {
         version = "LuaJIT",
         special = {

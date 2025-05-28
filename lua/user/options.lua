@@ -6,6 +6,8 @@ vim.loader.enable()                         -- enable experimental vim loader
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 local opt = vim.o
+
+vim.cmd "set formatoptions-=cro" -- doesn't work on startup so it needs to be an autocmd ( TODO: fix )
 opt.backup = false                          -- creates a backup file
 opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
 opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages

@@ -1,7 +1,7 @@
 local M = {
   "williamboman/mason-lspconfig.nvim",
-  -- event = { "BufReadPost", "BufNewFile" },
-  lazy = false,
+  event = { "BufReadPost", "BufNewFile" },
+  -- lazy = false,
   dependencies = {
     require('user.mason'    ),
     require('user.lspconfig'),
@@ -13,24 +13,21 @@ M.keys = {
 }
 
 M.opts = {
-  automatic_enable = true, -- TODO: try to lazy-enable LSPs based on filetype (multiple spec)
+  automatic_enable = true,
   ensure_installed = {
-    "lua_ls",
-    "cssls",
-    -- "html",
-    -- "tsserver",
-    "astro",
-    "pyright",
-    "bashls",
-    "jsonls",
-    "yamlls",
-    "marksman",
-    -- "tailwindcss",
-    "texlab",
-    -- "luau_lsp",
-    "clangd",
     "awk_ls",
+    "bashls",
+    "clangd",
+    "cssls",
+    "lua_ls",
+    "marksman",
+    "matlab_ls",
+    "nil_ls",
+    "pyright",
     "rust_analyzer",
+    "texlab",
+    "vimls",
+    -- TODO: add formatters and linters
   },
 }
 

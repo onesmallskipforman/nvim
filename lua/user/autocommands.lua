@@ -1,5 +1,24 @@
+-- TODO: convert more vim commands to lua commands
 -- NOTE: use :command commandName to inspect the lua source of a vimscript command
 local autocmd = vim.api.nvim_create_autocmd
+
+-- local function augroup(name)
+--   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+-- end
+
+-- autocmd("VimEnter", {
+--   -- TODO: don't know what augroups do
+--   group = vim.api.nvim_create_augroup("autoupdate", { clear = true }),
+--   callback = function()
+--     if require("lazy.status").has_updates() then
+--       require("lazy").update({ show = false, })
+--     end
+--     -- require("mason.api.command").MasonUpdate()
+--     require("mason-registry").refresh()
+--     require("nvim-treesitter.install").update({with_sync = false})()
+--   end,
+-- })
+
 
 autocmd({ "BufWritePre" }, {
   callback = function()
@@ -25,7 +44,7 @@ autocmd({ "FileType" }, { pattern = { "sh" },
 
 autocmd({ "BufWinEnter" }, {
   callback = function()
-    vim.cmd "set formatoptions-=cro" -- doesn't work on startup so it needs to be an autocmd
+  vim.o.formatoptions = vim.o.formatoptions:gsub('[cro]', '')  -- doesn't work on startup so it needs to be an autocmd
   end,
 })
 
