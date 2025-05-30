@@ -1,6 +1,7 @@
 local M = {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
+  -- event = { "BufReadPre", "BufNewFile" },
 }
 
 local icons = require("user.icons")
@@ -34,7 +35,7 @@ M.opts = {
     section_separators = { left = "", right = "" },
 
     ignore_focus = { "NvimTree" },
-    -- theme = 'pywal16-nvim',
+    globalstatus = true,
   },
   sections = {
     lualine_a = { "mode" },

@@ -11,7 +11,7 @@ return {
     -- refer to the configuration section below
     -- bigfile      = { enabled = true },
     -- dashboard    = { enabled = true },
-    -- explorer     = { enabled = true }, -- TODO: try this out
+    explorer     = { enabled = false }, -- TODO: try this out
     indent    = {
       enabled = true,
       animate = {
@@ -42,5 +42,8 @@ return {
     -- scroll       = { enabled = true },
     -- statuscolumn = { enabled = true },
     -- words        = { enabled = true },
+  },
+  keys = {
+    {"<leader>c", function() require('snacks').bufdelete.delete() end, desc = "Close Buffer"},
   },
 }
