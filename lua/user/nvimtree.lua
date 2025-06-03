@@ -94,7 +94,7 @@ M.opts = {
       },
     },
     special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
-    symlink_destination = false,
+    symlink_destination = true,
   },
   git = {
    enable = true,

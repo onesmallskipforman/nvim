@@ -27,6 +27,9 @@ M.opts = {
       border = vim.o.winborder~='' and vim.o.winborder or 'rounded',
     }
   },
+  grep = {
+    follow = true
+  },
 }
 
 return M
