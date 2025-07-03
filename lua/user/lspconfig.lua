@@ -3,6 +3,7 @@ local M = {
   "neovim/nvim-lspconfig",
 }
 
+-- TODO: none of these keys are actually attached to lspconfig. consider moving
 M.keys = {
   {"gD", vim.lsp.buf.declaration   , desc = "Goto declaration"           },
   {"gd", vim.lsp.buf.definition    , desc = "Goto definition"            },
@@ -14,7 +15,7 @@ M.keys = {
   -- TODO: figure out where these should go
   -- {"n", "<leader>ls", vim.lsp.buf.signature_help  , desc = "LSP"             },
   -- {"n", "<leader>la", vim.lsp.buf.code_action     , desc = "Code Action"     },
-  -- {"n", "<leader>lf", vim.lsp.buf.format          , desc = "Format"          },
+  {"<leader>lf", vim.lsp.buf.format, desc = "Format"                     },
   -- {"n", "<leader>li", "<cmd>LspInfo<cr>"          , desc = "Info"            },
   -- {"n", "<leader>lj", vim.lsp.diagnostic.goto_next, desc = "Next Diagnostic" },
   -- {"n", "<leader>lk", vim.lsp.diagnostic.goto_prev, desc = "Prev Diagnostic" },

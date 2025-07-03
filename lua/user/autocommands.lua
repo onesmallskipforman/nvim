@@ -35,7 +35,7 @@ autocmd({ "FileType" }, { pattern = { "lua" },
   end,
 })
 
-autocmd({ "FileType" }, { pattern = { "sh" },
+autocmd({ "FileType" }, { pattern = { "sh", "nix" },
   callback = function()
     vim.opt_local.shiftwidth = 2
     vim.opt_local.tabstop = 2

@@ -1,7 +1,10 @@
 local M = {
   "williamboman/mason-lspconfig.nvim",
-  event = { "BufReadPost", "BufNewFile" },
-  -- lazy = false,
+  event = {
+    "BufReadPre", -- for opening existing files
+    "BufNewFile", -- for starting new files from nvim command
+    "BufNew"      -- for starting new files with :e
+  },
   dependencies = {
     require('user.mason'    ),
     require('user.lspconfig'),
