@@ -30,6 +30,7 @@ M.opts = {
     "rust_analyzer",
     "texlab",
     "vimls",
+    "hyprls",
     -- TODO: add formatters and linters
   },
 }

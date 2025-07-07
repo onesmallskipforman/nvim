@@ -21,17 +21,19 @@ M.config = function(_, opts)
     "rust",
     "latex", "bibtex",
     "vim", "vimdoc",
+    "sxhkdrc",
+    "hyprlang",
   }
   require("nvim-treesitter").install(ensure_installed)
 
   vim.treesitter.language.register("bash", "zsh")
+  vim.treesitter.language.register("bash", "sh" )
 
   -- TODO: consider splitting up native and plugin options into two autocmds
   vim.api.nvim_create_autocmd({'FileType'}, {
-    -- TODO: either use ensure_installed pattern or if statement
-    -- pattern = ensure_installed,
     callback = function()
-      if vim.treesitter.language.add(vim.bo.filetype) then
+      local lang = vim.treesitter.language.get_lang(vim.bo.filetype) or ''
+      if vim.treesitter.language.add(lang) then
         -- syntax highlighting, provided by Neovim
         vim.treesitter.start()
         -- folds, provided by Neovim

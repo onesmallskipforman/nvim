@@ -114,5 +114,5 @@ local M = {
 
 return {
   M,
-  require('user.lazydev')
+  require('user.lazydev'),
 }
