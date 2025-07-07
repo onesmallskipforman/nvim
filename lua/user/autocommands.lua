@@ -28,17 +28,10 @@ autocmd({ "BufWritePre" }, {
   end,
 })
 
-autocmd({ "FileType" }, { pattern = { "lua" },
+autocmd({ "FileType" }, { pattern = { "sh", "nix", "lua" },
   callback = function()
-    vim.opt_local.shiftwidth = 2
-    vim.opt_local.tabstop = 2
-  end,
-})
-
-autocmd({ "FileType" }, { pattern = { "sh", "nix" },
-  callback = function()
-    vim.opt_local.shiftwidth = 2
-    vim.opt_local.tabstop = 2
+    vim.bo.shiftwidth = 2
+    vim.bo.tabstop = 2
   end,
 })
 
@@ -97,7 +90,7 @@ autocmd({ "TextYankPost" }, {
 
 autocmd({ "FileType" }, { pattern = { "gitcommit", "markdown", "NeogitCommitMessage" },
   callback = function()
-    vim.opt_local.wrap = true
-    vim.opt_local.spell = true
+    vim.bo.wrap = true
+    vim.bo.spell = true
   end,
 })

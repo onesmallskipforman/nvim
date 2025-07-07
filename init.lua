@@ -28,6 +28,7 @@ require("user.lazy").setup({
   require("user.snacks"),
   require("user.todo"),
   require("user.treesitter"),
+  require("user.treesitter-textobjects"),
   require("user.ts-comments"),
   require("user.whichkey"),
 })
