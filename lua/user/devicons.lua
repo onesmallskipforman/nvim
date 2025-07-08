@@ -1,15 +1,19 @@
--- alternatively: "echasnovski/mini.icons"
 return {
-  "nvim-tree/nvim-web-devicons",
-  lazy = true,
-  opts = {
-    override = {
-      astro = {
-        --  󱓟 
-        icon = "󱓞",
-        color = "#FF7E33",
-        name = "astro",
-      },
-    }
+  {
+    "nvim-tree/nvim-web-devicons",
+    lazy = true,
+    opts = {},
+    cond = false,
   },
+  {
+    'echasnovski/mini.icons',
+    opts = {},
+    -- event = "VeryLazy",
+    lazy = false,
+    cond = true,
+    config = function(_, opts)
+      require("mini.icons").setup(opts)
+      require("mini.icons").mock_nvim_web_devicons()
+    end,
+  }
 }

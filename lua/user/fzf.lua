@@ -3,8 +3,10 @@
 local M = {
   "ibhagwan/fzf-lua",
   -- optional for icon support
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  cmd = "FzfLua"
+  cmd = "FzfLua",
+  dependencies = {
+    require('user.devicons')
+  },
 }
 
 M.keys = {

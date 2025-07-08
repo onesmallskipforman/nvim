@@ -6,7 +6,7 @@ local M = {
     vim.o.timeoutlen = 300
   end,
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
+    require('user.devicons')
   },
 }
 

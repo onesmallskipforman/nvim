@@ -1,6 +1,9 @@
 local M = {
   "akinsho/bufferline.nvim",
   event = { "BufReadPre", "BufNewFile" },
+  dependencies = {
+    require('user.devicons')
+  },
 }
 
 function M.config(_, opts)

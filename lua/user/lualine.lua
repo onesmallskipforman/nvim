@@ -1,7 +1,9 @@
 local M = {
   "nvim-lualine/lualine.nvim",
-  event = "VeryLazy",
-  -- event = { "BufReadPre", "BufNewFile" },
+  event = { "BufReadPre", "BufNewFile" },
+  dependencies = {
+    require('user.devicons')
+  },
 }
 
 local icons = require("user.icons")
