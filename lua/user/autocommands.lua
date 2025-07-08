@@ -41,6 +41,7 @@ autocmd({ "BufWinEnter" }, {
   end,
 })
 
+-- TODO: move these to their respective pugins
 autocmd({ "FileType" }, {
   pattern = {
     "netrw",
@@ -53,6 +54,7 @@ autocmd({ "FileType" }, {
     "spectre_panel",
     "lir",
     "tsplayground",
+    "notify",
     "",
   },
   callback = function()
