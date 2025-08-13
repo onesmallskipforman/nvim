@@ -80,7 +80,7 @@ autocmd({ "TextYankPost" }, {
   end,
 })
 
-autocmd({ "FileType" }, { pattern = { "gitcommit", "markdown" },
+autocmd({ "FileType" }, { pattern = { "gitcommit" }, -- "markdown"
   callback = function()
     vim.bo.wrap = true
     vim.bo.spell = true
