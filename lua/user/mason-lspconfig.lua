@@ -21,6 +21,7 @@ M.opts = {
   automatic_enable = true,
   ensure_installed = {
     "awk_ls",
+    -- "cspell_ls",
     "bashls",
     "clangd",
     "cssls",
