@@ -28,7 +28,7 @@ autocmd({ "BufWritePre" }, {
   end,
 })
 
-autocmd({ "FileType" }, { pattern = { "sh", "nix", "lua" },
+autocmd({ "FileType" }, { pattern = { "zsh", "bash", "sh", "nix", "lua" },
   callback = function()
     vim.bo.shiftwidth = 2
     vim.bo.tabstop    = 2
