@@ -36,7 +36,8 @@ function M.setup(lazy_plugin_spec)
       lazy = true,
     },
     checker = {
-      enabled = true
+      enabled = true,
+      notify = false,
     }
   })
 
