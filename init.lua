@@ -19,7 +19,6 @@ require("user.lazy").setup({
   require("user.illuminate"),
   require("user.lazydev"),
   require("user.lualine"),
-  require("user.markdown-preview"),
   require("user.mason-lspconfig"),
   require("user.minialign"),
   require("user.minicursorword"),
@@ -30,6 +29,7 @@ require("user.lazy").setup({
   require("user.treesitter"),
   require("user.treesitter-textobjects"),
   require("user.ts-comments"),
+  require("user.vivify"),
   require("user.whichkey"),
 })
 vim.cmd.colorscheme("gruvbox")

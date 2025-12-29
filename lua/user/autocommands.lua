@@ -80,10 +80,13 @@ autocmd({ "TextYankPost" }, {
   end,
 })
 
-autocmd({ "FileType" }, { pattern = { "gitcommit" }, -- "markdown"
+autocmd({ "FileType" }, { pattern = { "gitcommit", "markdown" },
   callback = function()
-    vim.bo.wrap = true
-    vim.bo.spell = true
+    -- need opt_local as these two settings are window-level settings, and
+    -- unfortunately using vim.wo causes the settings to persist in the window
+    -- even when the buffer changes
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
   end,
 })
 
