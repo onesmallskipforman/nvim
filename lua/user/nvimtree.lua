@@ -105,6 +105,7 @@ M.opts = {
   },
   filters = {
     git_ignored = false, -- show files that are listed in gitignore
+    dotfiles = false, -- show files that lead with a dot
   },
   update_focused_file = {
     enable = true,
