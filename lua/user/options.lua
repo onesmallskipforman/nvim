@@ -62,7 +62,7 @@ vim.filetype.add {
   },
   pattern = {
     Jenkinsfile = "groovy",
-    workrc = "bash"
+    [".*rc"] = "bash",
   }
 }
 
