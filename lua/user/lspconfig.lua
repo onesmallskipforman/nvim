@@ -24,9 +24,9 @@ M.keys = {
 }
 
 function M.config()
-  vim.api.nvim_set_hl(0, "LspReferenceText"  , { link = "CursorLine" })
-  vim.api.nvim_set_hl(0, "LspReferenceWrite" , { link = "CursorLine" })
-  vim.api.nvim_set_hl(0, "LspReferenceRead"  , { link = "CursorLine" })
+  -- vim.api.nvim_set_hl(0, "LspReferenceText"  , { link = "CursorLine" })
+  -- vim.api.nvim_set_hl(0, "LspReferenceWrite" , { link = "CursorLine" })
+  -- vim.api.nvim_set_hl(0, "LspReferenceRead"  , { link = "CursorLine" })
 
   vim.lsp.config('clangd', require('user.lsp.clangd'))
 end

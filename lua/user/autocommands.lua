@@ -108,3 +108,12 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   vim.o.formatoptions = vim.o.formatoptions:gsub('[cro]', '')
   end,
 })
+
+
+
+-- LSP highlighting
+autocmd({ "TextYankPost" }, {
+  callback = function()
+    vim.highlight.on_yank { higroup = "Visual", timeout = 40 }
+  end,
+})

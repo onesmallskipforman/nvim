@@ -30,8 +30,8 @@ return {
       },
     },
     words     = {
-      enabled  = false,
-      debounce = 100,
+      enabled  = true,
+      debounce = 25,
     },
     -- gitbrowse = { enabled = true },
     -- git       = { enabled = true },
