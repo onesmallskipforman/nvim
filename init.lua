@@ -32,6 +32,20 @@ require("user.lazy").setup({
   require("user.treesitter-textobjects"),
   require("user.ts-comments"),
   require("user.whichkey"),
+
+  -- {
+  --   "mfussenegger/nvim-dap",
+  --   lazy = false,
+  --   opts = {},
+  -- },
+  -- {
+  --   "igorlfs/nvim-dap-view",
+  --   lazy = false,
+  --   opts = {},
+  -- },
+
+
+
 })
 vim.cmd.colorscheme("gruvbox")
 -- NOTE: This theme links mini.cursorword groups to lspreference groups

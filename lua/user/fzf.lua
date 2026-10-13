@@ -32,6 +32,9 @@ M.opts = {
   grep = {
     follow = true
   },
+  files = {
+    no_ignore = true
+  },
 }
 
 return M
